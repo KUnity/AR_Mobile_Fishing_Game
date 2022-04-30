@@ -4,42 +4,45 @@ using UnityEngine;
 
 public class Item
 {
-    private int gold; // 가격
-    private float probability; // 낚시 확률
-    private float power; // 강도
-    private int type; // 1 : 낚싯대,  2: 미끼 
-    private string name; // 이름 
-    private int count; // 개수 
-    private bool isUsing; // 현재 사용중인지 
-    private int useType; // 1: 일회성 2: 다회성 
-
-    public Item(int gold, float probability, float power, int type, string name, int count, bool isUsing,int useType){
-        this.gold = gold;
-        this.probability = probability;
-        this.power = power;
-        this.type = type;
-        this.name = name; 
-        this.count = count;
-        this.isUsing = isUsing;
-        this.useType = useType;
-    }
-
-    public void save(){
-        // 데이터 저장하는 구문
-    }
-
-    public void useItem(){
-        count--;
-        // 사용자의 확률, power 높이기 
-
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-  
+    public int itemCode; // 아이템 코드
+    public string name; // 이름
+    public int gold; // 가격
 }
+
+public class FishingRob : Item
+{
+    private static int[] gold_datas = { 1000, 10000, 50000, 100000 };
+    private static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.5f };
+    private static float[] power_datas = { 1f, 2f, 3f, 5f };
+    public static int fishingRobNum = 4; // 게임 내 존재하는 낚시대의 개수
+
+    public float probability; // 낚시 확률
+    public float power; // 강도
+
+    public FishingRob(int _itemCode)
+    {
+        itemCode = _itemCode;
+        gold = gold_datas[itemCode];
+        probability = probalility_datas[itemCode];
+        power = power_datas[itemCode];
+    }
+};
+
+public class Bait : Item
+{
+    private static int[] gold_datas = { 100, 1000, 5000, 10000 };
+    private static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.5f };
+    private static float[] power_datas = { 1f, 2f, 3f, 5f };
+    public static int BaitNum = 4; // 게임 내 존재하는 미끼의 개수
+
+    public float probability; // 낚시 확률
+    public float power; // 강도
+
+    public Bait(int _itemCode)
+    {
+        itemCode = _itemCode;
+        gold = gold_datas[itemCode];
+        probability = probalility_datas[itemCode];
+        power = power_datas[itemCode];
+    }
+};

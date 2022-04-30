@@ -32,6 +32,8 @@ public class SaveCtrl : MonoBehaviour
 
     [Obsolete] // 2차 구현에서 로그인 & 회원가입 기능 도입 시 사용 예정
     public List<UserData> userDatas = new List<UserData>();
+    public List<FishingRob> fishingRobs = new List<FishingRob>();
+    public List<Bait> baits = new List<Bait>();
 
     // SingleTon 패턴
     public static SaveCtrl Instance
@@ -52,6 +54,13 @@ public class SaveCtrl : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            // 낚시대 데이터 생성
+            for (int i = 0; i < FishingRob.fishingRobNum; i++)
+                fishingRobs.Add(new FishingRob(i));
+            // 낚시대 데이터 생성
+            for (int i = 0; i < Bait.BaitNum; i++)
+                baits.Add(new Bait(i));
         }
         else
         {
@@ -75,5 +84,11 @@ public class SaveCtrl : MonoBehaviour
     public void LoadData()
     {
 
+    }
+
+    private void A()
+    {
+        Debug.Log("첫번째 낚시대 가격 : " + SaveCtrl.instance.fishingRobs[0].gold + " 입니다.");
+        Debug.Log("두번째 미끼 가격 : " + SaveCtrl.instance.baits[1].gold + " 입니다.");
     }
 }
