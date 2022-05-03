@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 660911240, guid: f624596d5fe1bd5459a5da424a8abc1b, type: 3}
+  m_Name: TheBackendSettings
+  m_EditorClassIdentifier: 
+  clientAppID: f7feac80-caa5-11ec-a266-05655b7968d83434
+  signatureKey: f60c0440-caa5-11ec-a2a1-e32294f8ac113434
+  functionAuthKey: 
+  packageName: com.DefaultCompany.AR_Mobile_Fishing_Game
+  isAllPlatform: 1
+  sendLogReport: 1
+  timeOutSec: 100
+  Version: 5.6.0
