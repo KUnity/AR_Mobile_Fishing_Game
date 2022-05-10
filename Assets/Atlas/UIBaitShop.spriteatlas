@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UIFishingRodShop
+  m_Name: UIBaitShop
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -44,33 +44,27 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: -1159818924, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: 1128834580, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -70044683, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -1804569457, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -1027100492, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: -1029817753, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: -305862316, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: 937369380, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: 1203114235, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: 1397507762, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1456420476, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: 1260787719, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -248372692, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -696861791, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1177978720, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1091867012, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1550382382, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: 1621795834, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
+  - {fileID: 1397507762, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: 1203114235, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: 937369380, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -305862316, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -1029817753, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
   m_PackedSpriteNamesToIndex:
-  - HPBar_26
-  - HPBar_25
-  - HPBar_24
-  - HPBar_23
-  - HPBar_22
-  - HPBar_21
-  - HPBar_19
-  - HPBar_20
+  - HPBar_4
+  - HPBar_3
+  - HPBar_2
+  - HPBar_1
+  - HPBar_0
   m_RenderDataMap: {}
-  m_Tag: UIFishingRodShop
+  m_Tag: UIBaitShop
   m_IsVariant: 0
