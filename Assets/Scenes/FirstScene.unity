@@ -877,6 +877,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameBtn: {fileID: 74970361}
+  MenuBtn: {fileID: 0}
+  ShopBtn: {fileID: 0}
+  InventoryBtn: {fileID: 0}
+  DictionaryBtn: {fileID: 0}
+  BackBtn: {fileID: 0}
+  CastingBtn: {fileID: 0}
+  OnOff: {fileID: 0}
+  MenuSet: {fileID: 0}
+  EquipSet: {fileID: 0}
+  TimerSet: {fileID: 0}
+  UserStatusSet: {fileID: 0}
+  LiveStatusSet: {fileID: 0}
+  CastingText: {fileID: 0}
 --- !u!4 &1555963742
 Transform:
   m_ObjectHideFlags: 0
@@ -976,4 +989,48 @@ Transform:
   - {fileID: 335066257}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1805374645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805374647}
+  - component: {fileID: 1805374646}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1805374646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805374645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362a9a49f4ade9d4bb960591718daa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1805374647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805374645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 131.04405, y: 1813.509, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

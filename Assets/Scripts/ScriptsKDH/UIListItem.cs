@@ -12,7 +12,7 @@ public class UIListItem : MonoBehaviour
     public TMP_Text price;
     public Button btn;
 
-    public void Init(Sprite sp, string itemName, string itemDescription, int price)
+    public void Init(Sprite sp, string itemName, string itemDescription, long price)
     {
         icon.sprite = sp;
         this.itemName.text = itemName;
