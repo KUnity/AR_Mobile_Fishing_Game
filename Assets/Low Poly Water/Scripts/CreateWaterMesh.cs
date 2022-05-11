@@ -27,6 +27,7 @@ public class CreateWaterMesh : MonoBehaviour
         //Create Mesh Filter and Mesh Renderer components
         MeshFilter meshFilter = plane.AddComponent(typeof(MeshFilter)) as MeshFilter;
         MeshRenderer meshRenderer = plane.AddComponent((typeof(MeshRenderer))) as MeshRenderer;
+        plane.AddComponent(typeof(BoxCollider));
         meshRenderer.sharedMaterial = material;
     
         //Generate a name for the mesh that will be created
