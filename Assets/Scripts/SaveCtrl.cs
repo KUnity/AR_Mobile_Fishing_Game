@@ -7,25 +7,25 @@ using BackEnd;
 using LitJson;
 using System.Text;
 
-/// <summary> User Data ÀúÀå Class </summary>
+/// <summary> User Data ï¿½ï¿½ï¿½ï¿½ Class </summary>
 public class UserData
 {
     /// <summary> User Data InDate </summary>
     public string data_inDate;
     /// <summary> User ID </summary>
     public string ID;
-    /// <summary> User°¡ °¡Áø ÀçÈ­ </summary>
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ </summary>
     public long gold;
-    /// <summary> User°¡ ÀâÀº ¹°°í±âÀÇ °¹¼ö </summary>
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </summary>
     public int[] fishNums;
-    /// <summary> User°¡ ¼ÒÀ¯ÇÑ ¹Ì³¢ÀÇ °¹¼ö </summary>
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </summary>
     public int[] fishBaits;
-    /// <summary> User°¡ ¼ÒÀ¯ÇÑ ³¬½Ã´ëÀÇ À¯¹« </summary>
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </summary>
     public bool[] hasFishingRod;
-    /// <summary> User°¡ Âø¿ë ÁßÀÎ ³¬½Ã´ë </summary>
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ </summary>
     public int equipFishingRod;
-    /// <summary> UserÀÇ ÇöÀç rank </summary>
-    [Obsolete] // 2Â÷ ±¸Çö¿¡¼­ ·©Å© ½Ã½ºÅÛ µµÀÔ ½Ã »ç¿ë ¿¹Á¤
+    /// <summary> Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ rank </summary>
+    [Obsolete] // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int rank;
 
     public UserData()
@@ -41,12 +41,12 @@ public class SaveCtrl : MonoBehaviour
     public static SaveCtrl instance = null;
 
     public UserData myData;
-    [Obsolete] // 2Â÷ ±¸Çö¿¡¼­ ·Î±×ÀÎ & È¸¿ø°¡ÀÔ ±â´É µµÀÔ ½Ã »ç¿ë ¿¹Á¤
+    [Obsolete] // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ & È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public List<UserData> userDatas = new List<UserData>();
     public List<FishingRob> fishingRobs = new List<FishingRob>();
     public List<Bait> baits = new List<Bait>();
 
-    // SingleTon ÆÐÅÏ
+    // SingleTon ï¿½ï¿½ï¿½ï¿½
     public static SaveCtrl Instance
     {
         get
@@ -75,13 +75,13 @@ public class SaveCtrl : MonoBehaviour
             }
             else
             {
-                Debug.Log("¼­¹ö ÃÊ±âÈ­ ½ÇÆÐ : " + bro.GetErrorCode());
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ : " + bro.GetErrorCode());
             }
 
-            // ³¬½Ã´ë µ¥ÀÌÅÍ »ý¼º
+            // ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             for (int i = 0; i < FishingRob.fishingRobNum; i++)
                 fishingRobs.Add(new FishingRob(i));
-            // ³¬½Ã´ë µ¥ÀÌÅÍ »ý¼º
+            // ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             for (int i = 0; i < Bait.BaitNum; i++)
                 baits.Add(new Bait(i));
         }
@@ -92,37 +92,37 @@ public class SaveCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// ·Î±×ÀÎ ½Ãµµ ÇÔ¼ö
+    /// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     public void Login()
     {
         if(Backend.BMember.GetGuestID().Equals(""))
         {
-            // ID ¾øÀ½ -> µ¥ÀÌÅÍ ÃÊ±âÈ­
+            // ID ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
             Backend.BMember.GuestLogin();
             InsertData();
-            Debug.Log("È¸¿ø°¡ÀÔ ¹× µ¥ÀÌÅÍ ÃÊ±âÈ­");
+            Debug.Log("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­");
         }
         else
         {
             string id = Backend.BMember.GetGuestID();
             BackendReturnObject bro = Backend.BMember.GuestLogin();
 
-            Debug.Log("·ÎÄÃ ±â±â¿¡ ÀúÀåµÈ ¾ÆÀÌµð :" + id);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ :" + id);
             if (bro.IsSuccess())
             {
                 LoadData();
             }
             else
             {
-                Debug.Log("\n·Î±×ÀÎ ½ÇÆÐ : " + bro.GetMessage());
+                Debug.Log("\nï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + bro.GetMessage());
             }
         }
     }
 
 
     /// <summary>
-    /// User Data¸¦ ¼­¹ö¿¡ ÀúÀåÇÕ´Ï´Ù.
+    /// User Dataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     public void SaveData()
     {
@@ -133,11 +133,11 @@ public class SaveCtrl : MonoBehaviour
         SettingParam(param);
 
         errorCode = Backend.GameData.Update("userData", myData.data_inDate, param).GetErrorCode();
-        Debug.Log("UserData ¼­¹ö ÀúÀå <error> = " + errorCode);
+        Debug.Log("UserData ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ <error> = " + errorCode);
     }
 
     /// <summary>
-    /// ¼­¹ö·ÎºÎÅÍ User Data¸¦ ºÒ·¯¿É´Ï´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ User Dataï¿½ï¿½ ï¿½Ò·ï¿½ï¿½É´Ï´ï¿½.
     /// </summary>
     public void LoadData()
     {
@@ -150,12 +150,12 @@ public class SaveCtrl : MonoBehaviour
         }
         else
         {
-            Debug.Log("¼­¹ö °øÅë ¿¡·¯ ¹ß»ý: " + BRO.GetMessage());
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½: " + BRO.GetMessage());
         }
     }
 
     /// <summary>
-    /// µ¥ÀÌÅÍ Å×ÀÌºí Ãß°¡ ÇÔ¼ö
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ß°ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     private void InsertData()
     {
@@ -173,9 +173,9 @@ public class SaveCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// paramÀ» ¼³Á¤ÇÏ´Â ÇÔ¼ö
+    /// paramï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
-    /// <param name="param">µ¥ÀÌÅÍ Àü´Þ Parameter</param>
+    /// <param name="param">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Parameter</param>
     private void SettingParam(Param param)
     {
         param.Add("data_inDate", myData.data_inDate);
@@ -188,9 +188,9 @@ public class SaveCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼­¹ö·ÎºÎÅÍ ¾òÀº µ¥ÀÌÅÍ¸¦ Å¬¶óÀÌ¾ðÆ®¿¡ ÀúÀå
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="json">¼­¹ö µ¥ÀÌÅÍ JsonData</param>
+    /// <param name="json">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JsonData</param>
     private void DataParsing(JsonData json)
     {
         myData.data_inDate = json["data_inDate"][0].ToString();
