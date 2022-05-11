@@ -2,67 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIFRShop : MonoBehaviour
 {
     public SpriteAtlas atlas;
     public GameObject contents;
     public GameObject uiListItemPrefab;
+    public TMP_Text priceText;
     public Sprite soldout;
-    public float iconWidth = 180;
-    public float iconHeight = 180;
 
-    string[] itemNames = {
-        "bronze fishing rod",
-        "silver fishing rod",
-        "gold fishing rod",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-    };
-
-    string[] itemDescription = {
-        "Bronze",
-        "Silver",
-        "Gold",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-    };
-
-    int[] itemPrices = {
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-    };
-
-    // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 8; i++)
+        Debug.Log("Shop Start() Starts");
+        for (int i = 0; i < FishingRob.fishingRobNum; i++)
         {
-            var itemIcon = string.Format("HPBar_{0}", i+19);
-            var iName = this.itemNames[i];
-            var iPrice = this.itemPrices[i];
-            var iDescription = this.itemDescription[i];
+            int temp = i;
+            var itemIcon = string.Format("HPBar_{0}", i + 19);
+            string iName = SaveCtrl.instance.fishingRobs[i].name;
+            long iPrice = SaveCtrl.instance.fishingRobs[i].gold;
+            string iDescription = SaveCtrl.instance.fishingRobs[i].desc;
+
             var sp = atlas.GetSprite(itemIcon);
             var go = Instantiate<GameObject>(this.uiListItemPrefab, contents.transform);
             var uiListItem = go.GetComponent<UIListItem>();
+            uiListItem.Init(sp, iName, iDescription, iPrice);
             uiListItem.btn.onClick.AddListener(() =>
             {
-                Debug.Log(iName.ToString() + " Buy Button Clicked");
-                uiListItem.changeImage(soldout);
+                if (SaveCtrl.instance.myData.gold < iPrice){
+                    Debug.Log("보유 골드가 부족합니다.");
+                }
+                else{
+                    Debug.Log(temp + " temp");
+                    SaveCtrl.instance.myData.gold -= iPrice;
+                    if(SaveCtrl.instance.myData.hasFishingRod[temp] == false)
+                    {
+                        SaveCtrl.instance.myData.hasFishingRod[temp] = true;
+                    }
+                    uiListItem.btn.interactable = false;
+                    uiListItem.changeImage(soldout);
+                    priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
+                }
+                SaveCtrl.instance.SaveData();
             });
-            uiListItem.Init(sp, iName, iDescription, iPrice);
-        }   
+            if (SaveCtrl.instance.myData.hasFishingRod[i] == true)
+            {
+                uiListItem.btn.interactable = false;
+                uiListItem.changeImage(soldout);
+            }
+        }
+        priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
     }
 }
+
+
