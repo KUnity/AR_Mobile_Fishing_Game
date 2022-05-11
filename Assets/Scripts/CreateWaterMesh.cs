@@ -17,16 +17,6 @@ public class CreateWaterMesh : MonoBehaviour
     public static string assetSaveLocation = "Assets/Plane Meshes/";
     public Material material;    
     
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //         if (!Directory.Exists(assetSaveLocation))
-    //     {
-    //         Directory.CreateDirectory(assetSaveLocation);
-    //     }
-    //     material = Resources.Load("Materials/LowPolyWaterMaterial", typeof(Material)) as Material;
-    //     Debug.Log(material);
-    // }
 
     public void CreatePlane(float planeWidth,float planeHeight, Vector3 center ){
 
