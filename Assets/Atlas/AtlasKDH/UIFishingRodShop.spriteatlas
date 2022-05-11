@@ -57,16 +57,16 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1456420476, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: 1260787719, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -248372692, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -696861791, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1177978720, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1091867012, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: -1550382382, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
-  - {fileID: 1621795834, guid: 1a6eecf88a8dcd84fb99ea288441849d, type: 3}
+  - {fileID: -683477479, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: 1783028102, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -1239276682, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -1027100492, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -1804569457, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -70044683, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -1159818924, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: 1128834580, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
   m_PackedSpriteNamesToIndex:
-  - HPBar_26
+  - HPBar_27
   - HPBar_25
   - HPBar_24
   - HPBar_23
