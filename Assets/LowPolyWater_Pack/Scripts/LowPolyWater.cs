@@ -4,7 +4,7 @@ namespace LowPolyWater
 {
     public class LowPolyWater : MonoBehaviour
     {
-        public float waveHeight = 0.02f;
+        public float waveHeight = 0.5f;
         public float waveFrequency = 0.5f;
         public float waveLength = 0.75f;
 
