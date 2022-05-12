@@ -20,7 +20,7 @@ public class UIFRShop : MonoBehaviour
         for (int i = 0; i < FishingRob.fishingRobNum; i++)
         {
             int temp = i;
-            var itemIcon = string.Format("HPBar_{0}", i + 19);
+            var itemIcon = string.Format("fishingrod_{0}_0", i+1);
             string iName = SaveCtrl.instance.fishingRobs[i].name;
             long iPrice = SaveCtrl.instance.fishingRobs[i].gold;
             string iDescription = SaveCtrl.instance.fishingRobs[i].desc;
@@ -32,7 +32,7 @@ public class UIFRShop : MonoBehaviour
             uiListItem.btn.onClick.AddListener(() =>
             {
                 if (SaveCtrl.instance.myData.gold < iPrice){
-                    Debug.Log("º¸À¯ °ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+                    Debug.Log("ë³´ìœ  ê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
                 }
                 else{
                     Debug.Log(temp + " temp");

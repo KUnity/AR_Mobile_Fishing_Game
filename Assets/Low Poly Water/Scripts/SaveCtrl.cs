@@ -31,7 +31,7 @@ public class UserData
     public UserData()
     {
         fishNums = new int[5];
-        fishBaits = new int[5];
+        fishBaits = new int[7];
         hasFishingRod = new bool[5];
     }
 };

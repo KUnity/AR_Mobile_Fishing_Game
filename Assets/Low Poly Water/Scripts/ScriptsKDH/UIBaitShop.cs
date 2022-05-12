@@ -17,7 +17,7 @@ public class UIBaitShop: MonoBehaviour
     {
         for (int i = 0; i < Bait.BaitNum; i++)
         {
-            var itemIcon = string.Format("HPBar_{0}", i);
+            var itemIcon = string.Format("bait_{0}_0", i+1);
             string iName = SaveCtrl.instance.baits[i].name;
             long iPrice = SaveCtrl.instance.baits[i].gold;
             string iDescription = SaveCtrl.instance.baits[i].desc;
@@ -28,7 +28,7 @@ public class UIBaitShop: MonoBehaviour
             {
                 if (SaveCtrl.instance.myData.gold < iPrice)
                 {
-                    Debug.Log("º¸À¯ °ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+                    Debug.Log("ë³´ìœ  ê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
                 }
                 else
                 {
