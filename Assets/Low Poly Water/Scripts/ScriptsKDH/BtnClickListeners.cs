@@ -47,6 +47,10 @@ public class BtnClickListeners : MonoBehaviour
         {
             BackBtn.onClick.AddListener(delegate { BackBtnClicked(); });
         }
+        else if (SceneManager.GetActiveScene().name == "CollectionScene")
+        {
+            BackBtn.onClick.AddListener(delegate { BackBtnClicked(); });
+        }
     }
 
     void GameBtnClicked()
@@ -68,7 +72,7 @@ public class BtnClickListeners : MonoBehaviour
     }
     private void DictionaryBtnClicked()
     {
-        SceneManager.LoadScene("Dictionary");
+        SceneManager.LoadScene("CollectionScene");
     }
     void BackBtnClicked()
     {
