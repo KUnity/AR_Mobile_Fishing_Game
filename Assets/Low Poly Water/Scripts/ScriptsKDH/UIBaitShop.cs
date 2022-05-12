@@ -17,6 +17,7 @@ public class UIBaitShop: MonoBehaviour
     {
         for (int i = 0; i < Bait.BaitNum; i++)
         {
+            int temp = i;
             var itemIcon = string.Format("bait_{0}_0", i+1);
             string iName = SaveCtrl.instance.baits[i].name;
             long iPrice = SaveCtrl.instance.baits[i].gold;
@@ -33,6 +34,9 @@ public class UIBaitShop: MonoBehaviour
                 else
                 {
                     SaveCtrl.instance.myData.gold -= iPrice;
+                    SaveCtrl.instance.myData.fishBaits[temp] += 1;
+                    Debug.Log(SaveCtrl.instance.myData.fishBaits[temp] + temp.ToString());
+                    SaveCtrl.instance.SaveData();
                     priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
                 }
             });
