@@ -114,7 +114,12 @@ public class SaveCtrl : MonoBehaviour
             }
             else
             {
-                Debug.Log("\nLogin Failed. <error> : " + bro.GetMessage());
+                Debug.Log("\nLogin Failed. <error> : " + bro.GetErrorCode());
+                if (bro.GetErrorCode().Equals("BadUnauthorizedException"))
+                {
+                    Backend.BMember.DeleteGuestInfo();
+                    Login();
+                }
             }
         }
     }
