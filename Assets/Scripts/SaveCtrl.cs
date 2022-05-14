@@ -7,25 +7,27 @@ using BackEnd;
 using LitJson;
 using System.Text;
 
-/// <summary> User Data ���� Class </summary>
+/// <summary> User Data Class </summary>
 public class UserData
 {
     /// <summary> User Data InDate </summary>
     public string data_inDate;
     /// <summary> User ID </summary>
     public string ID;
-    /// <summary> User�� ���� ��ȭ </summary>
+    /// <summary> User 돈</summary>
     public long gold;
-    /// <summary> User�� ���� �������� ���� </summary>
+    /// <summary> User가 가진 물고기 개수 </summary>
     public int[] fishNums;
-    /// <summary> User�� ������ �̳��� ���� </summary>
+    /// <summary> User가 가진 미끼 개수 </summary>
     public int[] fishBaits;
-    /// <summary> User�� ������ ���ô��� ���� </summary>
+    /// <summary> User가 현재 보유 중인 낚시대</summary>
     public bool[] hasFishingRod;
-    /// <summary> User�� ���� ���� ���ô� </summary>
+    /// <summary> User가 현재 장착 중인 미끼</summary>
+    public int equipBaits;
+    /// <summary> User가 현재 장착 중인 낚시대</summary>
     public int equipFishingRod;
-    /// <summary> User�� ���� rank </summary>
-    [Obsolete] // 2�� �������� ��ũ �ý��� ���� �� ��� ����
+    /// <summary> User의 현재 등수</summary>
+    [Obsolete] // 2차 구현에서 사용될 변수
     public int rank;
 
     public UserData()
@@ -41,12 +43,12 @@ public class SaveCtrl : MonoBehaviour
     public static SaveCtrl instance = null;
 
     public UserData myData;
-    [Obsolete] // 2�� �������� �α��� & ȸ������ ��� ���� �� ��� ����
+    [Obsolete] // 2차 구현에서 사용될 변수
     public List<UserData> userDatas = new List<UserData>();
     public List<FishingRob> fishingRobs = new List<FishingRob>();
     public List<Bait> baits = new List<Bait>();
 
-    // SingleTon ����
+    // SingleTon 패턴
     public static SaveCtrl Instance
     {
         get
@@ -75,13 +77,11 @@ public class SaveCtrl : MonoBehaviour
             }
             else
             {
-                Debug.Log("���� �ʱ�ȭ ���� : " + bro.GetErrorCode());
+                Debug.Log("Server Initialization Failed. <error> : " + bro.GetErrorCode());
             }
 
-            // ���ô� ������ ����
             for (int i = 0; i < FishingRob.fishingRobNum; i++)
                 fishingRobs.Add(new FishingRob(i));
-            // ���ô� ������ ����
             for (int i = 0; i < Bait.BaitNum; i++)
                 baits.Add(new Bait(i));
         }
@@ -92,37 +92,36 @@ public class SaveCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// �α��� �õ� �Լ�
+    /// 로그인 함수
     /// </summary>
     public void Login()
     {
         if(Backend.BMember.GetGuestID().Equals(""))
         {
-            // ID ���� -> ������ �ʱ�ȭ
+            // ID 없음 -> 자동 회원가입 및 로그인
             Backend.BMember.GuestLogin();
             InsertData();
-            Debug.Log("ȸ������ �� ������ �ʱ�ȭ");
         }
         else
         {
             string id = Backend.BMember.GetGuestID();
             BackendReturnObject bro = Backend.BMember.GuestLogin();
 
-            Debug.Log("���� ��⿡ ����� ���̵� :" + id);
+            Debug.Log("User ID :" + id);
             if (bro.IsSuccess())
             {
                 LoadData();
             }
             else
             {
-                Debug.Log("\n�α��� ���� : " + bro.GetMessage());
+                Debug.Log("\nLogin Failed. <error> : " + bro.GetMessage());
             }
         }
     }
 
 
     /// <summary>
-    /// User Data�� ������ �����մϴ�.
+    /// User Data를 서버에 저장하는 함수
     /// </summary>
     public void SaveData()
     {
@@ -133,11 +132,11 @@ public class SaveCtrl : MonoBehaviour
         SettingParam(param);
 
         errorCode = Backend.GameData.Update("userData", myData.data_inDate, param).GetErrorCode();
-        Debug.Log("UserData ���� ���� <error> = " + errorCode);
+        Debug.Log("UserData Save = " + errorCode);
     }
 
     /// <summary>
-    /// �����κ��� User Data�� �ҷ��ɴϴ�.
+    /// 서버로부터 User Data를 로드하는 함수
     /// </summary>
     public void LoadData()
     {
@@ -150,12 +149,12 @@ public class SaveCtrl : MonoBehaviour
         }
         else
         {
-            Debug.Log("���� ���� ���� �߻�: " + BRO.GetMessage());
+            Debug.Log("UserData Load = " + BRO.GetMessage());
         }
     }
 
     /// <summary>
-    /// ������ ���̺� �߰� �Լ�
+    /// 데이터 테이블을 초기화하는 함수
     /// </summary>
     private void InsertData()
     {
@@ -173,9 +172,9 @@ public class SaveCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// param�� �����ϴ� �Լ�
+    /// param을 설정하는 함수
     /// </summary>
-    /// <param name="param">������ ���� Parameter</param>
+    /// <param name="param">서버에 전달될 Parameter</param>
     private void SettingParam(Param param)
     {
         param.Add("data_inDate", myData.data_inDate);
@@ -185,12 +184,13 @@ public class SaveCtrl : MonoBehaviour
         param.Add("fishBaits", myData.fishBaits);
         param.Add("hasFishingRod", myData.hasFishingRod);
         param.Add("equipFishingRod", myData.equipFishingRod);
+        param.Add("equipBaits", myData.equipBaits);
     }
 
     /// <summary>
-    /// �����κ��� ���� �����͸� Ŭ���̾�Ʈ�� ����
+    /// 서버로부터 불러온 JsonData를 UserData로 Parsing하는 함수
     /// </summary>
-    /// <param name="json">���� ������ JsonData</param>
+    /// <param name="json">서버에서 받아온 JsonData</param>
     private void DataParsing(JsonData json)
     {
         myData.data_inDate = json["data_inDate"][0].ToString();
@@ -203,5 +203,25 @@ public class SaveCtrl : MonoBehaviour
         for (int i = 0; i < json["hasFishingRod"]["L"].Count; i++)
             myData.hasFishingRod[i] = bool.Parse(json["hasFishingRod"]["L"][i][0].ToString());
         myData.equipFishingRod = int.Parse(json["equipFishingRod"][0].ToString());
+        myData.equipBaits = int.Parse(json["equipBaits"][0].ToString());
+    }
+
+    /// <summary>
+    /// 유저 데이터를 초기화하는 함수
+    /// </summary>
+    /// <param name="_gold">초기 Gold 값</param>
+    public void ResetData(int _gold)
+    {
+        myData = new UserData();
+        myData.gold = _gold;
+        SaveData();
+    }
+
+    /// <summary>
+    /// 유저 데이터를 초기화하는 함수
+    /// </summary>
+    public void ResetData()
+    {
+        ResetData(0);
     }
 }
