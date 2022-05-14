@@ -66,8 +66,8 @@ public class Bait : Item
         "Zade",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5, 6, 7 };
-    public static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f };
-    public static float[] power_datas = { 1f, 2f, 3f, 4f, 5f, 6f, 7f };
+    private static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f };
+    private static float[] power_datas = { 1f, 2f, 3f, 4f, 5f, 6f, 7f };
     public static int BaitNum = 7; // 게임 ??존재?�는 미끼??개수
 
     public float probability; // ?�시 ?�률

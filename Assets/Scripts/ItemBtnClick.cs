@@ -3,25 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ItemBtnClick : MonoBehaviour
 {
-     public enum ItemType {
-        ROD = 1,
-        BAIT
-    };
-
-    ItemType itemType;
-
-    public Button dlgOpenBtn; 
-    public Button fishingRodBtn;
-    public Button baitBtn;
-    public GameObject itemInfo;
-    public GameObject slotParent;
-    GameObject slotPrefab;
-    private GameObject newSelectedSlot,oldSelectedSlot;
-
+    public Button fishingRod;
+    public Button bait;
+   
      // Start is called before the first frame update
     void Start()
     {
@@ -33,17 +20,6 @@ public class ItemBtnClick : MonoBehaviour
         }else{
            InitBait(); 
         }
-    }
-    
-    public void openDlg(){
-        GameObject clickedObj = EventSystem.current.currentSelectedGameObject;
-        SetItemType(clickedObj);
-        gameObject.SetActive(true); // Dlg 활성화 
-
-    }
-
-    public void closeDlg(){
-        gameObject.SetActive(false);
     }
 
     private void SetItemType(GameObject clickedObj){
