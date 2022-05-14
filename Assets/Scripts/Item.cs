@@ -27,8 +27,8 @@ public class FishingRob : Item
         "It's a fishing rod made of Diamond. If you get this, you can catch the legendary fish",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5 };
-    private static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.5f, 0.7f };
-    private static float[] power_datas = { 1f, 2f, 3f, 5f, 7f };
+    public static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.5f, 0.7f };
+    public static float[] power_datas = { 1f, 2f, 3f, 5f, 7f };
     public static int fishingRobNum = 5; // 게임 ??존재?�는 ?�시?�??개수
 
     public float probability; // ?�시 ?�률
