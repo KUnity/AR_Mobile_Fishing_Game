@@ -31,7 +31,7 @@ public class ItemBtnClick : MonoBehaviour
         if(System.Object.ReferenceEquals(dlgOpenBtn,fishingRodBtn)){
             InitRod();
         }else{
-           // bait 초기화 
+           InitBait(); 
         }
     }
     
@@ -76,6 +76,29 @@ public class ItemBtnClick : MonoBehaviour
 
     }
 
+    private void InitBait(){
+        int[] fishBaits = SaveCtrl.instance.myData.fishBaits;
+        int baitTypeNum = fishBaits.Length;
+        
+        for(int i =0;i<baitTypeNum;i++){
+            Debug.Log(fishBaits[i]);
+            if(fishBaits[i] > 0){
+                GameObject slot = Instantiate(slotPrefab);
+                slot.name="BaitSlot"+i; // Slot + 아이템 코드 
+                slot.transform.SetParent(slotParent.transform); 
+                slot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = fishBaits[i].ToString();
+                
+                // 사용자가 기존에 선택한 아이템으로 oldSelectedSlot 초기화 
+                if(oldSelectedSlot == null){   
+                    oldSelectedSlot=slot;
+                    oldSelectedSlot.transform.GetChild(0).gameObject.SetActive(true);
+                    SetItemInfo(oldSelectedSlot,SaveCtrl.instance.myData.equipBaits);
+                    oldSelectedSlot.GetComponent<Outline>().enabled = true;
+                }
+            }
+        }
+    }
+
      public void SetItemInfo(GameObject slot,int itemCode){
         bool[] hasFishingRod = SaveCtrl.instance.myData.hasFishingRod;
         string name="",desc="",prob="",power="";
@@ -92,7 +115,6 @@ public class ItemBtnClick : MonoBehaviour
                 prob= "Prob : "+ Bait.probalility_datas[itemCode].ToString();
                 power=  "Power : "+Bait.power_datas[itemCode].ToString();
                 desc = Bait.baitDesc[itemCode];
-                // number도 
                 break;
         }
 
@@ -116,7 +138,6 @@ public class ItemBtnClick : MonoBehaviour
 
     public void showOutline(){
         // 테두리 보이게 
-        
         newSelectedSlot.GetComponent<Outline>().enabled = true;
         oldSelectedSlot.GetComponent<Outline>().enabled = false;
        
@@ -130,9 +151,5 @@ public class ItemBtnClick : MonoBehaviour
         
     }
     
-    
-
-
-
 
 }
