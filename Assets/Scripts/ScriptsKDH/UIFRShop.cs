@@ -12,7 +12,6 @@ public class UIFRShop : MonoBehaviour
     public GameObject contents;
     public GameObject uiListItemPrefab;
     public TMP_Text priceText;
-    public Sprite soldout;
 
     void Start()
     {
@@ -20,7 +19,7 @@ public class UIFRShop : MonoBehaviour
         for (int i = 0; i < FishingRob.fishingRobNum; i++)
         {
             int temp = i;
-            var itemIcon = string.Format("fishingrod_{0}_0", i+1);
+            var itemIcon = string.Format("fishignrod_{0}_0", i+1);
             string iName = SaveCtrl.instance.fishingRobs[i].name;
             long iPrice = SaveCtrl.instance.fishingRobs[i].gold;
             string iDescription = SaveCtrl.instance.fishingRobs[i].desc;
@@ -32,7 +31,7 @@ public class UIFRShop : MonoBehaviour
             uiListItem.btn.onClick.AddListener(() =>
             {
                 if (SaveCtrl.instance.myData.gold < iPrice){
-                    Debug.Log("보유 골드가 부족합니다.");
+                    Debug.Log("蹂댁쑀 怨⑤뱶媛 遺議깊빀?덈떎.");
                 }
                 else{
                     Debug.Log(temp + " temp");
@@ -42,7 +41,6 @@ public class UIFRShop : MonoBehaviour
                         SaveCtrl.instance.myData.hasFishingRod[temp] = true;
                     }
                     uiListItem.btn.interactable = false;
-                    uiListItem.changeImage(soldout);
                     priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
                 }
                 SaveCtrl.instance.SaveData();
@@ -50,7 +48,6 @@ public class UIFRShop : MonoBehaviour
             if (SaveCtrl.instance.myData.hasFishingRod[i] == true)
             {
                 uiListItem.btn.interactable = false;
-                uiListItem.changeImage(soldout);
             }
         }
         priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
