@@ -13,6 +13,7 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private GameObject fishHPbar;
     [SerializeField] private GameObject reel;
     private GameData gameData;
+    private GameAction gameAction;
     private float waitedTime;
     private float battleTime = 30.0f;
     private float warningTime;
@@ -37,6 +38,7 @@ public class GameSceneManager : MonoBehaviour
     void Start()
     {
         gameData = data.GetComponent<GameData>();
+        gameAction = FindObjectOfType<GameAction>();
         subCam.GetComponent<Transform>().position = new Vector3(0, -2.5f, 17.0f);
     }
 
@@ -105,6 +107,8 @@ public class GameSceneManager : MonoBehaviour
                 fishHPbar.SetActive(true);
                 reel.SetActive(true);
                 reel.transform.position = new Vector3(0.5244f,0.7086f,1.651f);
+                gameAction.mainCirle.gameObject.SetActive(true);
+                gameAction.pointCircle.gameObject.SetActive(true);
 
                 if (tensionSlider.GetComponent<Slider>().value > 0.75f)
                 {
@@ -214,6 +218,8 @@ public class GameSceneManager : MonoBehaviour
         tensionSlider.SetActive(false);
         warningIMG.SetActive(false);
         fishHPbar.SetActive(false);
+        gameAction.mainCirle.gameObject.SetActive(false);
+        gameAction.pointCircle.gameObject.SetActive(false);
         bobber.GetComponent<Transform>().position = new Vector3(0, 2.0f, 1.0f);
     }
 

@@ -35,6 +35,7 @@ public class UserData
         fishNums = new int[5];
         fishBaits = new int[7];
         hasFishingRod = new bool[5];
+        hasFishingRod[0] = true;
     }
 };
 
@@ -154,6 +155,7 @@ public class SaveCtrl : MonoBehaviour
         BackendReturnObject BRO = Backend.GameData.GetMyData("userData", new Where());
         if (BRO.IsSuccess())
         {
+            Debug.Log("User Data Load Success.");
             JsonData json2 = BRO.GetReturnValuetoJSON()["rows"][0];
             DataParsing(json2);
         }
