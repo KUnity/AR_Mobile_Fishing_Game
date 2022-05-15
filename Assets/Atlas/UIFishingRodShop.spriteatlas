@@ -43,28 +43,13 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: -644347814, guid: de27a33ae85879d4caf05b98b10c63d7, type: 3}
-    - {fileID: -483417322, guid: ff3c1f3d55536b64085d15368311802c, type: 3}
-    - {fileID: -876898310, guid: 4b061f7f0168b054fafeffebf3314738, type: 3}
-    - {fileID: -968504378, guid: 477b2caa686292f41a06462830abdea2, type: 3}
-    - {fileID: 1640832284, guid: c1b32fd932c2e4d41b2f2d4aa6a2fa79, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 1640832284, guid: c1b32fd932c2e4d41b2f2d4aa6a2fa79, type: 3}
-  - {fileID: -644347814, guid: de27a33ae85879d4caf05b98b10c63d7, type: 3}
-  - {fileID: -968504378, guid: 477b2caa686292f41a06462830abdea2, type: 3}
-  - {fileID: -483417322, guid: ff3c1f3d55536b64085d15368311802c, type: 3}
-  - {fileID: -876898310, guid: 4b061f7f0168b054fafeffebf3314738, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - fishignrod_5_0
-  - fishignrod_1_0
-  - fishignrod_4_0
-  - fishignrod_2_0
-  - fishignrod_3_0
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: UIFishingRodShop
   m_IsVariant: 0

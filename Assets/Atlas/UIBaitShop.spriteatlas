@@ -43,34 +43,13 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: -432241808, guid: 07aec28f21fc1164c994bae62b1b2c62, type: 3}
-    - {fileID: -521229779, guid: 662f50ce142df3847bccc49f98c5415d, type: 3}
-    - {fileID: 231264364, guid: be88519bf9fb467488d5b2ebc45890c3, type: 3}
-    - {fileID: -1538792771, guid: 28de8169783c7e94697dfd3ef4b4fd25, type: 3}
-    - {fileID: 1840025034, guid: c146a2499754db848af8fefdd5e118dc, type: 3}
-    - {fileID: -629814696, guid: 59a910cd175978d49be220d114420877, type: 3}
-    - {fileID: 282193736, guid: 07c33166a8a37804f9462fb42c223036, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 282193736, guid: 07c33166a8a37804f9462fb42c223036, type: 3}
-  - {fileID: 1840025034, guid: c146a2499754db848af8fefdd5e118dc, type: 3}
-  - {fileID: -1538792771, guid: 28de8169783c7e94697dfd3ef4b4fd25, type: 3}
-  - {fileID: 231264364, guid: be88519bf9fb467488d5b2ebc45890c3, type: 3}
-  - {fileID: -629814696, guid: 59a910cd175978d49be220d114420877, type: 3}
-  - {fileID: -521229779, guid: 662f50ce142df3847bccc49f98c5415d, type: 3}
-  - {fileID: -432241808, guid: 07aec28f21fc1164c994bae62b1b2c62, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - bait_7_0
-  - bait_5_0
-  - bait_4_0
-  - bait_3_0
-  - bait_6_0
-  - bait_2_0
-  - bait_1_0
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: UIBaitShop
   m_IsVariant: 0
