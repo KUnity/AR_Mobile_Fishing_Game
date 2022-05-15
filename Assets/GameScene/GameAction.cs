@@ -9,10 +9,14 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField] GameObject gameData;
     [SerializeField] GameObject reel;
     [SerializeField] Slider tensionSlider;
+    [SerializeField] GameObject gameSceneManager;
     Animator reelAnimator;
     private bool topPos;
     private bool bottomPos;
     private byte handlePos;
+    public Fish fish;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     // Update is called once per frame
     void Update()
     {
+
         tensionSlider.value -= 0.2f * Time.deltaTime;
         if (gameData.GetComponent<GameData>().fightStart) {
 
