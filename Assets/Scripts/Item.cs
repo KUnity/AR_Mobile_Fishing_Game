@@ -27,8 +27,8 @@ public class FishingRob : Item
         "It's a fishing rod made of Diamond. If you get this, you can catch the legendary fish",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5 };
-    public static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.5f, 0.7f };
-    public static float[] power_datas = { 1f, 2f, 3f, 5f, 7f };
+    public static float[] probalility_datas = { 0.1f, 0.2f, 0.5f, 1f, 2f };
+    public static float[] power_datas = { 20f, 50f, 100f, 250f, 500f };
     public static int fishingRobNum = 5; // 게임 ??존재?�는 ?�시?�??개수
 
     public float probability; // ?�시 ?�률
@@ -66,8 +66,8 @@ public class Bait : Item
         "Zade",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5, 6, 7 };
-    public static float[] probalility_datas = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f };
-    public static float[] power_datas = { 20f, 50f, 90f, 150f, 250f, 400f, 600f };
+    public static float[] probalility_datas = { 0.1f, 0.25f, 0.5f, 0.7f, 1f, 1.5f, 2f };
+    public static float[] power_datas = { 5f, 10f, 15f, 20f, 25f, 30f, 50f };
     public static int BaitNum = 7; // 게임 ??존재?�는 미끼??개수
 
     public float probability; // ?�시 ?�률
