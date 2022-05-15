@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.912
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1500,11 +1500,13 @@ MonoBehaviour:
   reel: {fileID: 715047033}
   tensionSlider: {fileID: 2107966240}
   gameSceneManager: {fileID: 1178856644}
+  fishHPbar: {fileID: 0}
   canvas: {fileID: 2143533993}
   mainCirle: {fileID: 105224415}
   pointCircle: {fileID: 786175916}
   radius: 0
   currentPos: {x: 0, y: 0}
+  curFishHP: 0
 --- !u!114 &437214089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2889,11 +2891,13 @@ MonoBehaviour:
   reel: {fileID: 0}
   tensionSlider: {fileID: 1678678768}
   gameSceneManager: {fileID: 0}
+  fishHPbar: {fileID: 0}
   canvas: {fileID: 0}
   mainCirle: {fileID: 0}
   pointCircle: {fileID: 0}
   radius: 0
   currentPos: {x: 0, y: 0}
+  curFishHP: 0
 --- !u!114 &693838627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7632,7 +7636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2107966238
 GameObject:

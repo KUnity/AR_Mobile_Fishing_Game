@@ -76,11 +76,9 @@ public class GameSceneManager : MonoBehaviour
             case 2: // 훅킹 감지
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if(gameData.isHooking){
-                    stage = 3;
-
                      // 잡힌 물고기 선택
                     float[] percents = null;
-                    itemType = Random.Range(0, Fish.fishNum);
+                    itemType = Random.Range(0, Fish.typeNum);
                     switch (itemType)
                     {
                         case 0: percents = NormalFish.probalilities; break;
@@ -96,6 +94,9 @@ public class GameSceneManager : MonoBehaviour
                         }
                     }
                     FindObjectOfType<GameAction>().fish = Fish.GetFish(itemType, itemCode);
+                    FindObjectOfType<GameAction>().curFishHP = Fish.GetFish(itemType, itemCode).hp;
+
+                    stage = 3;
                 }
                 break;
             case 3: // 롤링
