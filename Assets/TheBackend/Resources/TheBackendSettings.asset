@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 660911240, guid: f624596d5fe1bd5459a5da424a8abc1b, type: 3}
   m_Name: TheBackendSettings
   m_EditorClassIdentifier: 
-  clientAppID: 27356fe0-d46d-11ec-98f6-531b11916fe33493
-  signatureKey: 27356fe1-d46d-11ec-98f6-531b11916fe33493
+  clientAppID: 74c40120-d474-11ec-b290-3967bdf569c13494
+  signatureKey: 74c40121-d474-11ec-b290-3967bdf569c13494
   functionAuthKey: 
   packageName: com.DefaultCompany.AR_Mobile_Fishing_Game
   isAllPlatform: 1
