@@ -109,6 +109,7 @@ public class Shark : Fish
     public Shark(int _itemCode)
     {
         itemCode = _itemCode;
+        hp = hps[itemCode];
         power = powers[itemCode];
         probability = probalilities[itemCode];
         gold = golds[itemCode];
@@ -145,6 +146,7 @@ public class NormalFish : Fish
     public NormalFish(int _itemCode)
     {
         itemCode = _itemCode;
+        hp = hps[itemCode];
         power = powers[itemCode];
         probability = probalilities[itemCode];
         gold = golds[itemCode];
