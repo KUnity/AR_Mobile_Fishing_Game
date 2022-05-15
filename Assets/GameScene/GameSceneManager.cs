@@ -87,7 +87,7 @@ public class GameSceneManager : MonoBehaviour
 
                     for (int i = percents.Length - 1; i >= 0; i--)
                     {
-                        if (GetRandFlag(percents[i]))
+                        if (GetRandFlag(percents[i] * (1f + Bait.probalility_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.probalility_datas[SaveCtrl.instance.myData.equipFishingRod])))
                         {
                             itemCode = i;
                             break;
