@@ -10,6 +10,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField] GameObject reel;
     [SerializeField] Slider tensionSlider;
     [SerializeField] GameObject gameSceneManager;
+    [SerializeField] Slider fishHPbar;
     Animator reelAnimator;
 
     [SerializeField] private Canvas canvas;
@@ -19,6 +20,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     public Vector2 currentPos;
     public Fish fish;
+    public int curFishHP;
 
 
     // Start is called before the first frame update
@@ -37,6 +39,8 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     void Update()
     {
         tensionSlider.value -= 0.1f * Time.deltaTime;
+
+        fishHPbar.value = (float)curFishHP / (float)fish.hp;
     }
 
     public void OnPointerDown(PointerEventData eventData) {
@@ -52,10 +56,23 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         {
             tensionSlider.value += 0.05f;
             currentPos = zoomVec;
+            
+            // 물고기 HP 감소 동작
+            if (FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod] > fish.power) {
+                curFishHP -= (int)FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
+            } else {
+                curFishHP -= 1;
+            }
         }
     }
 
     public void OnPointerUp(PointerEventData eventData) {
         reelAnimator.StartPlayback();
+    }
+
+    public void GetFish()
+    {
+        int fishIndex = Fish.GetFishIndex(fish);
+        SaveCtrl.instance.myData.fishNums[fishIndex]++;
     }
 }
