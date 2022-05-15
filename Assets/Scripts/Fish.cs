@@ -42,14 +42,14 @@ public class Fish
 
 public class Shark : Fish
 {
-    public static int[] hp = { };
-    public static float[] powers = { };
-    public static float[] probalilities = {1f, 0.5f, 0.3f, 0.1f, 0.01f};
-    public static int[] golds = { };
+    public static int[] hps = { 0, 0, 0, 0, 0 };
+    public static float[] powers = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] probalilities = { 1f, 0.5f, 0.3f, 0.1f, 0.01f };
+    public static int[] golds = { 0, 0, 0, 0, 0 };
     public static int[] qualities = { 2, 2, 3, 3, 4 };
-    public static float[] weights = { };
-    public static float[] widths = { };
-    public static float[] heights = { };
+    public static float[] weights = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] widths = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] heights = { 0f, 0f, 0f, 0f, 0f };
     public static string[] names = { "청상어", "적상어", "백상어", "흑상어", "금상어"};
     public static string[] infos =
     {
@@ -78,13 +78,14 @@ public class Shark : Fish
 
 public class NormalFish : Fish
 {
-    public static float[] powers = { };
-    public static float[] probalilities = { };
-    public static int[] golds = { };
+    public static int[] hps = { 0, 0, 0, 0, 0 };
+    public static float[] powers = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] probalilities = { 1f, 0.5f, 0.3f, 0.1f, 0.01f };
+    public static int[] golds = { 0, 0, 0, 0, 0 };
     public static int[] qualities = { 0, 0, 0, 1, 2 };
-    public static float[] weights = { };
-    public static float[] widths = { };
-    public static float[] heights = { };
+    public static float[] weights = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] widths = { 0f, 0f, 0f, 0f, 0f };
+    public static float[] heights = { 0f, 0f, 0f, 0f, 0f };
     public static string[] names = { "농어", "돗돔", "돌돔", "참돔", "자바리" };
     public static string[] infos =
     {

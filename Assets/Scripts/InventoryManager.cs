@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI goldNum; 
     void Start()
     {
-        SaveCtrl.instance.ResetData(5);
+        //SaveCtrl.instance.ResetData(5);
         
         goldNum.text = SaveCtrl.instance.myData.gold.ToString();
 

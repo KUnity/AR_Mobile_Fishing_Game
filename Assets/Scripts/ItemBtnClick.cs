@@ -63,11 +63,12 @@ public class ItemBtnClick : MonoBehaviour
 
     private void InitRod()
     {
-        bool[] hasFishingRod = SaveCtrl.instance.myData.hasFishingRod;
-        int rodTotalNum = hasFishingRod.Length;
+        // bool[] hasFishingRod = SaveCtrl.instance.myData.hasFishingRod;
+        int rodTotalNum = SaveCtrl.instance.myData.hasFishingRod.Length;
         for (int i = 0; i < rodTotalNum; i++)
         {
-            if (hasFishingRod[i])
+            Debug.Log(SaveCtrl.instance.myData.hasFishingRod[i]);
+            if (SaveCtrl.instance.myData.hasFishingRod[i])
             {
                 GameObject slot = Instantiate(slotPrefab);
                 slot.name = "RodSlot" + i; // Slot + 아이템 코드 
