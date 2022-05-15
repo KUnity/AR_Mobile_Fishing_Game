@@ -413,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -12, y: -2.5}
+  m_SizeDelta: {x: 220, y: 55}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &657127698
 MonoBehaviour:
@@ -438,8 +438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99999999G
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
+  m_sharedMaterial: {fileID: 5419097266422433747, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -573,8 +573,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bait
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
+  m_sharedMaterial: {fileID: 5419097266422433747, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -851,8 +851,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fishing Rod
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
+  m_sharedMaterial: {fileID: 5419097266422433747, guid: db9aae8c516207b4782cf4f725909a0f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1257,8 +1257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 50, y: 4.290001}
+  m_SizeDelta: {x: 63.231, y: 91.421}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1360155625
 MonoBehaviour:
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1849488823, guid: 9ca81cb144521f943a8135a0b2f336ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c297e774003b9d45a6be82f7658cb1e, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
