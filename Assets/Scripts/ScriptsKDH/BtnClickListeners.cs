@@ -17,10 +17,6 @@ public class BtnClickListeners : MonoBehaviour
     public GameObject OnOff;
     public GameObject MenuSet;
     public GameObject EquipSet;
-    public GameObject TimerSet;
-    public GameObject UserStatusSet;
-    public GameObject LiveStatusSet;
-    public GameObject CastingText;
 
     bool mClicked;
 
@@ -31,7 +27,7 @@ public class BtnClickListeners : MonoBehaviour
         {
             GameBtn.onClick.AddListener( delegate { GameBtnClicked(); });
         }
-        else if(SceneManager.GetActiveScene().name == "GameScene")
+        else if(SceneManager.GetActiveScene().name == "DetectScene")
         {
             MenuBtn.onClick.AddListener(delegate { MenuBtnClicked(); });
             ShopBtn.onClick.AddListener(delegate { ShopBtnClicked(); });
@@ -55,7 +51,7 @@ public class BtnClickListeners : MonoBehaviour
 
     void GameBtnClicked()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("DetectScene");
     }
     void MenuBtnClicked()
     {
@@ -76,7 +72,7 @@ public class BtnClickListeners : MonoBehaviour
     }
     void BackBtnClicked()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("DetectScene");
     }
     void CastBtnClicked()
     {
@@ -88,9 +84,6 @@ public class BtnClickListeners : MonoBehaviour
         CastingBtn.gameObject.SetActive(!boolean);
         MenuSet.SetActive(!boolean);
         EquipSet.SetActive(!boolean);
-        TimerSet.SetActive(boolean);
-        UserStatusSet.SetActive(boolean);
         CastingBtn.gameObject.SetActive(!boolean);
-        CastingText.gameObject.SetActive(boolean);
     }
 }
