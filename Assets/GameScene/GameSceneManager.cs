@@ -11,6 +11,7 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private GameObject tensionSlider;
     [SerializeField] private GameObject warningIMG;
     [SerializeField] private GameObject fishHPbar;
+    [SerializeField] private GameObject reel;
     private GameData gameData;
     private float waitedTime;
     private float battleTime = 30.0f;
@@ -58,8 +59,9 @@ public class GameSceneManager : MonoBehaviour
             reelRect.SetActive(true);
             tensionSlider.SetActive(true);
             fishHPbar.SetActive(true);
+            reel.SetActive(true);
 
-            if (tensionSlider.GetComponent<Slider>().value > 0.75) {
+            if (tensionSlider.GetComponent<Slider>().value > 0.75f) {
                 warningIMG.SetActive(true);
                 warningTime += Time.deltaTime;
                 if(warningTime > maxWarningTime) {
@@ -90,6 +92,7 @@ public class GameSceneManager : MonoBehaviour
         warningTime = 0;
         tensionSlider.GetComponent<Slider>().value = 0;
 
+        reel.SetActive(false);
         castingBtn.SetActive(true);
         timeRect.SetActive(false);
         reelRect.SetActive(false);

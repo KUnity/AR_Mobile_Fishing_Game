@@ -18,6 +18,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     {
         reelAnimator = reel.GetComponent<Animator>();
         reelAnimator.StartPlayback();
+        reel.GetComponent<Transform>().position = new Vector3(1f, -3f, -6f);
         topPos = true;
         bottomPos = false;
         handlePos = 0;
@@ -34,6 +35,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         if (topPos && bottomPos) {
             if (handlePos == 1) {
                 bottomPos = false;
+                Debug.Log("UP");
                 tensionSlider.value += 0.05f;
 
                 // Attak
@@ -57,11 +59,11 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         float posX = eventData.position.x;
         float posY = eventData.position.y;
         
-        if (posY > 250) {
+        if (posY > 130) {
             topPos = true;
             handlePos = 1;
         }
-        else if (posY < 60) {
+        else if (posY < 40) {
             bottomPos = true;
             handlePos = 0;
         }
