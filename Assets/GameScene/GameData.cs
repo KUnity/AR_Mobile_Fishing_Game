@@ -7,6 +7,7 @@ public class GameData : MonoBehaviour
     public bool isCasted;
     public bool isBited;
     public bool isHooking;
+    public bool fightStart;
     // Start is called before the first frame update
     void Start()
     {
