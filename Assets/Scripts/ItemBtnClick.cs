@@ -73,6 +73,7 @@ public class ItemBtnClick : MonoBehaviour
                 GameObject slot = Instantiate(slotPrefab);
                 slot.name = "RodSlot" + i; // Slot + 아이템 코드 
                 slot.transform.SetParent(slotParent.transform);
+                slot.transform.GetChild(1).gameObject.SetActive(false);
 
                 // 사용자가 기존에 선택한 아이템으로 oldSelectedSlot 초기화 
                 if (oldSelectedSlot == null)
@@ -135,7 +136,7 @@ public class ItemBtnClick : MonoBehaviour
                 break;
         }
 
-       (itemInfo.transform.Find("ItemName").GetComponent<TextMeshProUGUI>()).text = name;
+        (itemInfo.transform.Find("ItemName").GetComponent<TextMeshProUGUI>()).text = name;
         (itemInfo.transform.Find("Probability").GetComponent<TextMeshProUGUI>()).text = prob;
         (itemInfo.transform.Find("Power").GetComponent<TextMeshProUGUI>()).text = power;
         (itemInfo.transform.Find("Description").GetComponent<TextMeshProUGUI>()).text = desc;
