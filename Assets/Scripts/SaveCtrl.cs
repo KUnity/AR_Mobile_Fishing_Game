@@ -47,6 +47,8 @@ public class SaveCtrl : MonoBehaviour
     public List<UserData> userDatas = new List<UserData>();
     public List<FishingRob> fishingRobs = new List<FishingRob>();
     public List<Bait> baits = new List<Bait>();
+    public List<Shark> sharks = new List<Shark>();
+    public List<NormalFish> normalFish = new List<NormalFish>();
 
     // SingleTon 패턴
     public static SaveCtrl Instance
@@ -72,7 +74,6 @@ public class SaveCtrl : MonoBehaviour
             var bro = Backend.Initialize(true);
             if (bro.IsSuccess())
             {
-                //Backend.BMember.DeleteGuestInfo();
                 Login();
             }
             else
@@ -84,6 +85,10 @@ public class SaveCtrl : MonoBehaviour
                 fishingRobs.Add(new FishingRob(i));
             for (int i = 0; i < Bait.BaitNum; i++)
                 baits.Add(new Bait(i));
+            for (int i = 0; i < Shark.totalNum; i++)
+                sharks.Add(new Shark(i));
+            for (int i = 0; i < NormalFish.totalNum; i++)
+                normalFish.Add(new NormalFish(i));
         }
         else
         {
