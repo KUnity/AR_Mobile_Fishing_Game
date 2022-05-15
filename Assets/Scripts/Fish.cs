@@ -127,7 +127,7 @@ public class NormalFish : Fish
     public static int[] hps = { 50, 100, 250, 500, 1000 };
     public static float[] powers = { 5f, 10f, 25f, 50f, 100f };
     public static float[] probalilities = { 1f, 0.5f, 0.3f, 0.1f, 0.01f };
-    public static int[] golds = { 0, 0, 0, 0, 0 };
+    public static int[] golds = { 0, 2, 0, 0, 0 };
     public static int[] qualities = { 0, 0, 0, 1, 2 };
     public static float[] weights = { 0f, 0f, 0f, 0f, 0f };
     public static float[] widths = { 0f, 0f, 0f, 0f, 0f };

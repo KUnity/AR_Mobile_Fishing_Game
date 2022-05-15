@@ -7,29 +7,28 @@ using TMPro;
 
 public class ItemBtnClick : MonoBehaviour
 {
-    public enum ItemType
-    {
-        ROD = 1,
-        BAIT
-    }
     public Button dlgOpenBtn;
     public Button fishingRodBtn;
     public Button baitBtn;
     public GameObject itemInfo;
     public GameObject slotParent;
 
-    private ItemType itemType;
     private GameObject slotPrefab;
     private GameObject newSelectedSlot, oldSelectedSlot;
 
+    public bool isRod;
+    private Sprite[] rodSprites;
+    private Sprite[] baitSprites;
 
 
     // Start is called before the first frame update
     void Start()
     {
         slotPrefab = Resources.Load("Prefabs/Slot") as GameObject;
-        Debug.Log(dlgOpenBtn.name);
-        Debug.Log(fishingRodBtn.name);
+        // 이미지 
+        rodSprites = Resources.LoadAll<Sprite>("FishingRod");
+        baitSprites = Resources.LoadAll<Sprite>("Bait");
+
         if (System.Object.ReferenceEquals(dlgOpenBtn, fishingRodBtn))
         {
             InitRod();
@@ -48,18 +47,6 @@ public class ItemBtnClick : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void SetItemType(GameObject clickedObj)
-    {
-        if (clickedObj == fishingRodBtn)
-        {
-            itemType = ItemType.ROD;
-        }
-        else
-        {
-            itemType = ItemType.BAIT;
-        }
-    }
-
 
     private void InitRod()
     {
@@ -67,19 +54,21 @@ public class ItemBtnClick : MonoBehaviour
         int rodTotalNum = SaveCtrl.instance.myData.hasFishingRod.Length;
         for (int i = 0; i < rodTotalNum; i++)
         {
-            Debug.Log(SaveCtrl.instance.myData.hasFishingRod[i]);
             if (SaveCtrl.instance.myData.hasFishingRod[i])
             {
                 GameObject slot = Instantiate(slotPrefab);
                 slot.name = "RodSlot" + i; // Slot + 아이템 코드 
                 slot.transform.SetParent(slotParent.transform);
-                slot.transform.GetChild(1).gameObject.SetActive(false);
+                slot.transform.Find("Num").gameObject.SetActive(false);
+                Debug.Log(rodSprites[i]);
+                slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = rodSprites[i];
+                slot.GetComponent<RectTransform>().localScale = Vector3.one;
 
                 // 사용자가 기존에 선택한 아이템으로 oldSelectedSlot 초기화 
                 if (oldSelectedSlot == null)
                 {
                     oldSelectedSlot = slot;
-                    oldSelectedSlot.transform.GetChild(0).gameObject.SetActive(true);
+                    oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipFishingRod);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
                 }
@@ -95,19 +84,26 @@ public class ItemBtnClick : MonoBehaviour
 
         for (int i = 0; i < baitTypeNum; i++)
         {
-            Debug.Log(fishBaits[i]);
-            if (fishBaits[i] > 0)
+        
+            if ((i!=0 && fishBaits[i] > 0)|| i ==0)
             {
                 GameObject slot = Instantiate(slotPrefab);
                 slot.name = "BaitSlot" + i; // Slot + 아이템 코드 
                 slot.transform.SetParent(slotParent.transform);
-                slot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = fishBaits[i].ToString();
+                slot.GetComponent<RectTransform>().localScale = Vector3.one;
+                slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = baitSprites[i];
+
+                if( i !=0){
+                    slot.transform.Find("Num").GetComponent<TextMeshProUGUI>().text = fishBaits[i].ToString();
+                }else{
+                    slot.transform.Find("Num").gameObject.SetActive(false);
+                }
 
                 // 사용자가 기존에 선택한 아이템으로 oldSelectedSlot 초기화 
                 if (oldSelectedSlot == null)
                 {
                     oldSelectedSlot = slot;
-                    oldSelectedSlot.transform.GetChild(0).gameObject.SetActive(true);
+                    oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipBaits);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
                 }
@@ -120,26 +116,25 @@ public class ItemBtnClick : MonoBehaviour
         bool[] hasFishingRod = SaveCtrl.instance.myData.hasFishingRod;
         string name = "", desc = "", prob = "", power = "";
 
-        switch (itemType)
-        {
-            case ItemType.ROD:
-                name = FishingRob.robNames[itemCode];
-                prob = "Prob : " + FishingRob.probalility_datas[itemCode].ToString();
-                power = "Power : " + FishingRob.power_datas[itemCode].ToString();
-                desc = FishingRob.robDesc[itemCode];
-                break;
-            case ItemType.BAIT:
-                name = Bait.baitNames[itemCode];
-                prob = "Prob : " + Bait.probalility_datas[itemCode].ToString();
-                power = "Power : " + Bait.power_datas[itemCode].ToString();
-                desc = Bait.baitDesc[itemCode];
-                break;
+
+        if (isRod){
+            name = FishingRob.robNames[itemCode];
+            prob = "Prob : " + FishingRob.probalility_datas[itemCode].ToString();
+            power = "Power : " + FishingRob.power_datas[itemCode].ToString();
+            desc = FishingRob.robDesc[itemCode];
+            itemInfo.transform.Find("ItemImage").GetComponent<Image>().sprite = rodSprites[itemCode];
+        }else{
+             name = Bait.baitNames[itemCode];
+            prob = "Prob : " + Bait.probalility_datas[itemCode].ToString();
+            power = "Power : " + Bait.power_datas[itemCode].ToString();
+            desc = Bait.baitDesc[itemCode];
+            itemInfo.transform.Find("ItemImage").GetComponent<Image>().sprite = baitSprites[itemCode];
         }
 
-        (itemInfo.transform.Find("ItemName").GetComponent<TextMeshProUGUI>()).text = name;
-        (itemInfo.transform.Find("Probability").GetComponent<TextMeshProUGUI>()).text = prob;
-        (itemInfo.transform.Find("Power").GetComponent<TextMeshProUGUI>()).text = power;
-        (itemInfo.transform.Find("Description").GetComponent<TextMeshProUGUI>()).text = desc;
+        (itemInfo.transform.Find("ItemName").GetComponent<Text>()).text = name;
+        (itemInfo.transform.Find("Probability").GetComponent<Text>()).text = prob;
+        (itemInfo.transform.Find("Power").GetComponent<Text>()).text = power;
+        (itemInfo.transform.Find("Description").GetComponent<Text>()).text = desc;
 
     }
 
@@ -150,7 +145,6 @@ public class ItemBtnClick : MonoBehaviour
             oldSelectedSlot = newSelectedSlot;
         }
         newSelectedSlot = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(newSelectedSlot.name);
 
         // name, probablity, power, description 가져와서 item info창에 넣어주기 
         showOutline();
@@ -168,8 +162,8 @@ public class ItemBtnClick : MonoBehaviour
     public void onUseItemClick()
     {
         // 체크 표시
-        newSelectedSlot.transform.GetChild(0).gameObject.SetActive(true);
-        oldSelectedSlot.transform.GetChild(0).gameObject.SetActive(false);
+        newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
+        oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
 
     }
 

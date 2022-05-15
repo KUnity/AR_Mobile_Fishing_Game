@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 public class ManageFishDlg : MonoBehaviour
 {
+
+    private int fishGold ;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,35 +15,33 @@ public class ManageFishDlg : MonoBehaviour
     }
 
 
-    public void SetItemInfo(int itemCode)
+    public void SetItemInfo(int itemType,int itemCode)
     {
-        string name = "", desc = "", prob = "", power = "";
+        string name = "", info = "", prob = "", power = "", gold="";
 
-        // switch (itemType)
-        // {
-        //     case ItemType.ROD:
-        //         name = FishingRob.robNames[itemCode];
-        //         prob = "Prob : " + FishingRob.probalility_datas[itemCode].ToString();
-        //         power = "Power : " + FishingRob.power_datas[itemCode].ToString();
-        //         desc = FishingRob.robDesc[itemCode];
-        //         break;
-        //     case ItemType.BAIT:
-        //         name = Bait.baitNames[itemCode];
-        //         prob = "Prob : " + Bait.probalility_datas[itemCode].ToString();
-        //         power = "Power : " + Bait.power_datas[itemCode].ToString();
-        //         desc = Bait.baitDesc[itemCode];
-        //         break;
-        // }
-        // name = Fish;
-        // prob = "Prob : " + FishingRob.probalility_datas[itemCode].ToString();
-        // power = "Power : " + FishingRob.power_datas[itemCode].ToString();
-        // desc = FishingRob.robDesc[itemCode];
+        Fish fish = Fish.GetFish(itemType,itemCode);
+        if(fish is NormalFish){
+            // NormalFish normalFish = fish as NormalFish;
+            name = NormalFish.names[itemCode];
+            prob = "Prob : " + NormalFish.probalilities[itemCode].ToString();
+            power = "Power : " + NormalFish.powers[itemCode].ToString();
+            info = NormalFish.infos[itemCode];
+            gold= NormalFish.golds[itemCode].ToString();
+        }else if( fish is Shark) {
+            // Shark shark = fish as Shark;
+            name = Shark.names[itemCode];
+            prob = "Prob : " + Shark.probalilities[itemCode].ToString();
+            power = "Power : " + Shark.powers[itemCode].ToString();
+            info = Shark.infos[itemCode];
 
-        (transform.Find("FishName").GetComponent<TextMeshProUGUI>()).text = name;
-        (transform.Find("Probability").GetComponent<TextMeshProUGUI>()).text = prob;
-        (transform.Find("Power").GetComponent<TextMeshProUGUI>()).text = power;
-        (transform.Find("Description").GetComponent<TextMeshProUGUI>()).text = desc;
-        (transform.Find("GoldContainer").Find("GoldNum").GetComponent<TextMeshProUGUI>()).text = desc;
+            fishGold =  Shark.golds[itemCode];
+        }
+
+        transform.Find("FishName").GetComponent<Text>().text = name;
+        transform.Find("Probability").GetComponent<Text>().text = prob;
+        transform.Find("Power").GetComponent<Text>().text = power;
+        transform.Find("Description").GetComponent<Text>().text = info;
+        transform.Find("GoldContainer").Find("GoldNum").GetComponent<Text>().text = gold.ToString();
 
     }    
     
@@ -52,5 +52,10 @@ public class ManageFishDlg : MonoBehaviour
     public void CloseDlg(){
         gameObject.SetActive(false);
     }
+
+    // public void SellFish(int gold){
+    //     SaveCtrl.instance.myData.gold += gold;
+    //     SaveCtrl.instance.SaveData();
+    // }
 
 }
