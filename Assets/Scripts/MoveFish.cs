@@ -70,13 +70,13 @@ public class MoveFish : MonoBehaviour
         if(gameObject.transform.position.x > rightLimit && direction > 0 ){
             Debug.Log("right");
             direction=-1;
-            transform.Rotate(Vector3.right, 180.0f, Space.World); // 좌우 반전
+            transform.Rotate(Vector3.up, 180.0f, Space.World); // 좌우 반전
            
         } // 왼쪽 끝에 도달 
         else if(gameObject.transform.position.x < leftLimit && direction < 0 ){
             Debug.Log("left");
             direction =1;
-            transform.Rotate(Vector3.right, 180.0f, Space.World); // 좌우 반전
+            transform.Rotate(Vector3.up, 180.0f, Space.World); // 좌우 반전
         }
         transform.position += moveVector*Time.deltaTime*direction;
 
@@ -86,6 +86,7 @@ public class MoveFish : MonoBehaviour
 
             if(target!=null && target.Equals(gameObject)){
                 fishDlgManager.OpenDlg();
+                fishDlgManager.SetItemInfo(0,1);
             }
 
         }
