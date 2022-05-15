@@ -1455,6 +1455,7 @@ GameObject:
   - component: {fileID: 437214087}
   - component: {fileID: 437214090}
   - component: {fileID: 437214088}
+  - component: {fileID: 437214089}
   m_Layer: 5
   m_Name: reelingRect
   m_TagString: Untagged
@@ -1499,6 +1500,11 @@ MonoBehaviour:
   reel: {fileID: 715047033}
   tensionSlider: {fileID: 2107966240}
   gameSceneManager: {fileID: 1178856644}
+  canvas: {fileID: 2143533993}
+  mainCirle: {fileID: 105224415}
+  pointCircle: {fileID: 786175916}
+  radius: 0
+  currentPos: {x: 0, y: 0}
 --- !u!114 &437214089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,6 +5233,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90540d9d83d7f422ba1e74c77e4bf359, type: 3}
   m_PrefabInstance: {fileID: 1190738025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1195863424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195863426}
+  - component: {fileID: 1195863425}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1195863425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195863424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362a9a49f4ade9d4bb960591718daa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1195863426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195863424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 131.04405, y: 1813.509, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224705990
 GameObject:
   m_ObjectHideFlags: 0
