@@ -12,7 +12,18 @@ public class ARFilterPlanes : MonoBehaviour
   private ARPlane arPlane;
   private GameObject waterPlane;
   private CreateWaterMesh waterScript;
+  public GameObject fishingRod;
 
+  public GameObject createBtn;
+  public GameObject resteBtn;
+
+  public GameObject[] childUis;
+ RectTransform[] childObjs;
+
+public void Start(){
+    childObjs = gameObject.GetComponentsInChildren<RectTransform>();
+    HideAllUIs();
+}
   private void OnEnable()
   {
         arPlanes = new List<ARPlane>();
@@ -29,7 +40,6 @@ public class ARFilterPlanes : MonoBehaviour
         if(arPlane==null && args.added !=null && args.added.Count > 0 ){
             arPlane = args.added[0];
         }
-
 
         foreach(ARPlane plane in args.added){
             plane.gameObject.SetActive(false);
@@ -49,7 +59,35 @@ public class ARFilterPlanes : MonoBehaviour
     public void CreateWater(){
         arPlane.gameObject.SetActive(false);
         arPlaneManager.enabled = false;
-       
         waterScript.CreatePlane(arPlane.extents.y*1.5f,arPlane.extents.x*1.5f, arPlane.center);
+        ShowUIs();
+        OnDisable();
+
     }
+
+
+    private void HideBtns(){
+        createBtn.SetActive(false);
+        resteBtn.SetActive(false);
+    }
+
+    private void ShowUIs(){
+        // RectTransform[] childObjs = gameObject.GetComponentsInChildren<RectTransform>();
+        int size = childUis.Length;
+        for( int i=0; i<size;i++){
+            childUis[i].SetActive(true);
+        }
+     
+        HideBtns();
+    }
+
+     private void HideAllUIs(){
+        // RectTransform[] childObjs = gameObject.GetComponentsInChildren<RectTransform>();
+        int size = childUis.Length;
+        for( int i=0; i<size;i++){
+            childUis[i].SetActive(false);
+        }
+    }
+
+
 }

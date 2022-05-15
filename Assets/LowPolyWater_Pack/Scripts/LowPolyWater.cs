@@ -4,9 +4,9 @@ namespace LowPolyWater
 {
     public class LowPolyWater : MonoBehaviour
     {
-        public float waveHeight = 0.5f;
-        public float waveFrequency = 0.5f;
-        public float waveLength = 0.75f;
+        public float waveHeight = 0.03f;
+        public float waveFrequency = 0.6f;
+        public float waveLength = 0.6f;
 
         //Position where the waves originate from
         public Vector3 waveOriginPosition = new Vector3(0.0f, 0.0f, 0.0f);
