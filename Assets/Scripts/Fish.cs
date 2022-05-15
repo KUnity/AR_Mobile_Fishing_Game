@@ -4,24 +4,47 @@ using UnityEngine;
 
 public class Fish
 {
-    protected int itemCode;
-    protected float power; // 공격력
-    protected float probability; // 찌를 물 확률
-    protected int gold; // 상점 판매 금액
-    protected int quality; // 0 = 노멀, 1 = 레어, 2 = 에픽, 3 = 유니크, 4 = 레전드리
-    protected float weight; // 무게 (도감 용)
-    protected float width; // (크기 - 폭)
-    protected float height; // (크기 - 높이)
-    protected string name;
-    protected string info;
+    public static int fishNum = 2;
+
+    public int itemCode;
+    public int hp; // hp
+    public float power; // 공격력
+    public float probability; // 찌를 물 확률
+    public int gold; // 상점 판매 금액
+    public int quality; // 0 = 노멀, 1 = 레어, 2 = 에픽, 3 = 유니크, 4 = 레전드리
+    public float weight; // 무게 (도감 용)
+    public float width; // (크기 - 폭)
+    public float height; // (크기 - 높이)
+    public string name;
+    public string info;
+
+    /// <summary>
+    /// 인자에 해당하는 Fish Class를 반환하는 함수 (실패 시, NULL 반환)
+    /// </summary>
+    /// <param name="_itemType">물고기 종류</param>
+    /// <param name="_itemCode">물고기 ItemCode</param>
+    /// <returns></returns>
+    static public Fish GetFish(int _itemType, int _itemCode)
+    {
+        Fish fish = null;
+
+        switch (_itemType)
+        {
+            case 0: fish = SaveCtrl.instance.normalFish[_itemCode]; break;
+            case 1: fish = SaveCtrl.instance.sharks[_itemCode]; break;
+        }
+
+        return fish;
+    }
 };
 
 
 
 public class Shark : Fish
 {
+    public static int[] hp = { };
     public static float[] powers = { };
-    public static float[] probalilities = { };
+    public static float[] probalilities = {1f, 0.5f, 0.3f, 0.1f, 0.01f};
     public static int[] golds = { };
     public static int[] qualities = { 2, 2, 3, 3, 4 };
     public static float[] weights = { };

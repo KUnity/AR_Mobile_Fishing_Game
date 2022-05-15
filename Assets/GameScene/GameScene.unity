@@ -1090,6 +1090,7 @@ MonoBehaviour:
   gameData: {fileID: 2086156645}
   reel: {fileID: 1013083464}
   tensionSlider: {fileID: 941203259}
+  gameSceneManager: {fileID: 1075622830}
 --- !u!114 &866652419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,7 +1354,7 @@ RectTransform:
   m_Father: {fileID: 798763471}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.48, y: 0.3}
+  m_AnchorMin: {x: 0.55, y: 0.3}
   m_AnchorMax: {x: 0.98, y: 0.35}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -1663,6 +1664,8 @@ MonoBehaviour:
   warningIMG: {fileID: 1068532895}
   fishHPbar: {fileID: 613128740}
   reel: {fileID: 1013083464}
+  itemType: 0
+  itemCode: 0
   castingBtn: {fileID: 1824730761}
   bobber: {fileID: 1876261601}
   biteSignal: {fileID: 311679887}
