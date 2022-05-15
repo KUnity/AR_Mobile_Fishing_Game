@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CastingBtn : MonoBehaviour
 {
     [SerializeField] private GameObject data;
+    [SerializeField] private GameObject gsm;
     public GameObject bobber;
     public GameObject button;
     public GameObject subCam;
@@ -17,16 +18,12 @@ public class CastingBtn : MonoBehaviour
         bobberTrans = bobber.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void onClickCastingBtn(){
-        bobberTrans.position = new Vector3(0, -3, 20);
-        subCam.SetActive(true);
-        data.GetComponent<GameData>().isCasted = true;
-        button.SetActive(false);
+        // GameObject waterPlane = GameObject.Find("WaterPlane");
+        // bobberTrans.position = waterPlane.transform.position;
+        // subCam.SetActive(true);
+        // data.GetComponent<GameData>().isCasted = true;
+        // button.SetActive(false);
+        gsm.GetComponent<GameSceneManager>().stage = 0;
     }
 }

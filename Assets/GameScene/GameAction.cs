@@ -32,7 +32,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     void Update()
     {
 
-        tensionSlider.value -= 0.2f * Time.deltaTime;
+        tensionSlider.value -= 0.1f * Time.deltaTime;
         if (gameData.GetComponent<GameData>().fightStart) {
 
         }
@@ -64,11 +64,11 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         float posX = eventData.position.x;
         float posY = eventData.position.y;
         
-        if (posY > 130) {
+        if (posY > 450) {
             topPos = true;
             handlePos = 1;
         }
-        else if (posY < 40) {
+        else if (posY < 250) {
             bottomPos = true;
             handlePos = 0;
         }

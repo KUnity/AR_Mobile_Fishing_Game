@@ -44,10 +44,19 @@ public class GameSceneManager : MonoBehaviour
     void Update()
     {
         switch(stage){
+            case -1:
+                
+                break;
             case 0: // 던지기 감지
+                castingBtn.SetActive(false);
                 gameData.isCasted = MotionBlur.CheckThrow();
-                if(gameData.isCasted)
+                if(gameData.isCasted){
+                    GameObject waterPlane = GameObject.Find("WaterPlane");
+                    bobber.transform.position = waterPlane.transform.position;
+                    subCamRect.SetActive(true);
+                    data.GetComponent<GameData>().isCasted = true;
                     stage = 1;
+                }
                 break;
             case 1: // 던진 후
                     waitedTime += Time.deltaTime;
@@ -95,6 +104,7 @@ public class GameSceneManager : MonoBehaviour
                 tensionSlider.SetActive(true);
                 fishHPbar.SetActive(true);
                 reel.SetActive(true);
+                reel.transform.position = new Vector3(0.5244f,0.7086f,1.651f);
 
                 if (tensionSlider.GetComponent<Slider>().value > 0.75f)
                 {
@@ -187,7 +197,7 @@ public class GameSceneManager : MonoBehaviour
 
     //모든 값 초기화 후, 원래화면으로 돌아감
     void initAll() {
-        stage = 0;
+        stage = -1;
         gameData.isCasted = false;
         gameData.isBited = false;
         gameData.isHooking = false;
@@ -196,6 +206,7 @@ public class GameSceneManager : MonoBehaviour
         warningTime = 0;
         tensionSlider.GetComponent<Slider>().value = 0;
 
+        biteSignal.SetActive(false);
         reel.SetActive(false);
         castingBtn.SetActive(true);
         timeRect.SetActive(false);
