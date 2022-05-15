@@ -105,8 +105,16 @@ public class SaveCtrl : MonoBehaviour
         if(Backend.BMember.GetGuestID().Equals(""))
         {
             // ID 없음 -> 자동 회원가입 및 로그인
-            Backend.BMember.GuestLogin();
-            InsertData();
+            Debug.Log("No ID, Auto Auth & Login Start.");
+            BackendReturnObject bro = Backend.BMember.GuestLogin();
+            if (bro.IsSuccess())
+            {
+                InsertData();
+            }
+            else
+            {
+                Debug.LogError("Login Failed : " + bro.GetMessage());
+            }
         }
         else
         {
@@ -120,9 +128,10 @@ public class SaveCtrl : MonoBehaviour
             }
             else
             {
-                Debug.Log("\nLogin Failed. <error> : " + bro.GetErrorCode());
+                Debug.LogError("\nLogin Failed. <error> : " + bro.GetMessage());
                 if (bro.GetErrorCode().Equals("BadUnauthorizedException"))
                 {
+                    Debug.LogError("Error occured. Destroy ID.");
                     Backend.BMember.DeleteGuestInfo();
                     Login();
                 }
@@ -136,8 +145,13 @@ public class SaveCtrl : MonoBehaviour
     /// </summary>
     public void SaveData()
     {
-        if (!Backend.IsInitialized) return;
-        string errorCode = null;
+        if (!Backend.IsInitialized)
+        {
+            Debug.LogError("The client not login yet.");
+            return;
+        }
+
+        string errorCode;
 
         Param param = new Param();
         SettingParam(param);
@@ -151,7 +165,12 @@ public class SaveCtrl : MonoBehaviour
     /// </summary>
     public void LoadData()
     {
-        if (!Backend.IsInitialized) return;
+        if (!Backend.IsInitialized)
+        {
+            Debug.LogError("The client not login yet.");
+            return;
+        }
+
         BackendReturnObject BRO = Backend.GameData.GetMyData("userData", new Where());
         if (BRO.IsSuccess())
         {
@@ -161,7 +180,7 @@ public class SaveCtrl : MonoBehaviour
         }
         else
         {
-            Debug.Log("UserData Load = " + BRO.GetMessage());
+            Debug.LogError("UserData Load Failed = " + BRO.GetMessage());
         }
     }
 
@@ -177,7 +196,7 @@ public class SaveCtrl : MonoBehaviour
         myData.data_inDate = BRO.GetInDate();
         myData.ID = Backend.BMember.GetGuestID();
 
-        string error = BRO.GetErrorCode();
+        string error = BRO.GetMessage();
         Debug.Log("public param save <error> : " + error);
 
         SaveData();
