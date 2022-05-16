@@ -9,7 +9,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField] GameObject gameData;
     [SerializeField] GameObject reel;
     [SerializeField] Slider tensionSlider;
-    [SerializeField] GameObject gameSceneManager;
+    [SerializeField] GameSceneManager gameSceneManager;
     [SerializeField] Slider fishHPbar;
     Animator reelAnimator;
 
@@ -20,7 +20,9 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     public Vector2 currentPos;
     public Fish fish;
+    public GameObject[] fishObjects;
     public int curFishHP;
+    public bool isCatch;
 
 
     // Start is called before the first frame update
@@ -33,6 +35,8 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         reelAnimator = reel.GetComponent<Animator>();
         reelAnimator.StartPlayback();
         reel.GetComponent<Transform>().position = new Vector3(1f, -3f, -6f);
+        for (int i = 0; i < fishObjects.Length; i++)
+            fishObjects[i].SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,7 +44,15 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     {
         tensionSlider.value -= 0.1f * Time.deltaTime;
 
-        fishHPbar.value = (float)curFishHP / (float)fish.hp;
+        if (fish != null)
+        {
+            fishHPbar.value = (float)curFishHP / (float)fish.hp;
+            if (!isCatch && curFishHP <= 0)
+            {
+                isCatch = true;
+                GetFish();
+            }
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData) {
@@ -56,8 +68,9 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         {
             tensionSlider.value += 0.05f;
             currentPos = zoomVec;
+            Debug.Log(curFishHP);
             
-            // 물고기 HP 감소 동작
+            // ����� HP ���� ����
             if (FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod] > fish.power) {
                 curFishHP -= (int)FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
             } else {
@@ -73,6 +86,18 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     public void GetFish()
     {
         int fishIndex = Fish.GetFishIndex(fish);
+        StartCoroutine(SetInit());
         SaveCtrl.instance.myData.fishNums[fishIndex]++;
+        fishObjects[fishIndex].SetActive(true);
+        SaveCtrl.instance.SaveData();
+    }
+
+    IEnumerator SetInit()
+    {
+        yield return new WaitForSeconds(3f);
+        gameSceneManager.initAll();
+        for (int i = 0; i < fishObjects.Length; i++)
+            fishObjects[i].SetActive(false);
+        isCatch = false;
     }
 }

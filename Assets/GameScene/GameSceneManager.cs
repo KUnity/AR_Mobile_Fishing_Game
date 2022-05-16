@@ -45,9 +45,8 @@ public class GameSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(stage){
+        switch (stage){
             case -1:
-                
                 break;
             case 0: // 던지기 감지
                 castingBtn.SetActive(false);
@@ -75,8 +74,8 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 2: // 훅킹 감지
                 gameData.isHooking = MotionBlur.CheckChamjil();
-                if(gameData.isHooking){
-                     // 잡힌 물고기 선택
+                if (gameData.isHooking){
+                    // 잡힌 물고기 선택
                     float[] percents = null;
                     itemType = Random.Range(0, Fish.typeNum);
                     switch (itemType)
@@ -93,8 +92,9 @@ public class GameSceneManager : MonoBehaviour
                             break;
                         }
                     }
-                    FindObjectOfType<GameAction>().fish = Fish.GetFish(itemType, itemCode);
-                    FindObjectOfType<GameAction>().curFishHP = Fish.GetFish(itemType, itemCode).hp;
+                    gameAction.fish = Fish.GetFish(itemType, itemCode);
+                    gameAction.curFishHP = Fish.GetFish(itemType, itemCode).hp;
+                    Debug.Log("HP : " + Fish.GetFish(itemType, itemCode).hp + " | " + itemType + " / " + itemCode);
 
                     stage = 3;
                 }
@@ -201,7 +201,7 @@ public class GameSceneManager : MonoBehaviour
     }
 
     //모든 값 초기화 후, 원래화면으로 돌아감
-    void initAll() {
+    public void initAll() {
         stage = -1;
         gameData.isCasted = false;
         gameData.isBited = false;
