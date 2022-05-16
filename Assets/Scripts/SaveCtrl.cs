@@ -125,7 +125,7 @@ public class SaveCtrl : MonoBehaviour
             Debug.Log("User ID :" + id);
             if (bro.IsSuccess())
             {
-                LoadData();
+                //LoadData();
             }
             else
             {

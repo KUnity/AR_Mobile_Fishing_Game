@@ -2249,8 +2249,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1819627135}
         m_TargetAssemblyTypeName: ManageFishDlg, Assembly-CSharp
-        m_MethodName: CloseDlg
-        m_Mode: 1
+        m_MethodName: SellFish
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3241,6 +3241,7 @@ MonoBehaviour:
   baitBtn: {fileID: 164249645}
   itemInfo: {fileID: 1161284815}
   slotParent: {fileID: 774809719}
+  onButton: {fileID: 1516057759}
   isRod: 1
 --- !u!1 &876013838
 GameObject:
@@ -3512,6 +3513,7 @@ MonoBehaviour:
   baitBtn: {fileID: 164249645}
   itemInfo: {fileID: 469754241}
   slotParent: {fileID: 208518017}
+  onButton: {fileID: 1152655220}
   isRod: 0
 --- !u!114 &958370348
 MonoBehaviour:

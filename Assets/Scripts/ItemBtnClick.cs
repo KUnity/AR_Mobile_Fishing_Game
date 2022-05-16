@@ -13,6 +13,8 @@ public class ItemBtnClick : MonoBehaviour
     public GameObject itemInfo;
     public GameObject slotParent;
 
+    public Button onButton;
+
     private GameObject slotPrefab;
     private GameObject newSelectedSlot, oldSelectedSlot;
 
@@ -39,6 +41,8 @@ public class ItemBtnClick : MonoBehaviour
         {
             InitBait();
         }
+        
+
     }
 
     public void OpenDlg()
@@ -66,6 +70,7 @@ public class ItemBtnClick : MonoBehaviour
                 Vector3 pos = slot.GetComponent<RectTransform>().anchoredPosition3D;
                 slot.GetComponent<RectTransform>().localPosition = new Vector3(pos.x,pos.y,1);
                 slot.transform.Find("Num").gameObject.SetActive(false);
+                slot.transform.GetComponent<Button>().onClick.AddListener(OnSlotClick);
                 Debug.Log(rodSprites[i]);
                 slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = rodSprites[i];
                 slot.GetComponent<RectTransform>().localScale = Vector3.one;
@@ -74,7 +79,6 @@ public class ItemBtnClick : MonoBehaviour
                 if (oldSelectedSlot == null)
                 {
                     oldSelectedSlot = slot;
-                    newSelectedSlot = slot;
                     oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipFishingRod);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
@@ -103,7 +107,7 @@ public class ItemBtnClick : MonoBehaviour
                 slot.GetComponent<RectTransform>().localPosition = new Vector3(pos.x,pos.y,1);
                 slot.GetComponent<RectTransform>().localScale = Vector3.one;
                 slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = baitSprites[i];
-
+                slot.transform.GetComponent<Button>().onClick.AddListener(OnSlotClick);
                 if( i !=0){
                     slot.transform.Find("Num").GetComponent<TextMeshProUGUI>().text = fishBaits[i].ToString();
                 }else{
@@ -157,10 +161,23 @@ public class ItemBtnClick : MonoBehaviour
             oldSelectedSlot = newSelectedSlot;
         }
         newSelectedSlot = EventSystem.current.currentSelectedGameObject;
-
+        
         // name, probablity, power, description 가져와서 item info창에 넣어주기 
         int itemCode = GetItemCodeFromName();
         SetItemInfo(newSelectedSlot,itemCode);
+        if(isRod){
+            if(itemCode == SaveCtrl.instance.myData.equipFishingRod)
+                onButton.enabled=false;
+            else
+                onButton.enabled=true;
+        }else{
+             if(itemCode == SaveCtrl.instance.myData.equipFishingRod)
+                onButton.enabled=false;
+            else
+                onButton.enabled=true;
+        }
+
+        Debug.Log(itemCode);
         showOutline();
     }
 
