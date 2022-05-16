@@ -24,7 +24,7 @@ public class FishingRob : Item
         "It's a fishing rod made of Carbon. So hard but, Slightly heavy",
         "It's a fishing rod made of Silver. So light but, not Strong",
         "It's a fishing rod made of Gold. So hard and light weighted",
-        "It's a fishing rod made of Diamond. If you get this, you can catch the legendary fish",
+        "Diamond Fishing rod can makes you catch the legendary fish",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5 };
     public static float[] probalility_datas = { 0.1f, 0.2f, 0.5f, 1f, 2f };
