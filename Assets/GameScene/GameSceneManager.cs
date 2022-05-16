@@ -102,6 +102,7 @@ public class GameSceneManager : MonoBehaviour
                 }
                 break;
             case 3: // 롤링
+                if (gameAction.isCatch) return;
                 subCamRect.SetActive(false);
                 HookingBtn.SetActive(false);
                 timeRect.SetActive(true);
@@ -226,6 +227,15 @@ public class GameSceneManager : MonoBehaviour
         gameAction.mainCirle.gameObject.SetActive(false);
         gameAction.pointCircle.gameObject.SetActive(false);
         bobber.GetComponent<Transform>().position = new Vector3(0, 2.0f, 1.0f);
+    }
+
+    public void SetUIGotFish()
+    {
+        tensionSlider.SetActive(false);
+        warningIMG.SetActive(false);
+        fishHPbar.SetActive(false);
+        gameAction.mainCirle.gameObject.SetActive(false);
+        gameAction.pointCircle.gameObject.SetActive(false);
     }
 
     // 챔질 동작 우선 버튼 대체

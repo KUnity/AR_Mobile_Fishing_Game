@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fish
 {
     public static int typeNum = 2;
+    public static int totalNum = 10;
     public static int[] fishNumAsType = { 5, 5 };
 
     public int itemCode;
