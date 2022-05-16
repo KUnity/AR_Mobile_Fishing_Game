@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Water mesh
+/[Aa]ssets/Low Poly Water/Plane Meshes/WaterSurface5x5W1H1.asset
