@@ -11,6 +11,7 @@ public class ManageFishDlg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 사용자가 가지고 있는 물고기 배치 
         // (transform.Find("DismissBtn").gameObject as Button).onClick.AddListener(CloseDlg);
     }
 
@@ -53,9 +54,13 @@ public class ManageFishDlg : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // public void SellFish(int gold){
-    //     SaveCtrl.instance.myData.gold += gold;
-    //     SaveCtrl.instance.SaveData();
-    // }
+    public void SellFish(int gold){
+        // 돈 추가 
+        SaveCtrl.instance.myData.gold += gold;
+
+        // 판 물고기 지워야함 
+        // 데이터 저장
+        SaveCtrl.instance.SaveData();
+    }
 
 }

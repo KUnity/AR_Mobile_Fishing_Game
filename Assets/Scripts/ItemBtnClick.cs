@@ -20,6 +20,8 @@ public class ItemBtnClick : MonoBehaviour
     private Sprite[] rodSprites;
     private Sprite[] baitSprites;
 
+    // private string RodSlotStr="RodSlot";
+    // private string BaitSlotStr="BaitSlot";
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +59,12 @@ public class ItemBtnClick : MonoBehaviour
             if (SaveCtrl.instance.myData.hasFishingRod[i])
             {
                 GameObject slot = Instantiate(slotPrefab);
-                slot.name = "RodSlot" + i; // Slot + 아이템 코드 
+                slot.name = "RodSlot " + i; // Slot +' '+  아이템 코드 
                 slot.transform.SetParent(slotParent.transform);
+
+                // z좌표 1로 설정
+                Vector3 pos = slot.GetComponent<RectTransform>().anchoredPosition3D;
+                slot.GetComponent<RectTransform>().localPosition = new Vector3(pos.x,pos.y,1);
                 slot.transform.Find("Num").gameObject.SetActive(false);
                 Debug.Log(rodSprites[i]);
                 slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = rodSprites[i];
@@ -68,6 +74,7 @@ public class ItemBtnClick : MonoBehaviour
                 if (oldSelectedSlot == null)
                 {
                     oldSelectedSlot = slot;
+                    newSelectedSlot = slot;
                     oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipFishingRod);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
@@ -88,8 +95,12 @@ public class ItemBtnClick : MonoBehaviour
             if ((i!=0 && fishBaits[i] > 0)|| i ==0)
             {
                 GameObject slot = Instantiate(slotPrefab);
-                slot.name = "BaitSlot" + i; // Slot + 아이템 코드 
+                slot.name = "BaitSlot " + i; // Slot +' '+ 아이템 코드 
                 slot.transform.SetParent(slotParent.transform);
+
+                // z좌표 1로 설정
+                Vector3 pos = slot.GetComponent<RectTransform>().anchoredPosition3D;
+                slot.GetComponent<RectTransform>().localPosition = new Vector3(pos.x,pos.y,1);
                 slot.GetComponent<RectTransform>().localScale = Vector3.one;
                 slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = baitSprites[i];
 
@@ -140,6 +151,7 @@ public class ItemBtnClick : MonoBehaviour
 
     public void OnSlotClick()
     {
+
         if (newSelectedSlot != null)
         {
             oldSelectedSlot = newSelectedSlot;
@@ -147,6 +159,8 @@ public class ItemBtnClick : MonoBehaviour
         newSelectedSlot = EventSystem.current.currentSelectedGameObject;
 
         // name, probablity, power, description 가져와서 item info창에 넣어주기 
+        int itemCode = GetItemCodeFromName();
+        SetItemInfo(newSelectedSlot,itemCode);
         showOutline();
     }
 
@@ -159,12 +173,28 @@ public class ItemBtnClick : MonoBehaviour
     }
 
     // 실제 착용하는 경우
-    public void onUseItemClick()
+    public void OnUseItemClick()
     {
-        // 체크 표시
-        newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
-        oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
+        int itemCode = GetItemCodeFromName();
 
+        // 서버데이터 수정 
+        if(isRod){
+            SaveCtrl.instance.myData.equipFishingRod = itemCode;
+        }else{
+            SaveCtrl.instance.myData.equipBaits = itemCode;
+        }
+        
+        SaveCtrl.instance.SaveData();
+        // 체크 표시
+        oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
+        newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
+
+    }
+
+    private int GetItemCodeFromName(){
+        string[] split_data = newSelectedSlot.name.Split(' ');
+        int itemCode =  int.Parse(split_data[1]);
+        return itemCode;
     }
 
 
