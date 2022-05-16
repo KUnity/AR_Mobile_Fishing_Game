@@ -171,13 +171,11 @@ public class ItemBtnClick : MonoBehaviour
             else
                 onButton.enabled=true;
         }else{
-             if(itemCode == SaveCtrl.instance.myData.equipFishingRod)
+             if(itemCode == SaveCtrl.instance.myData.equipBaits)
                 onButton.enabled=false;
             else
                 onButton.enabled=true;
         }
-
-        Debug.Log(itemCode);
         showOutline();
     }
 
@@ -202,6 +200,7 @@ public class ItemBtnClick : MonoBehaviour
         }
         
         SaveCtrl.instance.SaveData();
+        Debug.Log(SaveCtrl.instance.myData.equipBaits);
         // 체크 표시
         oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
         newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
