@@ -8,13 +8,18 @@ public class ManageFishDlg : MonoBehaviour
 {
 
     private int fishGold ;
-
+    private GameObject clickedFish;
+    private GameObject fishUI;
     public GameObject goldUI;
+    public GameObject FishUIContainer;
+
+    private GameObject[] normalFishUIs;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        // 사용자가 가지고 있는 물고기 배치 
-        // (transform.Find("DismissBtn").gameObject as Button).onClick.AddListener(CloseDlg);
+        normalFishUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/NormalFish/UI");
     }
 
 
@@ -47,6 +52,10 @@ public class ManageFishDlg : MonoBehaviour
         transform.Find("Description").GetComponent<Text>().text = info;
         transform.Find("GoldContainer").Find("GoldNum").GetComponent<Text>().text = goldStr;
 
+        // UI에 추가 
+        fishUI=Instantiate(normalFishUIs[Fish.GetFishIndex(itemType,itemCode)]);
+        fishUI.transform.SetParent(FishUIContainer.transform);
+        fishUI.transform.localPosition = Vector3.zero;
     }    
     
     public void OpenDlg(){
@@ -55,17 +64,26 @@ public class ManageFishDlg : MonoBehaviour
    
     public void CloseDlg(){
         gameObject.SetActive(false);
+        Destroy(fishUI,.1f);
     }
 
     public void SellFish(){
         // 돈 추가 
         SaveCtrl.instance.myData.gold += fishGold;
-        goldUI.GetComponent<Text>().text = SaveCtrl.instance.myData.gold;
+        goldUI.GetComponent<Text>().text = SaveCtrl.instance.myData.gold.ToString();
 
         // 판 물고기 지워야함 
-        SaveCtrl.instance.myData.fishNums[Fish.GetFishIndex(itemType, itemCode)];
+        int index = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
+        clickedFish.GetComponent<MoveFish>().RemoveFish();
+        SaveCtrl.instance.myData.fishNums[index]-=1;
+
         // 데이터 저장
         SaveCtrl.instance.SaveData();
+        CloseDlg();
+    }
+
+    public void GetClickedFish(GameObject obj){
+        clickedFish = obj;
     }
 
 }

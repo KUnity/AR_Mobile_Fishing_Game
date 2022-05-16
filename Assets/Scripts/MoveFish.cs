@@ -22,7 +22,7 @@ public class MoveFish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Random.InitState((int)(Time.time*100f));
+        // Random.InitState((int)(Time.time*100f));
         moveVector= Vector3.right * speed;
 
         dlgFish = GameObject.Find("Canvas").transform.Find("Dialog Fish").gameObject;
@@ -83,8 +83,12 @@ public class MoveFish : MonoBehaviour
             target = GetClickedObject();
 
             if(target!=null && target.Equals(gameObject)){
+                int itemType,itemCode;
+                int i = GetItemIndexFromName();
+                itemType = Fish.GetItemType(i,out itemCode);
                 fishDlgManager.OpenDlg();
-                fishDlgManager.SetItemInfo(0,1);
+                fishDlgManager.SetItemInfo(itemType,itemCode);
+                fishDlgManager.GetClickedFish(gameObject);
             }
 
         }
@@ -103,8 +107,15 @@ public class MoveFish : MonoBehaviour
     }
 
 
-  
+    public void RemoveFish(){
+        gameObject.SetActive(false);
+    }
 
+    public int GetItemIndexFromName(){
+        string[] split_data = gameObject.name.Split(' ');
+        int itemIndex =  int.Parse(split_data[1]);
+        return itemIndex;
+    }
 
 
 

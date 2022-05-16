@@ -8,12 +8,12 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI goldNum; 
+    public GameObject goldNum; 
     void Start()
     {
         //SaveCtrl.instance.ResetData(5);
         
-        goldNum.text = SaveCtrl.instance.myData.gold.ToString();
+        goldNum.GetComponent<Text>().text = SaveCtrl.instance.myData.gold.ToString();
 
         // 디버그용
         for (int i = 0; i < SaveCtrl.instance.myData.fishNums.Length; i++)

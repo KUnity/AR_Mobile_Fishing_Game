@@ -36,6 +36,8 @@ public class UserData
         fishBaits = new int[Bait.BaitNum];
         hasFishingRod = new bool[FishingRob.fishingRobNum];
         hasFishingRod[0] = true;
+        fishNums[0]=3;
+        fishNums[1]=2;
         gold = 50;
     }
 };

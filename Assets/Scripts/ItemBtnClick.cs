@@ -71,7 +71,7 @@ public class ItemBtnClick : MonoBehaviour
                 slot.GetComponent<RectTransform>().localPosition = new Vector3(pos.x,pos.y,1);
                 slot.transform.Find("Num").gameObject.SetActive(false);
                 slot.transform.GetComponent<Button>().onClick.AddListener(OnSlotClick);
-                Debug.Log(rodSprites[i]);
+                
                 slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = rodSprites[i];
                 slot.GetComponent<RectTransform>().localScale = Vector3.one;
 
@@ -200,7 +200,7 @@ public class ItemBtnClick : MonoBehaviour
         }
         
         SaveCtrl.instance.SaveData();
-        Debug.Log(SaveCtrl.instance.myData.equipBaits);
+
         // 체크 표시
         oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
         newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
