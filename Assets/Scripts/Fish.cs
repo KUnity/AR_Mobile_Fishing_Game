@@ -25,7 +25,6 @@ public class Fish
     /// </summary>
     /// <param name="_itemType">물고기 종류</param>
     /// <param name="_itemCode">물고기 코드</param>
-    /// <returns></returns>
     static public Fish GetFish(int _itemType, int _itemCode)
     {
         Fish fish = null;
@@ -43,7 +42,6 @@ public class Fish
     /// Fish에 해당하는 ItemType을 반환하는 함수 (실패 시, -1 반환)
     /// </summary>
     /// <param name="fish">물고기</param>
-    /// <returns></returns>
     static public int GetItemType(Fish fish)
     {
         int type = -1;
@@ -59,7 +57,6 @@ public class Fish
     /// </summary>
     /// <param name="_itemType">물고기 종류</param>
     /// <param name="_itemCode">물고기 코드</param>
-    /// <returns></returns>
     static public int GetFishIndex(int _itemType, int _itemCode)
     {
         int index = 0;
@@ -74,13 +71,43 @@ public class Fish
     /// Fish를 통해 FishIndex를 구하는 함수
     /// </summary>
     /// <param name="fish">물고기</param>
-    /// <returns></returns>
     static public int GetFishIndex(Fish fish)
     {
         int _itemType = GetItemType(fish);
         int _itemCode = fish.itemCode;
 
         return GetFishIndex(_itemType, _itemCode);
+    }
+
+    /// <summary>
+    /// SaveCtrl의 물고기 Index에 해당하는 Fish를 반환하는 함수 (실패 시, NULL 반환)
+    /// </summary>
+    /// <param name="fishIndex">SaveCtrl의 물고기 Index</param>
+    static public Fish GetFish(int fishIndex)
+    {
+        Fish fish;
+        int itemCode;
+        int itemType = GetItemType(fishIndex, out itemCode);
+        fish = GetFish(itemType, itemCode);
+
+        return fish;
+    }
+
+    /// <summary>
+    /// SaveCtrl의 물고기 Index에 해당하는 ItemType을 반환하는 함수 (fishCode를 받을 필요가 없다면 fishCode = null 선언)
+    /// </summary>
+    /// <param name="fishIndex">SaveCtrl의 물고기 Index</param>
+    /// <param name="fishCode">fishCode를 받을 out 변수</param>
+    static public int GetItemType(int fishIndex, out int fishCode)
+    {
+        int totalNum = fishIndex;
+        int itemType = 0;
+        
+        while(totalNum >= fishNumAsType[itemType])
+            totalNum -= fishNumAsType[itemType++];
+        fishCode = totalNum;
+
+        return itemType;
     }
 };
 
