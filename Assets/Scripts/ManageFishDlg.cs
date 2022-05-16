@@ -8,6 +8,8 @@ public class ManageFishDlg : MonoBehaviour
 {
 
     private int fishGold ;
+
+    public GameObject goldUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class ManageFishDlg : MonoBehaviour
 
     public void SetItemInfo(int itemType,int itemCode)
     {
-        string name = "", info = "", prob = "", power = "", gold="";
+        string name = "", info = "", prob = "", power = "", goldStr="";
 
         Fish fish = Fish.GetFish(itemType,itemCode);
         if(fish is NormalFish){
@@ -27,14 +29,15 @@ public class ManageFishDlg : MonoBehaviour
             prob = "Prob : " + NormalFish.probalilities[itemCode].ToString();
             power = "Power : " + NormalFish.powers[itemCode].ToString();
             info = NormalFish.infos[itemCode];
-            gold= NormalFish.golds[itemCode].ToString();
+            goldStr= NormalFish.golds[itemCode].ToString();
+            fishGold = NormalFish.golds[itemCode];
         }else if( fish is Shark) {
             // Shark shark = fish as Shark;
             name = Shark.names[itemCode];
             prob = "Prob : " + Shark.probalilities[itemCode].ToString();
             power = "Power : " + Shark.powers[itemCode].ToString();
             info = Shark.infos[itemCode];
-
+            goldStr = Shark.golds[itemCode].ToString();
             fishGold =  Shark.golds[itemCode];
         }
 
@@ -42,7 +45,7 @@ public class ManageFishDlg : MonoBehaviour
         transform.Find("Probability").GetComponent<Text>().text = prob;
         transform.Find("Power").GetComponent<Text>().text = power;
         transform.Find("Description").GetComponent<Text>().text = info;
-        transform.Find("GoldContainer").Find("GoldNum").GetComponent<Text>().text = gold.ToString();
+        transform.Find("GoldContainer").Find("GoldNum").GetComponent<Text>().text = goldStr;
 
     }    
     
@@ -54,11 +57,13 @@ public class ManageFishDlg : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SellFish(int gold){
+    public void SellFish(){
         // 돈 추가 
-        SaveCtrl.instance.myData.gold += gold;
+        SaveCtrl.instance.myData.gold += fishGold;
+        goldUI.GetComponent<Text>().text = SaveCtrl.instance.myData.gold;
 
         // 판 물고기 지워야함 
+        SaveCtrl.instance.myData.fishNums[Fish.GetFishIndex(itemType, itemCode)];
         // 데이터 저장
         SaveCtrl.instance.SaveData();
     }

@@ -2250,7 +2250,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1819627135}
         m_TargetAssemblyTypeName: ManageFishDlg, Assembly-CSharp
         m_MethodName: SellFish
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
