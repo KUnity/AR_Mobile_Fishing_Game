@@ -18,28 +18,28 @@ public class equipScript : MonoBehaviour
         switch (SaveCtrl.instance.myData.equipBaits)
         {
             case -1:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("None");
+                imageBait.sprite = atlasBait.GetSprite("None");
                 break;
             case 0:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_1_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_1_0");
                 break;
             case 1:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_2_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_2_0");
                 break;
             case 2:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_3_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_3_0");
                 break;
             case 3:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_4_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_4_0");
                 break;
             case 4:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_5_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_5_0");
                 break;
             case 5:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_6_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_6_0");
                 break;
             case 6:
-                imageFishingRod.sprite = atlasFishingRod.GetSprite("bait_7_0");
+                imageBait.sprite = atlasBait.GetSprite("bait_7_0");
                 break;
         }
         switch (SaveCtrl.instance.myData.equipFishingRod)
