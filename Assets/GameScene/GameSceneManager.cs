@@ -29,8 +29,10 @@ public class GameSceneManager : MonoBehaviour
     public GameObject timeRect;
     public Text timeText;
     public GameObject HookingBtn;
-    
-    
+    public GameObject menuSet;
+    public GameObject EquipmentSet;
+
+
     public int stage;
 
 
@@ -216,6 +218,8 @@ public class GameSceneManager : MonoBehaviour
         castingBtn.SetActive(true);
         timeRect.SetActive(false);
         reelRect.SetActive(false);
+        menuSet.SetActive(true);
+        EquipmentSet.SetActive(true);
         tensionSlider.SetActive(false);
         warningIMG.SetActive(false);
         fishHPbar.SetActive(false);

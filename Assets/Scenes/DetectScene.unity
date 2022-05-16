@@ -6053,6 +6053,8 @@ MonoBehaviour:
   timeRect: {fileID: 915271813}
   timeText: {fileID: 1935612761}
   HookingBtn: {fileID: 64359480}
+  menuSet: {fileID: 1290511098}
+  EquipmentSet: {fileID: 1764871098}
   stage: -1
 --- !u!4 &1178856646
 Transform:
