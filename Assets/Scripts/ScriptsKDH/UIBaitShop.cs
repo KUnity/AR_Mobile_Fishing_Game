@@ -29,7 +29,7 @@ public class UIBaitShop: MonoBehaviour
             {
                 if (SaveCtrl.instance.myData.gold < iPrice)
                 {
-                    Debug.Log("蹂댁쑀 怨⑤뱶媛 遺議깊빀?덈떎.");
+                    Debug.Log("골드가 부족합니다.");
                 }
                 else
                 {
