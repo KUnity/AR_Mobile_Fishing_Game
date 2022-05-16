@@ -60,6 +60,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     }
 
     public void OnDrag(PointerEventData eventData) {
+        if (isCatch) return;
         Vector2 zoomVec = (eventData.position - (Vector2)mainCirle.position) / canvas.transform.localScale.x;
         zoomVec = Vector2.ClampMagnitude(zoomVec * 100, radius);
         pointCircle.localPosition = zoomVec;
@@ -89,11 +90,13 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         StartCoroutine(SetInit());
         SaveCtrl.instance.myData.fishNums[fishIndex]++;
         fishObjects[fishIndex].SetActive(true);
+        Debug.Log(SaveCtrl.instance.myData.fishNums[fishIndex]);
         SaveCtrl.instance.SaveData();
     }
 
     IEnumerator SetInit()
     {
+        gameSceneManager.SetUIGotFish();
         yield return new WaitForSeconds(3f);
         gameSceneManager.initAll();
         for (int i = 0; i < fishObjects.Length; i++)

@@ -32,10 +32,11 @@ public class UserData
 
     public UserData()
     {
-        fishNums = new int[5];
-        fishBaits = new int[7];
-        hasFishingRod = new bool[5];
+        fishNums = new int[Fish.totalNum];
+        fishBaits = new int[Bait.BaitNum];
+        hasFishingRod = new bool[FishingRob.fishingRobNum];
         hasFishingRod[0] = true;
+        gold = 50;
     }
 };
 
