@@ -12,7 +12,7 @@ public class MoveFish : MonoBehaviour
     float topLimit, bottomLimit;
     public float offset = 0.8f;
     public float zInterval=10; // 물고기가 나타날 수 있는 앞 뒤 간격 
-    public float speed=1;
+    public float speed=50;
     private Vector3 moveVector;
     private GameObject waterWall;
     private GameObject target;
@@ -26,7 +26,7 @@ public class MoveFish : MonoBehaviour
         moveVector= Vector3.right * speed;
 
         dlgFish = GameObject.Find("Canvas").transform.Find("Dialog Fish").gameObject;
-        Debug.Log(dlgFish);
+
         fishDlgManager =  dlgFish.GetComponent<ManageFishDlg>();
         InitLimitCoords(); // 물고기 움직이는 범위 제한
         InitObjectPosition(); // 물고기 초기 위치 설정
