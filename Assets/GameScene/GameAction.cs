@@ -24,11 +24,13 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     public int curFishHP;
     public bool isCatch;
 
+    public float userTotalPower; // 유저의 총 파워량
+    public float userTotalPercentUp; // 유저의 총 확률업
 
     // Start is called before the first frame update
     void Start()
     {
-        radius = mainCirle.rect.width * 0.35f;
+        radius = mainCirle.rect.width * 0.4f;
         mainCirle.gameObject.SetActive(false);
         pointCircle.gameObject.SetActive(false);
 
@@ -37,6 +39,23 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         reel.GetComponent<Transform>().position = new Vector3(1f, -3f, -6f);
         for (int i = 0; i < fishObjects.Length; i++)
             fishObjects[i].SetActive(false);
+
+        // 총 데미지, 확률 계산
+        userTotalPower = FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
+        userTotalPercentUp = Bait.probalility_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.probalility_datas[SaveCtrl.instance.myData.equipFishingRod];
+        for(int i = 0; i < Fish.typeNum; i++) {
+            for(int j = 0; j < Fish.totalNum / Fish.typeNum; j++) {
+                if (SaveCtrl.instance.myData.fishNums[i*5 + j] > 0)
+                {
+                    Fish fish = Fish.GetFish(i, j);
+                    userTotalPower += fish.collection_powerup;
+                    userTotalPercentUp += fish.collection_percentup;
+                }
+            }
+        }
+        Debug.Log(string.Format("user total power : {0}", userTotalPower));
+        Debug.Log(string.Format("user total percentUp : {0:F0} %", userTotalPercentUp * 100f));
+        
     }
 
     // Update is called once per frame
@@ -72,8 +91,8 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
             Debug.Log(curFishHP);
             
             // ����� HP ���� ����
-            if (FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod] > fish.power) {
-                curFishHP -= (int)FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
+            if (userTotalPower - fish.power > 1) {
+                curFishHP -= (int)(userTotalPower - fish.power);
             } else {
                 curFishHP -= 1;
             }
@@ -102,5 +121,6 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         for (int i = 0; i < fishObjects.Length; i++)
             fishObjects[i].SetActive(false);
         isCatch = false;
+        pointCircle.localPosition = Vector2.zero;
     }
 }

@@ -13,12 +13,14 @@ public class CollectIncText : MonoBehaviour
     void Start()
     {
         for(int i = 0; i < fishes.Length; i++) {
-            CollectFishData curFishData = fishes[i].GetComponent<CollectFishData>();
-            totalPowerUp += curFishData.powerUp;
-            totalProbUp += curFishData.probUp;
+            if(SaveCtrl.instance.myData.fishNums[i] > 0) {
+                CollectFishData curFishData = fishes[i].GetComponent<CollectFishData>();
+                totalPowerUp += curFishData.powerUp;
+                totalProbUp += curFishData.probUp;
+            }
         }
 
-        incrementText.text = string.Format("총 파워 업 : +{0:F1}\n총 확률 업 : +{1:F1}", totalPowerUp, totalProbUp);
+        incrementText.text = string.Format("총 파워 업 : +{0:F2}\n총 확률 업 : +{1:F0} %", totalPowerUp, totalProbUp * 100f);
     }
 
     // Update is called once per frame

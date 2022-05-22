@@ -11,7 +11,7 @@ using System.Text;
 public class UserData
 {
     /// <summary> User Data InDate </summary>
-    public string data_inDate;
+    public string public_inDate, private_inDate;
     /// <summary> User ID </summary>
     public string ID;
     /// <summary> User 돈</summary>
@@ -26,8 +26,11 @@ public class UserData
     public int equipBaits;
     /// <summary> User가 현재 장착 중인 낚시대</summary>
     public int equipFishingRod;
+    /// <summary> User가 도감에 등록한 물고기 </summary>
+    public bool[] fish_collections;
+    /// <summary>  /// </summary>
+    public int rank_score;
     /// <summary> User의 현재 등수</summary>
-    [Obsolete] // 2차 구현에서 사용될 변수
     public int rank;
 
     public UserData()
@@ -35,6 +38,7 @@ public class UserData
         fishNums = new int[Fish.totalNum];
         fishBaits = new int[Bait.BaitNum];
         hasFishingRod = new bool[FishingRob.fishingRobNum];
+        fish_collections = new bool[Fish.totalNum];
         hasFishingRod[0] = true;
         fishNums[0]=3;
         fishNums[1]=2;
@@ -42,15 +46,36 @@ public class UserData
         fishNums[8] = 2;
         gold = 50;
     }
+
+    /// <summary>
+    /// 도감의 정보를 기반으로 Score를 계산하여 반환하는 함수
+    /// </summary>
+    public int GetRankScore()
+    {
+        int score = 0;
+        Fish fish;
+
+        for (int i = 0; i < fish_collections.Length; i++)
+        {
+            if (fish_collections[i]) 
+            {
+                fish = Fish.GetFish(i);
+                score += SaveCtrl.instance.scoreAsQuality[fish.quality];
+            }
+        }
+
+        return score;
+    }
 };
 
 public class SaveCtrl : MonoBehaviour
 {
     public static SaveCtrl instance = null;
+    private readonly string rank_uuid = "3d41f510-d995-11ec-a5ca-df7f97b8d87a";
+    public readonly int[] scoreAsQuality = { 1, 10, 100, 1000, 10000 };
 
-    public UserData myData;
-    [Obsolete] // 2차 구현에서 사용될 변수
-    public List<UserData> userDatas = new List<UserData>();
+    public UserData myData; // 플레이어 데이터
+    public List<UserData> userDatas = new List<UserData>(); // 다른 유저 데이터 (Index = Rank - 1)
     public List<FishingRob> fishingRobs = new List<FishingRob>();
     public List<Bait> baits = new List<Bait>();
     public List<Shark> sharks = new List<Shark>();
@@ -102,6 +127,12 @@ public class SaveCtrl : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        SaveData();
+        Application.Quit();
+    }
+
     /// <summary>
     /// 로그인 함수
     /// </summary>
@@ -118,7 +149,7 @@ public class SaveCtrl : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Login Failed : " + bro.GetMessage());
+                Debug.Log("Login Failed : " + bro.GetMessage());
             }
         }
         else
@@ -129,14 +160,14 @@ public class SaveCtrl : MonoBehaviour
             Debug.Log("User ID :" + id);
             if (bro.IsSuccess())
             {
-                //LoadData();
+                LoadData();
             }
             else
             {
-                Debug.LogError("\nLogin Failed. <error> : " + bro.GetMessage());
+                Debug.Log("\nLogin Failed. <error> : " + bro.GetMessage());
                 if (bro.GetErrorCode().Equals("BadUnauthorizedException"))
                 {
-                    Debug.LogError("Error occured. Destroy ID.");
+                    Debug.Log("Error occured. Destroy ID.");
                     Backend.BMember.DeleteGuestInfo();
                     Login();
                 }
@@ -156,13 +187,25 @@ public class SaveCtrl : MonoBehaviour
             return;
         }
 
-        string errorCode;
-
+        myData.rank_score = myData.GetRankScore();
         Param param = new Param();
-        SettingParam(param);
+        SettingPublicParam(param);
+        BackendReturnObject BRO = Backend.GameData.Update("userData_public", myData.public_inDate, param);
+        if (!BRO.IsSuccess())
+            Debug.LogError("Private data save failed = " + BRO.GetMessage());
 
-        errorCode = Backend.GameData.Update("userData", myData.data_inDate, param).GetErrorCode();
-        Debug.Log("UserData Save = " + errorCode);
+        param = new Param();
+        SettingPrivateParam(param);
+        BRO = Backend.GameData.Update("userData_private", myData.private_inDate, param);
+        if (!BRO.IsSuccess())
+            Debug.LogError("Private data save failed = " + BRO.GetMessage());
+
+        // 랭킹 등록
+        param = new Param();
+        param.Add("rank_score", myData.rank_score);
+        BRO = Backend.URank.User.UpdateUserScore(rank_uuid, "userData_private", myData.private_inDate, param);
+        if (!BRO.IsSuccess())
+            Debug.LogError("Rank update failed. <error> : " + BRO.GetMessage());
     }
 
     /// <summary>
@@ -170,22 +213,35 @@ public class SaveCtrl : MonoBehaviour
     /// </summary>
     public void LoadData()
     {
+        // 로그인 상태 체크
         if (!Backend.IsInitialized)
         {
             Debug.LogError("The client not login yet.");
             return;
         }
 
-        BackendReturnObject BRO = Backend.GameData.GetMyData("userData", new Where());
+        // Public Data Load
+        BackendReturnObject BRO = Backend.GameData.GetMyData("userData_public", new Where());
         if (BRO.IsSuccess())
         {
-            Debug.Log("User Data Load Success.");
-            JsonData json2 = BRO.GetReturnValuetoJSON()["rows"][0];
-            DataParsing(json2);
+            JsonData json = BRO.GetReturnValuetoJSON()["rows"][0];
+            PublicDataParsing(json);
         }
         else
         {
-            Debug.LogError("UserData Load Failed = " + BRO.GetMessage());
+            Debug.LogError("Public data load failed = " + BRO.GetMessage());
+        }
+
+        // Private Data Load
+        BRO = Backend.GameData.GetMyData("userData_private", new Where());
+        if (BRO.IsSuccess())
+        {
+            JsonData json = BRO.GetReturnValuetoJSON()["rows"][0];
+            PrivateDataParsing(json);
+        }
+        else
+        {
+            Debug.LogError("Private data load failed = " + BRO.GetMessage());
         }
     }
 
@@ -194,26 +250,42 @@ public class SaveCtrl : MonoBehaviour
     /// </summary>
     private void InsertData()
     {
+        // Public Data Setting
         Param param = new Param();
-        SettingParam(param);
+        SettingPublicParam(param);
+        BackendReturnObject BRO = Backend.GameData.Insert("userData_public", param);
+        myData.public_inDate = BRO.GetInDate();
+        if(!BRO.IsSuccess())
+            Debug.LogError("Public param save failed. <error> : " + BRO.GetMessage());
 
-        BackendReturnObject BRO = Backend.GameData.Insert("userData", param);
-        myData.data_inDate = BRO.GetInDate();
+        // Private Data Setting
+        param = new Param();
+        SettingPrivateParam(param);
+        BRO = Backend.GameData.Insert("userData_private", param);
+        myData.private_inDate = BRO.GetInDate();
+        if (!BRO.IsSuccess())
+            Debug.LogError("Private param save failed. <error> : " + BRO.GetMessage());
+
         myData.ID = Backend.BMember.GetGuestID();
 
-        string error = BRO.GetMessage();
-        Debug.Log("public param save <error> : " + error);
+        // 랭킹 등록
+        param = new Param();
+        param.Add("rank_score", myData.rank_score);
+        BRO = Backend.URank.User.UpdateUserScore(rank_uuid, "userData_private", myData.private_inDate, param);
+        if (!BRO.IsSuccess())
+            Debug.LogError("Rank update failed. <error> : " + BRO.GetMessage());
 
         SaveData();
     }
 
     /// <summary>
-    /// param을 설정하는 함수
+    /// Public param을 설정하는 함수
     /// </summary>
     /// <param name="param">서버에 전달될 Parameter</param>
-    private void SettingParam(Param param)
+    private void SettingPublicParam(Param param)
     {
-        param.Add("data_inDate", myData.data_inDate);
+        param.Add("public_inDate", myData.public_inDate);
+        param.Add("private_inDate", myData.private_inDate);
         param.Add("ID", myData.ID);
         param.Add("gold", myData.gold);
         param.Add("fishNums", myData.fishNums);
@@ -221,15 +293,27 @@ public class SaveCtrl : MonoBehaviour
         param.Add("hasFishingRod", myData.hasFishingRod);
         param.Add("equipFishingRod", myData.equipFishingRod);
         param.Add("equipBaits", myData.equipBaits);
+        param.Add("fish_collections", myData.fish_collections);
     }
 
     /// <summary>
-    /// 서버로부터 불러온 JsonData를 UserData로 Parsing하는 함수
+    /// Private param을 설정하는 함수
+    /// </summary>
+    /// <param name="param">서버에 전달될 Parameter</param>
+    private void SettingPrivateParam(Param param)
+    {
+        param.Add("rank_score", myData.rank_score);
+        param.Add("rank", myData.rank);
+    }
+
+    /// <summary>
+    /// 서버로부터 불러온 Public Data를 UserData로 Parsing하는 함수
     /// </summary>
     /// <param name="json">서버에서 받아온 JsonData</param>
-    private void DataParsing(JsonData json)
+    private void PublicDataParsing(JsonData json)
     {
-        myData.data_inDate = json["data_inDate"][0].ToString();
+        myData.public_inDate = json["public_inDate"][0].ToString();
+        myData.private_inDate = json["private_inDate"][0].ToString();
         myData.ID = json["ID"][0].ToString();
         myData.gold = long.Parse(json["gold"][0].ToString());
         for (int i = 0; i < json["fishNums"]["L"].Count; i++)
@@ -240,6 +324,18 @@ public class SaveCtrl : MonoBehaviour
             myData.hasFishingRod[i] = bool.Parse(json["hasFishingRod"]["L"][i][0].ToString());
         myData.equipFishingRod = int.Parse(json["equipFishingRod"][0].ToString());
         myData.equipBaits = int.Parse(json["equipBaits"][0].ToString());
+        for (int i = 0; i < json["fish_collections"]["L"].Count; i++)
+            myData.fish_collections[i] = bool.Parse(json["fish_collections"]["L"][i][0].ToString());
+    }
+
+    /// <summary>
+    /// 서버로부터 불러온 Private Data를 UserData로 Parsing하는 함수
+    /// </summary>
+    /// <param name="json">서버에서 받아온 JsonData</param>
+    private void PrivateDataParsing(JsonData json)
+    {
+        myData.rank_score = int.Parse(json["rank_score"][0].ToString());
+        myData.rank = int.Parse(json["rank"][0].ToString());
     }
 
     /// <summary>
