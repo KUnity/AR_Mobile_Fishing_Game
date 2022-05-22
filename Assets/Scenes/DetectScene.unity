@@ -1828,6 +1828,8 @@ MonoBehaviour:
   - {fileID: 1098116185}
   curFishHP: 0
   isCatch: 0
+  userTotalPower: 0
+  userTotalPercentUp: 0
 --- !u!222 &437214090
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3298,6 +3300,8 @@ MonoBehaviour:
   fishObjects: []
   curFishHP: 0
   isCatch: 0
+  userTotalPower: 0
+  userTotalPercentUp: 0
 --- !u!114 &693838627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6025,6 +6029,7 @@ MonoBehaviour:
   menuSet: {fileID: 1290511098}
   EquipmentSet: {fileID: 1764871098}
   stage: -1
+  userTotalPercent: 0
 --- !u!4 &1178856646
 Transform:
   m_ObjectHideFlags: 0
@@ -8637,6 +8642,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93f86a74fadca43c09f1dc6930d3be0f, type: 3}
   m_PrefabInstance: {fileID: 769067376}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2068726779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068726781}
+  - component: {fileID: 2068726780}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068726780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068726779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da92546061569304496e53e371aa36c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 4765369
+  _iOSGameId: 4765368
+  _testMode: 1
+  interstitialAds: {fileID: 0}
+--- !u!4 &2068726781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068726779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 252.861, y: 139.87723, z: 1.7825317}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2107966238
 GameObject:
   m_ObjectHideFlags: 0
