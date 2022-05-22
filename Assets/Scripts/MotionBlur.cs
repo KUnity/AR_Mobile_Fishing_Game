@@ -5,7 +5,7 @@ using TMPro;
 
 public class MotionBlur : MonoBehaviour
 {
-    private static float throwForce = 5.5f;
+    private static float throwForce = 5.0f;
     private static float chamjilForce = 3.0f;
 
     /// <summary>

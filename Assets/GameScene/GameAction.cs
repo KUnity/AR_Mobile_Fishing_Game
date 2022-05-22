@@ -30,7 +30,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     // Start is called before the first frame update
     void Start()
     {
-        radius = mainCirle.rect.width * 0.35f;
+        radius = mainCirle.rect.width * 0.4f;
         mainCirle.gameObject.SetActive(false);
         pointCircle.gameObject.SetActive(false);
 
@@ -121,5 +121,6 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         for (int i = 0; i < fishObjects.Length; i++)
             fishObjects[i].SetActive(false);
         isCatch = false;
+        pointCircle.localPosition = Vector2.zero;
     }
 }

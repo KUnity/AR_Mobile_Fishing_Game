@@ -22,9 +22,7 @@ public class Fish
     public float collection_powerup;
     public float collection_percentup;
 
-    /// <summary>
-    /// 인자에 해당하는 Fish Class를 반환하는 함수 (실패 시, NULL 반환)
-    /// </summary>
+    /// <summary> 인자에 해당하는 Fish Class를 반환하는 함수 (실패 시, NULL 반환) </summary>
     /// <param name="_itemType">물고기 종류</param>
     /// <param name="_itemCode">물고기 코드</param>
     static public Fish GetFish(int _itemType, int _itemCode)
@@ -40,9 +38,7 @@ public class Fish
         return fish;
     }
 
-    /// <summary>
-    /// Fish에 해당하는 ItemType을 반환하는 함수 (실패 시, -1 반환)
-    /// </summary>
+    /// <summary> Fish에 해당하는 ItemType을 반환하는 함수 (실패 시, -1 반환) </summary>
     /// <param name="fish">물고기</param>
     static public int GetItemType(Fish fish)
     {
@@ -54,9 +50,7 @@ public class Fish
         return type;
     }
 
-    /// <summary>
-    /// Type & Code를 통해 FishIndex를 구하는 함수
-    /// </summary>
+    /// <summary> Type & Code를 통해 FishIndex를 구하는 함수 </summary>
     /// <param name="_itemType">물고기 종류</param>
     /// <param name="_itemCode">물고기 코드</param>
     static public int GetFishIndex(int _itemType, int _itemCode)
@@ -69,9 +63,7 @@ public class Fish
         return index;
     }
 
-    /// <summary>
-    /// Fish를 통해 FishIndex를 구하는 함수
-    /// </summary>
+    /// <summary> Fish를 통해 FishIndex를 구하는 함수 </summary>
     /// <param name="fish">물고기</param>
     static public int GetFishIndex(Fish fish)
     {
@@ -81,9 +73,7 @@ public class Fish
         return GetFishIndex(_itemType, _itemCode);
     }
 
-    /// <summary>
-    /// SaveCtrl의 물고기 Index에 해당하는 Fish를 반환하는 함수 (실패 시, NULL 반환)
-    /// </summary>
+    /// <summary> SaveCtrl의 물고기 Index에 해당하는 Fish를 반환하는 함수 (실패 시, NULL 반환) </summary>
     /// <param name="fishIndex">SaveCtrl의 물고기 Index</param>
     static public Fish GetFish(int fishIndex)
     {
@@ -95,9 +85,7 @@ public class Fish
         return fish;
     }
 
-    /// <summary>
-    /// SaveCtrl의 물고기 Index에 해당하는 ItemType을 반환하는 함수 (fishCode를 받을 필요가 없다면 fishCode = null 선언)
-    /// </summary>
+    /// <summary> SaveCtrl의 물고기 Index에 해당하는 ItemType을 반환하는 함수 (fishCode를 받을 필요가 없다면 fishCode = null 선언) </summary>
     /// <param name="fishIndex">SaveCtrl의 물고기 Index</param>
     /// <param name="fishCode">fishCode를 받을 out 변수</param>
     static public int GetItemType(int fishIndex, out int fishCode)
