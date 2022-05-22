@@ -19,6 +19,8 @@ public class Fish
     public float height; // (크기 - 높이)
     public string name;
     public string info;
+    public float collection_powerup;
+    public float collection_percentup;
 
     /// <summary>
     /// 인자에 해당하는 Fish Class를 반환하는 함수 (실패 시, NULL 반환)
@@ -134,6 +136,9 @@ public class Shark : Fish
     };
     public static int totalNum = 5;
 
+    public static float[] collection_powerups = {10f, 20f, 40f, 80f, 200f};
+    public static float[] collection_percentups = {0.1f, 0.2f, 0.4f, 1f, 2f};
+
     public Shark(int _itemCode)
     {
         itemCode = _itemCode;
@@ -147,6 +152,8 @@ public class Shark : Fish
         height = heights[itemCode];
         name = names[itemCode];
         info = infos[itemCode];
+        collection_powerup = collection_powerups[itemCode];
+        collection_percentup = collection_percentups[itemCode];
     }
 };
 
@@ -171,6 +178,9 @@ public class NormalFish : Fish
     };
     public static int totalNum = 5;
 
+    public static float[] collection_powerups = {5f, 10f, 20f, 40f, 80f};
+    public static float[] collection_percentups = {0.05f, 0.1f, 0.2f, 0.4f, 1f};
+
     public NormalFish(int _itemCode)
     {
         itemCode = _itemCode;
@@ -184,5 +194,7 @@ public class NormalFish : Fish
         height = heights[itemCode];
         name = names[itemCode];
         info = infos[itemCode];
+        collection_powerup = collection_powerups[itemCode];
+        collection_percentup = collection_percentups[itemCode];
     }
 };

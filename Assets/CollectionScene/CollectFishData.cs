@@ -13,8 +13,8 @@ public class CollectFishData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUpText.text = string.Format("파워 업 : +{0:F1}", powerUp);
-        probUpText.text = string.Format("확률 업 : +{0:F1}%", probUp);
+        powerUpText.text = string.Format("파워 업 : +{0:F2}", powerUp);
+        probUpText.text = string.Format("확률 업 : +{0:F0}%", probUp * 100f);
     }
 
     // Update is called once per frame

@@ -35,6 +35,8 @@ public class GameSceneManager : MonoBehaviour
 
     public int stage;
 
+    public float userTotalPercent; // 유저의 총 잡히는 물고기 확률업 수치
+
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +90,7 @@ public class GameSceneManager : MonoBehaviour
 
                     for (int i = percents.Length - 1; i >= 0; i--)
                     {
-                        if (GetRandFlag(percents[i] * (1f + Bait.probalility_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.probalility_datas[SaveCtrl.instance.myData.equipFishingRod])))
+                        if (GetRandFlag(percents[i] * (1f + gameAction.userTotalPercentUp)))
                         {
                             itemCode = i;
                             break;
@@ -101,7 +103,7 @@ public class GameSceneManager : MonoBehaviour
                     stage = 3;
                 }
                 break;
-            case 3: // 롤링
+            case 3: // 릴링
                 if (gameAction.isCatch) return;
                 subCamRect.SetActive(false);
                 HookingBtn.SetActive(false);
