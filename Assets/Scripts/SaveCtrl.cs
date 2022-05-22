@@ -38,6 +38,8 @@ public class UserData
         hasFishingRod[0] = true;
         fishNums[0]=3;
         fishNums[1]=2;
+        fishNums[7] = 1;
+        fishNums[8] = 2;
         gold = 50;
     }
 };
