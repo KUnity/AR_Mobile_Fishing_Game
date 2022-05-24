@@ -17,6 +17,7 @@ public class ItemBtnClick : MonoBehaviour
 
     private GameObject slotPrefab;
     private GameObject newSelectedSlot, oldSelectedSlot;
+    private GameObject equippedSlot;
 
     public bool isRod;
     private Sprite[] rodSprites;
@@ -82,6 +83,7 @@ public class ItemBtnClick : MonoBehaviour
                     oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipFishingRod);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
+                    equippedSlot = slot;
                 }
             }
         }
@@ -121,6 +123,7 @@ public class ItemBtnClick : MonoBehaviour
                     oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
                     SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipBaits);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
+                    equippedSlot = slot;
                 }
             }
         }
@@ -155,27 +158,19 @@ public class ItemBtnClick : MonoBehaviour
 
     public void OnSlotClick()
     {
-
+       
         if (newSelectedSlot != null)
-        {
             oldSelectedSlot = newSelectedSlot;
-        }
+        
+        // 클릭된 슬롯 - new slot으로 할당 
         newSelectedSlot = EventSystem.current.currentSelectedGameObject;
+
+        if(newSelectedSlot.Equals(oldSelectedSlot)) 
+            return;
         
         // name, probablity, power, description 가져와서 item info창에 넣어주기 
         int itemCode = GetItemCodeFromName();
         SetItemInfo(newSelectedSlot,itemCode);
-        if(isRod){
-            if(itemCode == SaveCtrl.instance.myData.equipFishingRod)
-                onButton.enabled=false;
-            else
-                onButton.enabled=true;
-        }else{
-             if(itemCode == SaveCtrl.instance.myData.equipBaits)
-                onButton.enabled=false;
-            else
-                onButton.enabled=true;
-        }
         showOutline();
     }
 
@@ -184,13 +179,20 @@ public class ItemBtnClick : MonoBehaviour
         // 테두리 보이게 
         newSelectedSlot.GetComponent<Outline>().enabled = true;
         oldSelectedSlot.GetComponent<Outline>().enabled = false;
-
     }
 
     // 실제 착용하는 경우
     public void OnUseItemClick()
     {
+        if (newSelectedSlot == null || newSelectedSlot.Equals(equippedSlot))
+            return;
+
         int itemCode = GetItemCodeFromName();
+
+        // 체크 표시
+        equippedSlot.transform.Find("Check").gameObject.SetActive(false);
+        newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
+        equippedSlot = newSelectedSlot;
 
         // 서버데이터 수정 
         if(isRod){
@@ -201,9 +203,7 @@ public class ItemBtnClick : MonoBehaviour
         
         SaveCtrl.instance.SaveData();
 
-        // 체크 표시
-        oldSelectedSlot.transform.Find("Check").gameObject.SetActive(false);
-        newSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
+     
 
     }
 

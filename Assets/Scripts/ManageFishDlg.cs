@@ -18,7 +18,7 @@ public class ManageFishDlg : MonoBehaviour
 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         normalFishUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/NormalFish/UI");
         sharkUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/Shark/UI");
@@ -27,6 +27,14 @@ public class ManageFishDlg : MonoBehaviour
 
     public void SetItemInfo(int itemType,int itemCode)
     {
+        
+        if(fishUI!=null){
+            Destroy(fishUI);
+        }
+
+        Debug.Log(itemType);
+        Debug.Log(itemCode);
+        
         string name = "", info = "", prob = "", power = "", goldStr="";
 
         Fish fish = Fish.GetFish(itemType,itemCode);
@@ -56,9 +64,6 @@ public class ManageFishDlg : MonoBehaviour
         transform.Find("Description").GetComponent<Text>().text = info;
         transform.Find("GoldContainer").Find("GoldNum").GetComponent<Text>().text = goldStr;
 
-        if(fishUI!=null){
-            Destroy(fishUI);
-        }
         // UI에 추가 
         if(itemType ==0){
             fishUI=Instantiate(normalFishUIs[itemCode]);
