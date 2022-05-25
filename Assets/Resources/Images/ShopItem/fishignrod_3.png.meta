@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 153d03321b8d70741a629ab629e48377
+guid: d8f1b6b110ed2db4492f7f2749c3b2cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fishignrod_1_0
+      name: fishignrod_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec77957b70cba444da24ecf5a0a8c5f7
-      internalID: -644347814
+      spriteID: a00d2d01603699e49ba63a513d9cd26c
+      internalID: -876898310
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fa381e04334de8645ae86c0db8f1ed22
+    spriteID: d3e10132fa6940c458eee1fd604abb89
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fishignrod_1_0: -644347814
+      fishignrod_3_0: -876898310
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
