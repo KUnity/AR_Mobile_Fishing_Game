@@ -9,6 +9,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     private string _gameId;
 
     [SerializeField] InterstitialAds interstitialAds;
+    [SerializeField] Banner bannerAds;
 
     void Awake()
     {
