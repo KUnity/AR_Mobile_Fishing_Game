@@ -15,6 +15,8 @@ public class ManageFishDlg : MonoBehaviour
 
     private GameObject[] normalFishUIs;
     private GameObject[] sharkUIs;
+    public GameObject audioManagerObj;
+    AudioManager audioManager;
 
     
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class ManageFishDlg : MonoBehaviour
     {
         normalFishUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/NormalFish/UI");
         sharkUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/Shark/UI");
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
     }
 
 
@@ -79,6 +82,7 @@ public class ManageFishDlg : MonoBehaviour
     }    
     
     public void OpenDlg(){
+        //audioManager.ClickBtn();
         gameObject.SetActive(true);
     }
    
@@ -99,6 +103,7 @@ public class ManageFishDlg : MonoBehaviour
 
         // 데이터 저장
         SaveCtrl.instance.SaveData();
+        audioManager.Coin();
         CloseDlg();
     }
 

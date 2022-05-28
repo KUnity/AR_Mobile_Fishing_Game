@@ -14,6 +14,8 @@ public class ItemBtnClick : MonoBehaviour
     public GameObject slotParent;
 
     public Button onButton;
+    public GameObject audioManagerObj;
+    AudioManager audioManager;
 
     private GameObject slotPrefab;
     private GameObject newSelectedSlot, oldSelectedSlot;
@@ -26,6 +28,9 @@ public class ItemBtnClick : MonoBehaviour
     // private string RodSlotStr="RodSlot";
     // private string BaitSlotStr="BaitSlot";
 
+    void Awake(){
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,15 +47,18 @@ public class ItemBtnClick : MonoBehaviour
         {
             InitBait();
         }
+
         
 
     }
 
     public void OpenDlg()
     {
+        //audioManager.ClickBtn();
         gameObject.SetActive(true);
     }
     public void CloseDlg(){
+        audioManager.ClickBtn();
         gameObject.SetActive(false);
     }
 

@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip bgm;
     public AudioClip rodThrowing;
     public AudioClip fishCatch;
+    public AudioClip coin;
+    
 
     AudioSource audioSource;
     
@@ -32,5 +34,9 @@ public class AudioManager : MonoBehaviour
     public void ClickBtn(){
         audioSource.clip = btnClick;
         audioSource.Play();
+    }
+    public void Coin(){
+        audioSource.clip = coin;
+        audioSource.Play(); 
     }
 }
