@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip btnClick;
     public AudioClip bgm;
     public AudioClip rodThrowing;
+    public AudioClip fishCatch;
 
     AudioSource audioSource;
     
@@ -20,6 +21,11 @@ public class AudioManager : MonoBehaviour
 
     public void ThrowRod(){
         audioSource.clip = rodThrowing;
+        audioSource.Play();
+    }
+
+    public void CatchFish(){
+        audioSource.clip = fishCatch;
         audioSource.Play();
     }
 

@@ -17,11 +17,14 @@ public class BtnClickListeners : MonoBehaviour
     public GameObject OnOff;
     public GameObject MenuSet;
     public GameObject EquipSet;
+    public GameObject audioManagerObj;
+    AudioManager audioManager;
 
     bool mClicked;
 
     void Start()
     {
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
         mClicked = false;
         if(SceneManager.GetActiveScene().name == "FirstScene")
         {
@@ -51,31 +54,38 @@ public class BtnClickListeners : MonoBehaviour
 
     void GameBtnClicked()
     {
+        audioManager.ClickBtn();
         SceneManager.LoadScene("DetectScene");
     }
     void MenuBtnClicked()
     {
+        audioManager.ClickBtn();
         mClicked = !mClicked;
         OnOff.SetActive(mClicked);
     }
     void ShopBtnClicked()
     {
+        audioManager.ClickBtn();
         SceneManager.LoadScene("ShopScene");
     }
     void InventoryBtnClicked()
     {
+        audioManager.ClickBtn();
         SceneManager.LoadScene("Inventory");
     }
     private void DictionaryBtnClicked()
     {
+        audioManager.ClickBtn();
         SceneManager.LoadScene("CollectionScene");
     }
     void BackBtnClicked()
     {
+        audioManager.ClickBtn();
         SceneManager.LoadScene("DetectScene");
     }
     void CastBtnClicked()
     {
+        audioManager.ClickBtn();
         WaittoGame(true);
     }
 

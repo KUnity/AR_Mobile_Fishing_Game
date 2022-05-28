@@ -31,7 +31,8 @@ public class GameSceneManager : MonoBehaviour
     public GameObject HookingBtn;
     public GameObject menuSet;
     public GameObject EquipmentSet;
-
+    public GameObject audioManagerObj;
+    AudioManager audioManager;
 
     public int stage;
 
@@ -44,6 +45,7 @@ public class GameSceneManager : MonoBehaviour
         gameData = data.GetComponent<GameData>();
         gameAction = FindObjectOfType<GameAction>();
         subCam.GetComponent<Transform>().position = new Vector3(0, -2.5f, 17.0f);
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class GameSceneManager : MonoBehaviour
                 castingBtn.SetActive(false);
                 gameData.isCasted = MotionBlur.CheckThrow();
                 if(gameData.isCasted){
+                    audioManager.ThrowRod();
                     GameObject waterPlane = GameObject.Find("WaterPlane");
                     bobber.transform.position = waterPlane.transform.position;
                     subCamRect.SetActive(true);
