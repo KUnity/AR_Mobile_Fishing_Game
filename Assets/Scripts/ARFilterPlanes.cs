@@ -15,14 +15,14 @@ public class ARFilterPlanes : MonoBehaviour
   public GameObject fishingRod;
 
   public GameObject createBtn;
-  public GameObject resteBtn;
+  public GameObject resetBtn;
 
   public GameObject[] childUis;
  RectTransform[] childObjs;
 
 public void Start(){
     childObjs = gameObject.GetComponentsInChildren<RectTransform>();
-    HideAllUIs();
+    // HideAllUIs();
 }
   private void OnEnable()
   {
@@ -68,7 +68,7 @@ public void Start(){
 
     private void HideBtns(){
         createBtn.SetActive(false);
-        resteBtn.SetActive(false);
+        resetBtn.SetActive(false);
     }
 
     private void ShowUIs(){
