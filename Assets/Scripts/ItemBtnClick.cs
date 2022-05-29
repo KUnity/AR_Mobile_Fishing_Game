@@ -30,6 +30,11 @@ public class ItemBtnClick : MonoBehaviour
 
     void Awake(){
         audioManager = audioManagerObj.GetComponent<AudioManager>();
+        gameObject.SetActive(false);
+        // dlgOpenBtn.onClick.AddListener(()=>{
+        //     OpenDlg();
+        //     audioManager.ClickBtn();
+        // });
     }
     // Start is called before the first frame update
     void Start()
@@ -54,7 +59,7 @@ public class ItemBtnClick : MonoBehaviour
 
     public void OpenDlg()
     {
-        //audioManager.ClickBtn();
+        audioManager.ClickBtn();
         gameObject.SetActive(true);
     }
     public void CloseDlg(){

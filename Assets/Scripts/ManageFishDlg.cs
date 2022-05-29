@@ -25,6 +25,7 @@ public class ManageFishDlg : MonoBehaviour
         normalFishUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/NormalFish/UI");
         sharkUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/Shark/UI");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
+        gameObject.SetActive(false);
     }
 
 
