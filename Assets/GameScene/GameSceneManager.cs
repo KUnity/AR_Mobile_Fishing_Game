@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject data;
-    [SerializeField] private GameObject subCam;
     [SerializeField] private GameObject reelRect;
     [SerializeField] private GameObject tensionSlider;
     [SerializeField] private GameObject warningIMG;
@@ -25,7 +24,6 @@ public class GameSceneManager : MonoBehaviour
     public GameObject castingBtn;
     public GameObject bobber;
     public GameObject biteSignal;
-    public GameObject subCamRect;
     public GameObject timeRect;
     public Text timeText;
     public GameObject HookingBtn;
@@ -44,7 +42,6 @@ public class GameSceneManager : MonoBehaviour
     {
         gameData = data.GetComponent<GameData>();
         gameAction = FindObjectOfType<GameAction>();
-        subCam.GetComponent<Transform>().position = new Vector3(0, -2.5f, 17.0f);
         audioManager = audioManagerObj.GetComponent<AudioManager>();
     }
 
@@ -61,7 +58,6 @@ public class GameSceneManager : MonoBehaviour
                     audioManager.ThrowRod();
                     GameObject waterPlane = GameObject.Find("WaterPlane");
                     bobber.transform.position = waterPlane.transform.position;
-                    subCamRect.SetActive(true);
                     data.GetComponent<GameData>().isCasted = true;
                     stage = 1;
                 }
@@ -74,9 +70,6 @@ public class GameSceneManager : MonoBehaviour
 
                         bobber.GetComponent<Transform>().position = new Vector3(0, -3.5f, 20);
                         biteSignal.SetActive(true);
-
-                        // 챔질 동작 우선 버튼 대체
-                        HookingBtn.SetActive(true);
                     }
                 break;
             case 2: // 훅킹 감지
@@ -108,7 +101,6 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 3: // 릴링
                 if (gameAction.isCatch) return;
-                subCamRect.SetActive(false);
                 HookingBtn.SetActive(false);
                 timeRect.SetActive(true);
                 reelRect.SetActive(true);
