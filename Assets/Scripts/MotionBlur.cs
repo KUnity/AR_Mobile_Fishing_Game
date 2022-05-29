@@ -5,8 +5,8 @@ using TMPro;
 
 public class MotionBlur : MonoBehaviour
 {
-    private static float throwForce = 5.0f;
-    private static float chamjilForce = 3.0f;
+    private static float throwForce = 4.5f;
+    private static float chamjilForce = 2.5f;
 
     /// <summary>
     /// 낚시대 던지는 모션을 감지하는 함수

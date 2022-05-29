@@ -108,9 +108,11 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         int fishIndex = Fish.GetFishIndex(fish);
         StartCoroutine(SetInit());
         SaveCtrl.instance.myData.fishNums[fishIndex]++;
+        SaveCtrl.instance.myData.fish_collections[fishIndex] = true;
         fishObjects[fishIndex].SetActive(true);
-        Debug.Log(SaveCtrl.instance.myData.fishNums[fishIndex]);
         SaveCtrl.instance.SaveData();
+
+        Debug.Log(SaveCtrl.instance.myData.fishNums[fishIndex]);
     }
 
     IEnumerator SetInit()

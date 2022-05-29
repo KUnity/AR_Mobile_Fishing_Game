@@ -12,6 +12,7 @@ public class UIBaitShop: MonoBehaviour
     public GameObject contents;
     public GameObject uiListItemPrefab;
     public TMP_Text priceText;
+    public GameObject NOMONEY;
 
     void Start()
     {
@@ -29,7 +30,10 @@ public class UIBaitShop: MonoBehaviour
             {
                 if (SaveCtrl.instance.myData.gold < iPrice)
                 {
+                    NOMONEY.SetActive(true);
                     Debug.Log("골드가 부족합니다.");
+                    Invoke("noMoney", 1.4f);
+
                 }
                 else
                 {
@@ -43,5 +47,9 @@ public class UIBaitShop: MonoBehaviour
             uiListItem.Init(sp, iName, iDescription, iPrice);
         }
         priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
+    }
+    public void noMoney()
+    {
+        NOMONEY.SetActive(false);
     }
 }
