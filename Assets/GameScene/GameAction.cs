@@ -41,11 +41,11 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
             fishObjects[i].SetActive(false);
 
         // 총 데미지, 확률 계산
-        userTotalPower = FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
+        userTotalPower = Bait.power_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
         userTotalPercentUp = Bait.probalility_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.probalility_datas[SaveCtrl.instance.myData.equipFishingRod];
         for(int i = 0; i < Fish.typeNum; i++) {
             for(int j = 0; j < Fish.totalNum / Fish.typeNum; j++) {
-                if (SaveCtrl.instance.myData.fishNums[i*5 + j] > 0)
+                if (SaveCtrl.instance.myData.fish_collections[i*5 + j])
                 {
                     Fish fish = Fish.GetFish(i, j);
                     userTotalPower += fish.collection_powerup;

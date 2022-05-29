@@ -10,7 +10,7 @@ public class OnOffEffect : MonoBehaviour
     void Start()
     {
         for (int i=0; i < 10; i++) {
-            if(SaveCtrl.instance.myData.fishNums[i] < 1) {
+            if(!SaveCtrl.instance.myData.fish_collections[i]) {
                 onoff[i].SetActive(true);
             }
         }

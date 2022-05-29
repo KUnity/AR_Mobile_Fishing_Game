@@ -13,7 +13,7 @@ public class CollectIncText : MonoBehaviour
     void Start()
     {
         for(int i = 0; i < fishes.Length; i++) {
-            if(SaveCtrl.instance.myData.fishNums[i] > 0) {
+            if(SaveCtrl.instance.myData.fish_collections[i]) {
                 CollectFishData curFishData = fishes[i].GetComponent<CollectFishData>();
                 totalPowerUp += curFishData.powerUp;
                 totalProbUp += curFishData.probUp;
