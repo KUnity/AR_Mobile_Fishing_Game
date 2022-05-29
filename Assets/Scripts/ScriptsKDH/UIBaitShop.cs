@@ -30,6 +30,7 @@ public class UIBaitShop: MonoBehaviour
             {
                 if (SaveCtrl.instance.myData.gold < iPrice)
                 {
+                    CancelInvoke("noMoney");
                     NOMONEY.SetActive(true);
                     Debug.Log("골드가 부족합니다.");
                     Invoke("noMoney", 1.4f);
