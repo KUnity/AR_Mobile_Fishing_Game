@@ -240,7 +240,7 @@ MonoBehaviour:
   arSession: {fileID: 472305147}
   fishingRod: {fileID: 667277817}
   createBtn: {fileID: 500810272}
-  resteBtn: {fileID: 928198146}
+  resetBtn: {fileID: 0}
   childUis: []
 --- !u!114 &25519426
 MonoBehaviour:
@@ -6603,6 +6603,7 @@ MonoBehaviour:
   bgm: {fileID: 0}
   rodThrowing: {fileID: 8300000, guid: 647ba140608d23f4fb9e7f1030943fa7, type: 3}
   fishCatch: {fileID: 8300000, guid: 84ce9491e7d37ec4292d38e47960a0c1, type: 3}
+  coin: {fileID: 0}
 --- !u!4 &1434123901
 Transform:
   m_ObjectHideFlags: 0
@@ -7464,6 +7465,7 @@ MonoBehaviour:
   bobber: {fileID: 785465989}
   button: {fileID: 1697045168}
   subCam: {fileID: 535175176}
+  resetBtn: {fileID: 928198146}
 --- !u!114 &1697045171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8265,6 +8267,7 @@ MonoBehaviour:
   bobber: {fileID: 0}
   button: {fileID: 1892581673}
   subCam: {fileID: 1872083258}
+  resetBtn: {fileID: 0}
 --- !u!114 &1892581676
 MonoBehaviour:
   m_ObjectHideFlags: 0

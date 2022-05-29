@@ -10,6 +10,7 @@ public class CastingBtn : MonoBehaviour
     public GameObject bobber;
     public GameObject button;
     public GameObject subCam;
+    public GameObject resetBtn;
     Transform bobberTrans;
     
     // Start is called before the first frame update
@@ -25,5 +26,6 @@ public class CastingBtn : MonoBehaviour
         // data.GetComponent<GameData>().isCasted = true;
         // button.SetActive(false);
         gsm.GetComponent<GameSceneManager>().stage = 0;
+        resetBtn.SetActive(false);
     }
 }

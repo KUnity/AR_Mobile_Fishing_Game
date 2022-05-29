@@ -30,6 +30,9 @@ public void Start(){
         arPlaneManager = FindObjectOfType<ARPlaneManager>();
         arPlaneManager.planesChanged += OnPlanesChanged;
         waterScript = gameObject.GetComponent<CreateWaterMesh>();
+        arSession.Reset();
+        waterScript.RemovePlane();
+        arPlane = null;
   }
   void OnDisable()
   {
@@ -53,16 +56,18 @@ public void Start(){
         arSession.Reset();
         arPlaneManager.enabled = true;
         waterScript.RemovePlane();
+        createBtn.SetActive(true);
         
     }
 
     public void CreateWater(){
         arPlane.gameObject.SetActive(false);
         arPlaneManager.enabled = false;
-        waterScript.CreatePlane(arPlane.extents.y*1.5f,arPlane.extents.x*1.5f, arPlane.center);
+        waterScript.CreatePlane(arPlane.extents.x*1.5f,arPlane.extents.y*1.5f, arPlane.center);
         ShowUIs();
-        OnDisable();
-
+        HideBtns();
+        arPlaneManager.enabled = false;
+        // OnDisable();
     }
 
 
