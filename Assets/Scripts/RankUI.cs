@@ -70,7 +70,7 @@ public class RankUI : MonoBehaviour
         // My Rank Setting
         uIBox = myRankObject.GetComponentInChildren<UIBox>();
         uIBox.texts[0].text = SaveCtrl.instance.myData.rank + "등";
-        uIBox.texts[1].text = SaveCtrl.instance.myData.ID;
+        uIBox.texts[1].text = "(내 정보) " + SaveCtrl.instance.myData.ID;
         uIBox.texts[2].text = SaveCtrl.instance.myData.rank_score + " 점";
     }
 }
