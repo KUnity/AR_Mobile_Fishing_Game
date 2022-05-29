@@ -68,7 +68,7 @@ public class SaveCtrl : MonoBehaviour
     public static SaveCtrl instance = null;
     private readonly string rank_uuid = "3d41f510-d995-11ec-a5ca-df7f97b8d87a";
     public readonly int[] scoreAsQuality = { 1, 10, 100, 1000, 10000 };
-    public readonly int maxRankNum = 8; // 불러올 랭킹 수 (1등 ~ maxRankNum 까지)
+    public readonly int maxRankNum = 7; // 불러올 랭킹 수 (1등 ~ maxRankNum 까지)
 
     public UserData myData; // 플레이어 데이터
     public List<UserData> userDatas = new List<UserData>(); // 다른 유저 데이터 (Index = Rank - 1)
