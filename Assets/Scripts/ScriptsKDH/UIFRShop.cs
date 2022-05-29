@@ -12,6 +12,7 @@ public class UIFRShop : MonoBehaviour
     public GameObject contents;
     public GameObject uiListItemPrefab;
     public TMP_Text priceText;
+    public GameObject NOMONEY;
 
     void Start()
     {
@@ -31,7 +32,9 @@ public class UIFRShop : MonoBehaviour
             uiListItem.btn.onClick.AddListener(() =>
             {
                 if (SaveCtrl.instance.myData.gold < iPrice){
-                    Debug.Log("蹂댁쑀 怨⑤뱶媛 遺議깊빀?덈떎.");
+                    Debug.Log("골드가 부족합니다.");
+                    NOMONEY.SetActive(true);
+                    Invoke("noMoney", 1.4f);
                 }
                 else{
                     Debug.Log(temp + " temp");
@@ -52,6 +55,8 @@ public class UIFRShop : MonoBehaviour
         }
         priceText.text = SaveCtrl.instance.myData.gold.ToString() + " G";
     }
+    public void noMoney()
+    {
+        NOMONEY.SetActive(false);
+    }
 }
-
-
