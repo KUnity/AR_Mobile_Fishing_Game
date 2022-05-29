@@ -17,6 +17,7 @@ public class CastingBtn : MonoBehaviour
     void Start()
     {
         bobberTrans = bobber.GetComponent<Transform>();
+        button.SetActive(false);
     }
 
     public void onClickCastingBtn(){
@@ -27,5 +28,9 @@ public class CastingBtn : MonoBehaviour
         // button.SetActive(false);
         gsm.GetComponent<GameSceneManager>().stage = 0;
         resetBtn.SetActive(false);
+    }
+
+    public void OnClickCreateBtn(){
+        button.SetActive(true);
     }
 }
