@@ -28,7 +28,7 @@ public class UserData
     public int equipFishingRod;
     /// <summary> User가 도감에 등록한 물고기 </summary>
     public bool[] fish_collections;
-    /// <summary>  /// </summary>
+    /// <summary> User의 랭킹 점수 /// </summary>
     public int rank_score;
     /// <summary> User의 현재 등수</summary>
     public int rank;
@@ -40,11 +40,6 @@ public class UserData
         hasFishingRod = new bool[FishingRob.fishingRobNum];
         fish_collections = new bool[Fish.totalNum];
         hasFishingRod[0] = true;
-        fishNums[0]=3;
-        fishNums[1]=2;
-        fishNums[7] = 1;
-        fishNums[8] = 2;
-        gold = 50;
     }
 
     /// <summary>
@@ -73,6 +68,7 @@ public class SaveCtrl : MonoBehaviour
     public static SaveCtrl instance = null;
     private readonly string rank_uuid = "3d41f510-d995-11ec-a5ca-df7f97b8d87a";
     public readonly int[] scoreAsQuality = { 1, 10, 100, 1000, 10000 };
+    public readonly int maxRankNum = 8; // 불러올 랭킹 수 (1등 ~ maxRankNum 까지)
 
     public UserData myData; // 플레이어 데이터
     public List<UserData> userDatas = new List<UserData>(); // 다른 유저 데이터 (Index = Rank - 1)
@@ -187,10 +183,13 @@ public class SaveCtrl : MonoBehaviour
             return;
         }
 
+        BackendReturnObject BRO = Backend.URank.User.GetMyRank(rank_uuid);
         myData.rank_score = myData.GetRankScore();
+        myData.rank = int.Parse(BRO.GetReturnValuetoJSON()["rows"][0]["rank"]["N"].ToString());
+
         Param param = new Param();
         SettingPublicParam(param);
-        BackendReturnObject BRO = Backend.GameData.Update("userData_public", myData.public_inDate, param);
+        BRO = Backend.GameData.Update("userData_public", myData.public_inDate, param);
         if (!BRO.IsSuccess())
             Debug.LogError("Private data save failed = " + BRO.GetMessage());
 
@@ -200,7 +199,7 @@ public class SaveCtrl : MonoBehaviour
         if (!BRO.IsSuccess())
             Debug.LogError("Private data save failed = " + BRO.GetMessage());
 
-        // 랭킹 등록
+        // 랭킹 업데이트
         param = new Param();
         param.Add("rank_score", myData.rank_score);
         BRO = Backend.URank.User.UpdateUserScore(rank_uuid, "userData_private", myData.private_inDate, param);
@@ -243,6 +242,28 @@ public class SaveCtrl : MonoBehaviour
         {
             Debug.LogError("Private data load failed = " + BRO.GetMessage());
         }
+
+        // 랭킹 정보 불러오기
+        SetRankData();
+    }
+
+    /// <summary>
+    /// 랭킹 데이터를 불러오는 함수
+    /// </summary>
+    private void SetRankData()
+    {
+        BackendReturnObject BRO = Backend.URank.User.GetRankList(rank_uuid, maxRankNum, 0);
+
+        for (int i = 0; i < BRO.Rows().Count; i++)
+        {
+            JsonData jsonData = BRO.GetReturnValuetoJSON()["rows"][i];
+            UserData userData = new UserData();
+
+            userData.ID = jsonData["nickname"]["S"].ToString();
+            userData.rank_score = int.Parse(jsonData["score"]["N"].ToString());
+            userData.rank = int.Parse(jsonData["rank"]["N"].ToString());
+            userDatas.Add(userData);
+        }
     }
 
     /// <summary>
@@ -250,10 +271,17 @@ public class SaveCtrl : MonoBehaviour
     /// </summary>
     private void InsertData()
     {
+        // Nickname Setting (Temp)
+        string[] splits = Backend.BMember.GetGuestID().Split('-');
+        myData.ID = splits[splits.Length - 1];
+        BackendReturnObject BRO = Backend.BMember.CreateNickname(splits[splits.Length - 1]);
+        if (!BRO.IsSuccess())
+            Debug.LogError("Nickname setting failed = " + BRO.GetMessage());
+
         // Public Data Setting
         Param param = new Param();
         SettingPublicParam(param);
-        BackendReturnObject BRO = Backend.GameData.Insert("userData_public", param);
+        BRO = Backend.GameData.Insert("userData_public", param);
         myData.public_inDate = BRO.GetInDate();
         if(!BRO.IsSuccess())
             Debug.LogError("Public param save failed. <error> : " + BRO.GetMessage());
@@ -265,8 +293,6 @@ public class SaveCtrl : MonoBehaviour
         myData.private_inDate = BRO.GetInDate();
         if (!BRO.IsSuccess())
             Debug.LogError("Private param save failed. <error> : " + BRO.GetMessage());
-
-        myData.ID = Backend.BMember.GetGuestID();
 
         // 랭킹 등록
         param = new Param();
