@@ -5600,7 +5600,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1959450231}
-  - {fileID: 2010407698}
+  - {fileID: 47390459}
   - {fileID: 1299128005}
   button: {fileID: 0}
 --- !u!114 &1263024032
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1174493012}
-  - {fileID: 2010407698}
+  - {fileID: 1683639508}
   - {fileID: 2120524083}
   button: {fileID: 0}
 --- !u!114 &1291805907
@@ -7147,7 +7147,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1832166159}
-  - {fileID: 2010407698}
+  - {fileID: 558095282}
   - {fileID: 390674777}
   button: {fileID: 0}
 --- !u!114 &1524269986
@@ -8695,7 +8695,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1451248757}
-  - {fileID: 2010407698}
+  - {fileID: 1520106448}
   - {fileID: 620995654}
   button: {fileID: 0}
 --- !u!1 &1683639506
