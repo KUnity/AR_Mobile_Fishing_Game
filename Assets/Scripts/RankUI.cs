@@ -10,6 +10,9 @@ public class RankUI : MonoBehaviour
     [SerializeField] private GameObject normalRankObject;
     [SerializeField] private GameObject myRankObject;
 
+    public GameObject audioManagerObj;
+    private AudioManager audioManager;
+
     private bool isOnOff;
 
     // Temp Variable
@@ -19,11 +22,13 @@ public class RankUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
         rankContent.SetActive(false);
     }
 
     public void OnOffRankUI()
     {
+        audioManager.ClickBtn();
         isOnOff = !isOnOff;
         rankContent.SetActive(isOnOff);
         if (isOnOff)
