@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour
 {
-    [SerializeField] private GameObject data;
+    [SerializeField] private GameData gameData;
+    [SerializeField] private GameAction gameAction;
+    [SerializeField] private AudioManager audioManager;
+
     [SerializeField] private GameObject reelRect;
     [SerializeField] private GameObject tensionSlider;
     [SerializeField] private GameObject warningIMG;
     [SerializeField] private GameObject fishHPbar;
     [SerializeField] private GameObject reel;
-    private GameData gameData;
-    private GameAction gameAction;
     private float waitedTime;
     private float battleTime = 30.0f;
     private float warningTime;
@@ -26,23 +27,16 @@ public class GameSceneManager : MonoBehaviour
     public GameObject biteSignal;
     public GameObject timeRect;
     public Text timeText;
-    public GameObject HookingBtn;
     public GameObject menuSet;
     public GameObject EquipmentSet;
     public GameObject audioManagerObj;
-    AudioManager audioManager;
 
     public int stage;
-
     public float userTotalPercent; // 유저의 총 잡히는 물고기 확률업 수치
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        gameData = data.GetComponent<GameData>();
-        gameAction = FindObjectOfType<GameAction>();
-        audioManager = audioManagerObj.GetComponent<AudioManager>();
+        reel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,7 +52,7 @@ public class GameSceneManager : MonoBehaviour
                     audioManager.ThrowRod();
                     GameObject waterPlane = GameObject.Find("WaterPlane");
                     bobber.transform.position = waterPlane.transform.position;
-                    data.GetComponent<GameData>().isCasted = true;
+                    gameData.isCasted = true;
                     stage = 1;
                 }
                 break;
@@ -75,6 +69,7 @@ public class GameSceneManager : MonoBehaviour
             case 2: // 훅킹 감지
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if (gameData.isHooking){
+                    biteSignal.SetActive(false);
                     // 잡힌 물고기 선택
                     float[] percents = null;
                     itemType = Random.Range(0, Fish.typeNum);
@@ -101,13 +96,12 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 3: // 릴링
                 if (gameAction.isCatch) return;
-                HookingBtn.SetActive(false);
                 timeRect.SetActive(true);
                 reelRect.SetActive(true);
                 tensionSlider.SetActive(true);
                 fishHPbar.SetActive(true);
                 reel.SetActive(true);
-                reel.transform.position = new Vector3(0.5244f,0.7086f,1.651f);
+                // reel.transform.position = new Vector3(0.5244f,0.7086f,1.651f);
                 gameAction.mainCirle.gameObject.SetActive(true);
                 gameAction.pointCircle.gameObject.SetActive(true);
 

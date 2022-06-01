@@ -32,6 +32,7 @@ public class UIFRShop : MonoBehaviour
             uiListItem.btn.onClick.AddListener(() =>
             {
                 if (SaveCtrl.instance.myData.gold < iPrice){
+                    CancelInvoke("noMoney");
                     Debug.Log("골드가 부족합니다.");
                     NOMONEY.SetActive(true);
                     Invoke("noMoney", 1.4f);

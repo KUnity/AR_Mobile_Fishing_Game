@@ -36,6 +36,7 @@ public class RankUI : MonoBehaviour
     {
         // TopRank Setting
         List<UserData> userDatas = SaveCtrl.instance.userDatas;
+        Debug.Log("랭킹 수 : " + userDatas.Count);
 
         uIBoxs = topRankObject.GetComponentsInChildren<UIBox>();
         for (int i = 0; i < uIBoxs.Length; i++)
@@ -57,9 +58,9 @@ public class RankUI : MonoBehaviour
         {
             if (i < userDatas.Count - 3)
             {
-                uIBoxs[i].texts[0].text = userDatas[i].rank + "등";
-                uIBoxs[i].texts[1].text = userDatas[i].ID;
-                uIBoxs[i].texts[2].text = userDatas[i].rank_score + " 점";
+                uIBoxs[i].texts[0].text = userDatas[i + 3].rank + "등";
+                uIBoxs[i].texts[1].text = userDatas[i + 3].ID;
+                uIBoxs[i].texts[2].text = userDatas[i + 3].rank_score + " 점";
             }
             else
             {

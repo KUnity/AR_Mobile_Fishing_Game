@@ -35,8 +35,8 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         pointCircle.gameObject.SetActive(false);
 
         reelAnimator = reel.GetComponent<Animator>();
-        reelAnimator.StartPlayback();
-        reel.GetComponent<Transform>().position = new Vector3(1f, -3f, -6f);
+        reelAnimator.enabled = false;
+        // reel.GetComponent<Transform>().position = new Vector3(1f, -3f, -6f);
         for (int i = 0; i < fishObjects.Length; i++)
             fishObjects[i].SetActive(false);
 
@@ -75,7 +75,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        reelAnimator.StopPlayback();
+        reelAnimator.enabled = true;
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -84,8 +84,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         zoomVec = Vector2.ClampMagnitude(zoomVec * 100, radius);
         pointCircle.localPosition = zoomVec;
 
-        if (Vector2.Distance(currentPos, zoomVec) >= radius)
-        {
+        if (Vector2.Distance(currentPos, zoomVec) >= radius) {
             tensionSlider.value += 0.05f;
             currentPos = zoomVec;
             Debug.Log(curFishHP);
@@ -100,7 +99,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     }
 
     public void OnPointerUp(PointerEventData eventData) {
-        reelAnimator.StartPlayback();
+        reelAnimator.enabled = false;
     }
 
     public void GetFish()
