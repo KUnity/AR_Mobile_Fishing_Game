@@ -171,7 +171,7 @@ public class ItemBtnClick : MonoBehaviour
 
     public void OnSlotClick()
     {
-       
+       audioManager.SelectSlot();
         if (newSelectedSlot != null)
             oldSelectedSlot = newSelectedSlot;
         
@@ -197,6 +197,7 @@ public class ItemBtnClick : MonoBehaviour
     // 실제 착용하는 경우
     public void OnUseItemClick()
     {
+        audioManager.EquipItem();
         if (newSelectedSlot == null || newSelectedSlot.Equals(equippedSlot))
             return;
 

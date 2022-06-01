@@ -13,9 +13,13 @@ public class UIFRShop : MonoBehaviour
     public GameObject uiListItemPrefab;
     public TMP_Text priceText;
     public GameObject NOMONEY;
+    
+    public GameObject audioManagerObj;
+    private AudioManager audioManager; 
 
     void Start()
     {
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
         Debug.Log("Shop Start() Starts");
         for (int i = 0; i < FishingRob.fishingRobNum; i++)
         {
@@ -32,12 +36,14 @@ public class UIFRShop : MonoBehaviour
             uiListItem.btn.onClick.AddListener(() =>
             {
                 if (SaveCtrl.instance.myData.gold < iPrice){
+                    audioManager.NoCoin();
                     CancelInvoke("noMoney");
                     Debug.Log("골드가 부족합니다.");
                     NOMONEY.SetActive(true);
                     Invoke("noMoney", 1.4f);
                 }
                 else{
+                    audioManager.Coin();
                     Debug.Log(temp + " temp");
                     SaveCtrl.instance.myData.gold -= iPrice;
                     if(SaveCtrl.instance.myData.hasFishingRod[temp] == false)
