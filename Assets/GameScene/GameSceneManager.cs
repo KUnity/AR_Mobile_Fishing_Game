@@ -50,6 +50,7 @@ public class GameSceneManager : MonoBehaviour
                 gameData.isCasted = MotionBlur.CheckThrow();
                 if(gameData.isCasted){
                     audioManager.ThrowRod();
+                    Handheld.Vibrate();
                     GameObject waterPlane = GameObject.Find("WaterPlane");
                     bobber.transform.position = waterPlane.transform.position;
                     gameData.isCasted = true;
