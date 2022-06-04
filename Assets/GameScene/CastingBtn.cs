@@ -31,6 +31,8 @@ public class CastingBtn : MonoBehaviour
     }
 
     public void OnClickCreateBtn(){
+        if (ARFilterPlanes.instance.arPlane == null)
+            return; /* No Plane Exists */
         button.SetActive(true);
     }
 }

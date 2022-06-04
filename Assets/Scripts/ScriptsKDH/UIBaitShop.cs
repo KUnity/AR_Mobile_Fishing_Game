@@ -13,9 +13,14 @@ public class UIBaitShop: MonoBehaviour
     public GameObject uiListItemPrefab;
     public TMP_Text priceText;
     public GameObject NOMONEY;
+   
+    public GameObject audioManagerObj;
+    private AudioManager audioManager; 
+
 
     void Start()
-    {
+    {   
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
         for (int i = 0; i < Bait.BaitNum; i++)
         {
             int temp = i;
@@ -30,6 +35,7 @@ public class UIBaitShop: MonoBehaviour
             {
                 if (SaveCtrl.instance.myData.gold < iPrice)
                 {
+                    audioManager.NoCoin();
                     CancelInvoke("noMoney");
                     NOMONEY.SetActive(true);
                     Debug.Log("골드가 부족합니다.");
@@ -38,6 +44,7 @@ public class UIBaitShop: MonoBehaviour
                 }
                 else
                 {
+                    audioManager.Coin();
                     SaveCtrl.instance.myData.gold -= iPrice;
                     SaveCtrl.instance.myData.fishBaits[temp] += 1;
                     Debug.Log(SaveCtrl.instance.myData.fishBaits[temp] + temp.ToString());

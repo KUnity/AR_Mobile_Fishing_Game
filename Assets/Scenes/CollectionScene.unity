@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1005,6 +1005,9 @@ MonoBehaviour:
   rodThrowing: {fileID: 0}
   fishCatch: {fileID: 0}
   coin: {fileID: 8300000, guid: 86dcb2b526f0db943a1d19ba1c26f1ee, type: 3}
+  noCoin: {fileID: 0}
+  slotSelect: {fileID: 0}
+  itemEquip: {fileID: 0}
 --- !u!82 &143007212
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5600,7 +5603,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1959450231}
-  - {fileID: 2010407698}
+  - {fileID: 47390459}
   - {fileID: 1299128005}
   button: {fileID: 0}
 --- !u!114 &1263024032
@@ -5796,7 +5799,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1174493012}
-  - {fileID: 2010407698}
+  - {fileID: 1683639508}
   - {fileID: 2120524083}
   button: {fileID: 0}
 --- !u!114 &1291805907
@@ -6778,6 +6781,7 @@ MonoBehaviour:
   topRankObject: {fileID: 81971367}
   normalRankObject: {fileID: 965568200}
   myRankObject: {fileID: 2120242668}
+  audioManagerObj: {fileID: 143007210}
 --- !u!1 &1462878601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7147,7 +7151,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1832166159}
-  - {fileID: 2010407698}
+  - {fileID: 558095282}
   - {fileID: 390674777}
   button: {fileID: 0}
 --- !u!114 &1524269986
@@ -8695,7 +8699,7 @@ MonoBehaviour:
   images: []
   texts:
   - {fileID: 1451248757}
-  - {fileID: 2010407698}
+  - {fileID: 1520106448}
   - {fileID: 620995654}
   button: {fileID: 0}
 --- !u!1 &1683639506

@@ -8,11 +8,18 @@ public class TabManager: MonoBehaviour
     public GameObject[] Tab;
     public Image[] TabBtnIamge;
     public Sprite[] IdleSprite, SelectSprite;
+    public GameObject audioManagerObj;
+    AudioManager audioManager;
 
+    void Awake()
+    {
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
+    }
     private void Start() => TabClick(0);
       
     public void TabClick(int n)
     {
+        audioManager.ClickBtn();
         for(int i = 0; i <Tab.Length; i++)
         {
             if(i == n)

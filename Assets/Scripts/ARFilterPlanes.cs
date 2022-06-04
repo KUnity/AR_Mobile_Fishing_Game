@@ -5,25 +5,29 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 public class ARFilterPlanes : MonoBehaviour
 {
-// [SerializedField] private Vector2 dimensionsForBigPlane;
-[SerializeField] ARSession arSession =null;
-  private ARPlaneManager arPlaneManager;
-  private List<ARPlane> arPlanes;
-  private ARPlane arPlane;
-  private GameObject waterPlane;
-  private CreateWaterMesh waterScript;
-  public GameObject fishingRod;
+    public static ARFilterPlanes instance;
 
-  public GameObject createBtn;
-  public GameObject resetBtn;
+    // [SerializedField] private Vector2 dimensionsForBigPlane;
+    [SerializeField] ARSession arSession =null;
+    private ARPlaneManager arPlaneManager;
+    private List<ARPlane> arPlanes;
+    public ARPlane arPlane;
+    private GameObject waterPlane;
+    private CreateWaterMesh waterScript;
+    public GameObject fishingRod;
 
-  public GameObject[] childUis;
- RectTransform[] childObjs;
+    public GameObject createBtn;
+    public GameObject resetBtn;
 
-public void Start(){
-    childObjs = gameObject.GetComponentsInChildren<RectTransform>();
-    // HideAllUIs();
-}
+    public GameObject[] childUis;
+    RectTransform[] childObjs;
+
+    public void Start(){
+        instance = this;
+        childObjs = gameObject.GetComponentsInChildren<RectTransform>();
+        // HideAllUIs();
+    }
+
   private void OnEnable()
   {
         arPlanes = new List<ARPlane>();
@@ -61,6 +65,13 @@ public void Start(){
     }
 
     public void CreateWater(){
+        if (arPlane == null)
+        {
+            // 인식된 평면이 없을 경우
+            SystemInfo.instance.SetSystemInfo("Recognize the plane first!");
+            return;
+        }
+
         arPlane.gameObject.SetActive(false);
         arPlaneManager.enabled = false;
         waterScript.CreatePlane(arPlane.extents.x*1.5f,arPlane.extents.y*1.5f, arPlane.center);

@@ -10,6 +10,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip rodThrowing;
     public AudioClip fishCatch;
     public AudioClip coin;
+    public AudioClip noCoin;
+    public AudioClip slotSelect;
+    public AudioClip itemEquip;
     
 
     AudioSource audioSource;
@@ -37,6 +40,21 @@ public class AudioManager : MonoBehaviour
     }
     public void Coin(){
         audioSource.clip = coin;
+        audioSource.Play(); 
+    }
+
+    public void NoCoin(){
+        audioSource.clip = noCoin;
+        audioSource.Play(); 
+    }
+
+    public void SelectSlot(){
+        audioSource.clip = slotSelect;
+        audioSource.Play(); 
+    }
+
+    public void EquipItem(){
+        audioSource.clip = itemEquip;
         audioSource.Play(); 
     }
 }
