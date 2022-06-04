@@ -99,7 +99,11 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 3: // 릴링
                 Invoke("Vrandom", randomVibration);
-                if (gameAction.isCatch) return;
+                if (gameAction.isCatch){
+                    audioManager.CatchFish();
+                    return;
+                } 
+                    
                 timeRect.SetActive(true);
                 reelRect.SetActive(true);
                 tensionSlider.SetActive(true);
