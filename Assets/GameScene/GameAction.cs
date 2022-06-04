@@ -61,7 +61,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     // Update is called once per frame
     void Update()
     {
-        tensionSlider.value -= 0.1f * Time.deltaTime;
+        tensionSlider.value -= 0.15f * Time.deltaTime;
 
         if (fish != null)
         {
@@ -85,7 +85,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         pointCircle.localPosition = zoomVec;
 
         if (Vector2.Distance(currentPos, zoomVec) >= radius) {
-            tensionSlider.value += 0.05f;
+            tensionSlider.value += 0.03f;
             currentPos = zoomVec;
             Debug.Log(curFishHP);
             
