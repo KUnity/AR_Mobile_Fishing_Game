@@ -20,6 +20,7 @@ public class GameSceneManager : MonoBehaviour
 
     public int itemType;
     public int itemCode;
+    public float randomVibration;
 
     public GameObject castingBtn;
     public GameObject bobber;
@@ -73,6 +74,7 @@ public class GameSceneManager : MonoBehaviour
                     }
                 break;
             case 2: // 훅킹 감지
+                Invoke("Vrandom", randomVibration);
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if (gameData.isHooking){
                     // 잡힌 물고기 선택
@@ -100,6 +102,7 @@ public class GameSceneManager : MonoBehaviour
                 }
                 break;
             case 3: // 릴링
+                Invoke("Vrandom", randomVibration);
                 if (gameAction.isCatch) return;
                 HookingBtn.SetActive(false);
                 timeRect.SetActive(true);
@@ -117,6 +120,7 @@ public class GameSceneManager : MonoBehaviour
                     warningTime += Time.deltaTime;
                     if (warningTime > maxWarningTime)
                     {
+                        CancelInvoke("Vrandom");
                         initAll();
                     }
                 }
@@ -128,6 +132,7 @@ public class GameSceneManager : MonoBehaviour
 
                 if (battleTime < 0)
                 {
+                    CancelInvoke("Vrandom");
                     initAll();
                 }
 
@@ -135,8 +140,6 @@ public class GameSceneManager : MonoBehaviour
                 battleTime -= Time.deltaTime;
                 break;
         }
-
-
 
         // if(gameData.isCasted) {
         //     waitedTime += Time.deltaTime;
@@ -198,6 +201,12 @@ public class GameSceneManager : MonoBehaviour
         //     timeText.text = string.Format("{0:D2} : {1:D2}", (int)battleTime, (int)((battleTime - (int)battleTime)*100*0.6f));
         //     battleTime -= Time.deltaTime;
         // }
+    }
+
+    public void Vrandom()
+    {
+        randomVibration = Random.Range(0.5f, 1.8f);
+        Vibration.Vibrate(300);
     }
 
     //모든 값 초기화 후, 원래화면으로 돌아감
