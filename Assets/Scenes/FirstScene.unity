@@ -464,6 +464,9 @@ MonoBehaviour:
   rodThrowing: {fileID: 8300000, guid: 647ba140608d23f4fb9e7f1030943fa7, type: 3}
   fishCatch: {fileID: 0}
   coin: {fileID: 0}
+  noCoin: {fileID: 0}
+  slotSelect: {fileID: 0}
+  itemEquip: {fileID: 0}
 --- !u!4 &98264628
 Transform:
   m_ObjectHideFlags: 0
@@ -1210,7 +1213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6e95dc2539244f9f9e09d1996bfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameBtn: {fileID: 74970361}
+  NFTBtn: {fileID: 74970361}
+  GameBtn: {fileID: 0}
   MenuBtn: {fileID: 0}
   ShopBtn: {fileID: 0}
   InventoryBtn: {fileID: 0}
