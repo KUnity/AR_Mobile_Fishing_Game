@@ -23,6 +23,7 @@ public class MoveFish : MonoBehaviour
     void Start()
     {
         // Random.InitState((int)(Time.time*100f));
+        speed = Random.Range(10,200);
         moveVector= Vector3.right * speed;
 
         dlgFish = GameObject.Find("Canvas").transform.Find("Dialog Fish").gameObject;
@@ -86,9 +87,9 @@ public class MoveFish : MonoBehaviour
                 int itemType,itemCode;
                 int i = GetItemIndexFromName();
                 itemType = Fish.GetItemType(i,out itemCode);
-                fishDlgManager.OpenDlg();
                 fishDlgManager.SetItemInfo(itemType,itemCode);
                 fishDlgManager.GetClickedFish(gameObject);
+                fishDlgManager.OpenDlg();
             }
 
         }

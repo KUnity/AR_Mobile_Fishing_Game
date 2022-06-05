@@ -9,14 +9,22 @@ public class ManageFishDlg : MonoBehaviour
 
     private int fishGold ;
     private GameObject clickedFish;
+    private int clickedFishIdx;
     private GameObject fishUI;
     public GameObject goldUI;
     public GameObject FishUIContainer;
+    public int fishNumToSell;
+    public Slider slider;
 
     private GameObject[] normalFishUIs;
     private GameObject[] sharkUIs;
     public GameObject audioManagerObj;
+    public Text fishNumText;
     AudioManager audioManager;
+
+    private int minValue =1;
+    private int maxValue =1;
+      
 
     
     // Start is called before the first frame update
@@ -84,6 +92,18 @@ public class ManageFishDlg : MonoBehaviour
     
     public void OpenDlg(){
         //audioManager.ClickBtn();
+        fishNumToSell=minValue;
+        slider.value=minValue;
+        maxValue= SaveCtrl.instance.myData.fishNums[clickedFishIdx];
+
+
+        if(clickedFish!=null){
+            clickedFishIdx = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
+            slider.minValue = minValue;
+            slider.maxValue=maxValue;
+            fishNumText.text = minValue+"/"+maxValue.ToString();
+            fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
+        }
         gameObject.SetActive(true);
     }
    
@@ -94,18 +114,25 @@ public class ManageFishDlg : MonoBehaviour
 
     public void SellFish(){
         // 돈 추가 
-        SaveCtrl.instance.myData.gold += fishGold;
+        SaveCtrl.instance.myData.gold += fishGold*fishNumToSell;
         goldUI.GetComponent<Text>().text = SaveCtrl.instance.myData.gold.ToString();
 
         // 판 물고기 지워야함 
-        int index = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
-        clickedFish.GetComponent<MoveFish>().RemoveFish();
-        SaveCtrl.instance.myData.fishNums[index]-=1;
+        // int index = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
+        SaveCtrl.instance.myData.fishNums[clickedFishIdx]-=fishNumToSell;
+        if(SaveCtrl.instance.myData.fishNums[clickedFishIdx]<=0)
+            clickedFish.GetComponent<MoveFish>().RemoveFish();
 
         // 데이터 저장
         SaveCtrl.instance.SaveData();
         audioManager.Coin();
         CloseDlg();
+    }
+
+    public void SetFishNumToSell(){
+        // 물고기 개수 표시하는 UI 
+        fishNumToSell =(int)slider.value;
+        fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
     }
 
     public void GetClickedFish(GameObject obj){
