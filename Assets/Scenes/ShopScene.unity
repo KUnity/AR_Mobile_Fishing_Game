@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30693151e759af84d9213ce801ba6621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: db0f847e4e1971041b3938004afe4176, type: 2}
+  atlas: {fileID: 4343727234628468602, guid: 5ee2540c0703a884bbb6435f5f0657a6, type: 2}
   contents: {fileID: 93805367}
   uiListItemPrefab: {fileID: 902028083622550378, guid: 950fa6236afe4a441b1910112c1694fa, type: 3}
   priceText: {fileID: 657127698}
