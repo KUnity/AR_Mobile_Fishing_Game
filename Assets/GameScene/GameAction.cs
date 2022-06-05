@@ -47,6 +47,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
             for(int j = 0; j < Fish.totalNum / Fish.typeNum; j++) {
                 if (SaveCtrl.instance.myData.fish_collections[i*5 + j])
                 {
+                    if(i==2 && j==4) break;
                     Fish fish = Fish.GetFish(i, j);
                     userTotalPower += fish.collection_powerup;
                     userTotalPercentUp += fish.collection_percentup;
