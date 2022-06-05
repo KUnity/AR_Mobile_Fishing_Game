@@ -31,6 +31,7 @@ public class GameSceneManager : MonoBehaviour
     public GameObject menuSet;
     public GameObject EquipmentSet;
     public GameObject audioManagerObj;
+    public GameObject fingerUI;
 
     public int stage;
     public float userTotalPercent; // 유저의 총 잡히는 물고기 확률업 수치
@@ -70,6 +71,7 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 2: // 훅킹 감지
                 Invoke("Vrandom", randomVibration);
+                fingerUI.SetActive(true);
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if (gameData.isHooking){
                     biteSignal.SetActive(false);
@@ -98,6 +100,7 @@ public class GameSceneManager : MonoBehaviour
                 }
                 break;
             case 3: // 릴링
+                fingerUI.SetActive(false);
                 Invoke("Vrandom", randomVibration);
                 if (gameAction.isCatch){
                     audioManager.CatchFish();
