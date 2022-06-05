@@ -13,18 +13,18 @@ public class Item
 public class FishingRob : Item
 {
     public static string[] robNames = {
-        "Shabby fishing rod",
+        "Woody fishing rod",
         "Carbon fishing rod",
+        "Bronze fishing rod",
         "Silver fishing rod",
-        "Gold fishing rod",
-        "Diamond fishing rod", 
+        "Gold fishing rod", 
     };
     public static string[] robDesc = {
-        "It's a fishing rod thrown away by the shop uncle.",
+        "It's a Wood fishing rod thrown away by the shop uncle.",
         "It's a fishing rod made of Carbon. So hard but, Slightly heavy",
-        "It's a fishing rod made of Silver. So light but, not Strong",
-        "It's a fishing rod made of Gold. So hard and light weighted",
-        "Diamond Fishing rod can makes you catch the legendary fish",
+        "It's a fishing rod made of Bronze. So light but, not Strong",
+        "It's a fishing rod made of Silver. So hard and light weighted",
+        "Gold Fishing rod can makes you catch the legendary fish",
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5 };
     public static float[] probalility_datas = { 0.1f, 0.2f, 0.5f, 1f, 2f };
