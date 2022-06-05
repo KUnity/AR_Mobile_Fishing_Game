@@ -107,7 +107,7 @@ public class Shark : Fish
 {
     public static int[] hps = { 300, 1500, 5000, 10000, 20000 };
     public static float[] powers = { 15f, 30f, 100f, 250f, 500f };
-    public static float[] probalilities = { 1f, 0.5f, 0.3f, 0.1f, 0.01f };
+    public static float[] probalilities = { 1f, 0.5f, 0.3f, 0.1f, 0f };
     public static int[] golds = { 8, 10, 12, 14, 16 };
     public static int[] qualities = { 2, 2, 3, 3, 4 };
     public static float[] weights = { 0f, 0f, 0f, 0f, 0f };
