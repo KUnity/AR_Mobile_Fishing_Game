@@ -33,12 +33,29 @@ public class GameSceneManager : MonoBehaviour
     public GameObject EquipmentSet;
     public GameObject audioManagerObj;
     public GameObject fingerUI;
-
+    public GameObject fishingPole;
     public int stage;
     public float userTotalPercent; // 유저의 총 잡히는 물고기 확률업 수치
+    public Material[] mats;
 
     private void Start()
     {
+        if (SaveCtrl.instance.myData.equipFishingRod == 1)
+        {
+            set_skinned_mat("FISHING_POLE1", 0, mats[0]);
+        }
+        else if(SaveCtrl.instance.myData.equipFishingRod == 2) {
+            set_skinned_mat("FISHING_POLE1", 0, mats[1]);
+        }
+        else if (SaveCtrl.instance.myData.equipFishingRod == 3) {
+            set_skinned_mat("FISHING_POLE1", 0, mats[2]);
+        }
+        else if (SaveCtrl.instance.myData.equipFishingRod == 4) {
+            set_skinned_mat("FISHING_POLE1", 0, mats[3]);
+        }
+        else if (SaveCtrl.instance.myData.equipFishingRod == 5) {
+            set_skinned_mat("FISHING_POLE1", 0, mats[4]);
+        }
         reel.SetActive(false);
     }
 
@@ -209,6 +226,19 @@ public class GameSceneManager : MonoBehaviour
         //     timeText.text = string.Format("{0:D2} : {1:D2}", (int)battleTime, (int)((battleTime - (int)battleTime)*100*0.6f));
         //     battleTime -= Time.deltaTime;
         // }
+    }
+
+    void set_skinned_mat(string obj_name, int Mat_Nr, Material Mat)
+    {
+        GameObject obj = GameObject.Find(obj_name);
+
+        SkinnedMeshRenderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+
+        Material[] mats = renderer.materials;
+
+        mats[Mat_Nr] = Mat;
+
+        renderer.materials = mats;
     }
 
     public void Vrandom()

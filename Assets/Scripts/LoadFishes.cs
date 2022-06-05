@@ -30,17 +30,22 @@ public class LoadFishes : MonoBehaviour
             GameObject fishPrefab ;
             switch(itemType){
                 case 0:
-                    for(int j =0;j<fishNum[i];j++){
+                    if(fishNum[i]>0){
                         fishPrefab = Instantiate(normalFishPrefabs[itemCode]);
                         fishPrefab.name = "NormalFish " + i ; 
                     }
+                 
                     break;
                 case 1:
-                    // 상어 프리팹으로 할당 
-                    for(int j =0;j<fishNum[i];j++){
+                    // 상어 프리팹으로 할당
+                    if(fishNum[i]>0) {
                         fishPrefab = Instantiate(sharkPrefabs[itemCode]); // 이거 상어 itemcode 반환하는 거 있는지 
                         fishPrefab.name = "Shark " + i; 
                     }
+                    // for(int j =0;j<fishNum[i];j++){
+                    //     fishPrefab = Instantiate(sharkPrefabs[itemCode]); // 이거 상어 itemcode 반환하는 거 있는지 
+                    //     fishPrefab.name = "Shark " + i; 
+                    // }
                     break;
             }
            

@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7597aafb250374bbf83419b6731fc5d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7697189088143435573, guid: 7597aafb250374bbf83419b6731fc5d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5544,8 +5544,15 @@ MonoBehaviour:
   EquipmentSet: {fileID: 1764871098}
   audioManagerObj: {fileID: 1434123899}
   fingerUI: {fileID: 1452084617}
+  fishingPole: {fileID: 2023566018}
   stage: -1
   userTotalPercent: 0
+  mats:
+  - {fileID: 2100000, guid: dae546f9531a7d8469565434b6f32e9e, type: 2}
+  - {fileID: 2100000, guid: d64f4024797a17c4588c110f8a665289, type: 2}
+  - {fileID: 2100000, guid: 9477748cdf3eccd49a9b34b1db1169ed, type: 2}
+  - {fileID: 2100000, guid: 9607108f16595614786b6f60a6f0bfcf, type: 2}
+  - {fileID: 2100000, guid: cb2ae2fdfe007a544b610abaec76f747, type: 2}
 --- !u!4 &1178856646
 Transform:
   m_ObjectHideFlags: 0
@@ -5940,7 +5947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7597aafb250374bbf83419b6731fc5d0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7697189088143435573, guid: 7597aafb250374bbf83419b6731fc5d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8307,6 +8314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1960279048}
     m_Modifications:
+    - target: {fileID: -9074233297192232496, guid: 2c9f4392a1f90b54c916e488a1094353, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -9074233297192232496, guid: 2c9f4392a1f90b54c916e488a1094353, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
