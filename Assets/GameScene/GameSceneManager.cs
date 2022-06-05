@@ -42,22 +42,7 @@ public class GameSceneManager : MonoBehaviour
 
     private void Start()
     {
-        if (SaveCtrl.instance.myData.equipFishingRod == 1)
-        {
-            set_skinned_mat("FISHING_POLE1", 0, mats[0]);
-        }
-        else if(SaveCtrl.instance.myData.equipFishingRod == 2) {
-            set_skinned_mat("FISHING_POLE1", 0, mats[1]);
-        }
-        else if (SaveCtrl.instance.myData.equipFishingRod == 3) {
-            set_skinned_mat("FISHING_POLE1", 0, mats[2]);
-        }
-        else if (SaveCtrl.instance.myData.equipFishingRod == 4) {
-            set_skinned_mat("FISHING_POLE1", 0, mats[3]);
-        }
-        else if (SaveCtrl.instance.myData.equipFishingRod == 5) {
-            set_skinned_mat("FISHING_POLE1", 0, mats[4]);
-        }
+        set_skinned_mat("FISHING_POLE1", 0, mats[SaveCtrl.instance.myData.equipFishingRod]);
         reel.SetActive(false);
     }
 
