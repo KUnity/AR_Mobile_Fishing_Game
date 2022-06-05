@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 9148370503772642450}
   - component: {fileID: 8754773365467315061}
   - component: {fileID: 8754773365467315060}
+  - component: {fileID: 8192975014602692090}
   m_Layer: 0
   m_Name: 3.WhiteShark
   m_TagString: Untagged
@@ -279,3 +280,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0446359, y: 0.37290162, z: 0.5175751}
   m_Center: {x: -0.11158382, y: 0.056829967, z: 0.003022156}
+--- !u!95 &8192975014602692090
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484317894609978920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c7bec04db11f45aeb6992b28a70b30f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

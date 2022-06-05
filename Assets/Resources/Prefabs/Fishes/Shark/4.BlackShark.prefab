@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3914878331066092936}
   - component: {fileID: 3593529888145730159}
   - component: {fileID: 3593529888145730158}
+  - component: {fileID: 4464518710088891331}
   m_Layer: 0
   m_Name: 4.BlackShark
   m_TagString: Untagged
@@ -94,6 +95,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0446359, y: 0.37290162, z: 0.5175751}
   m_Center: {x: -0.11158382, y: 0.056829967, z: 0.003022156}
+--- !u!95 &4464518710088891331
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404416760370026290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c7bec04db11f45aeb6992b28a70b30f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5447680731939380554
 GameObject:
   m_ObjectHideFlags: 0

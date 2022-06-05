@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 695558499591721815}
   - component: {fileID: 1021657100643103928}
   - component: {fileID: 1021657100643103929}
+  - component: {fileID: 4759945727577041988}
   m_Layer: 0
   m_Name: 5.GoldShark
   m_TagString: Untagged
@@ -63,6 +64,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0446359, y: 0.37290162, z: 0.5175751}
   m_Center: {x: -0.11158382, y: 0.056829967, z: 0.003022156}
+--- !u!95 &4759945727577041988
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210770235934591469}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c7bec04db11f45aeb6992b28a70b30f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3988847520108371940
 GameObject:
   m_ObjectHideFlags: 0
