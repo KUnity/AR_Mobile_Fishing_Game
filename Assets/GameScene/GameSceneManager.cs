@@ -33,9 +33,11 @@ public class GameSceneManager : MonoBehaviour
     public GameObject EquipmentSet;
     public GameObject audioManagerObj;
     public GameObject fingerUI;
-    public GameObject fishingPole;
+
     public int stage;
     public float userTotalPercent; // 유저의 총 잡히는 물고기 확률업 수치
+
+    public GameObject fishingPole;
     public Material[] mats;
 
     private void Start()

@@ -13,6 +13,7 @@ public class Item
 public class FishingRob : Item
 {
     public static string[] robNames = {
+<<<<<<< Updated upstream
         "Woody fishing rod",
         "Carbon fishing rod",
         "Bronze fishing rod",
@@ -25,6 +26,20 @@ public class FishingRob : Item
         "It's a fishing rod made of Bronze. So light but, not Strong",
         "It's a fishing rod made of Silver. So hard and light weighted",
         "Gold Fishing rod can makes you catch the legendary fish",
+=======
+        "wood fishing rod",
+        "carbon fishing rod",
+        "bronze fishing rod",
+        "silver fishing rod",
+        "gold fishing rod", 
+    };
+    public static string[] robDesc = {
+        "It's a wood fishing rod thrown away by the shop uncle.",
+        "It's a fishing rod made of Carbon. So hard but, Slightly heavy",
+        "It's a fishing rod made of bronze. So light but, not Strong",
+        "It's a fishing rod made of silver. So hard and light weighted",
+        "It's a fishing rod made of gold makes you catch the legendary fish",
+>>>>>>> Stashed changes
     };
     public static long[] gold_datas = { 1, 2, 3, 4, 5 };
     public static float[] probalility_datas = { 0.1f, 0.2f, 0.5f, 1f, 2f };
