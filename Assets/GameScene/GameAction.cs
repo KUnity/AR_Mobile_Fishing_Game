@@ -64,8 +64,6 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     {
         tensionSlider.value -= 0.15f * Time.deltaTime;
         userdata.text = string.Format("총 유저 파워\n{0:F2}\n\n총 유저 확률\n{1:F0} %", userTotalPower, userTotalPercentUp * 100f);
-        Debug.Log(string.Format("user total power : {0:F2}", userTotalPower));
-        Debug.Log(string.Format("user total percentUp : {0:F0} %", userTotalPercentUp * 100f));
         if (fish != null)
         {
             fishHPbar.value = (float)curFishHP / (float)fish.hp;
