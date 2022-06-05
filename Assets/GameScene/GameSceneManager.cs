@@ -14,6 +14,7 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private GameObject warningIMG;
     [SerializeField] private GameObject fishHPbar;
     [SerializeField] private GameObject reel;
+    [SerializeField] private Animator animator;
     private float waitedTime;
     private float battleTime = 30.0f;
     private float warningTime;
@@ -51,6 +52,7 @@ public class GameSceneManager : MonoBehaviour
                 castingBtn.SetActive(false);
                 gameData.isCasted = MotionBlur.CheckThrow();
                 if(gameData.isCasted){
+                    animator.SetInteger("type", 1);
                     audioManager.ThrowRod();
                     Handheld.Vibrate();
                     GameObject waterPlane = GameObject.Find("WaterPlane");
@@ -75,6 +77,7 @@ public class GameSceneManager : MonoBehaviour
                 fingerUI.SetActive(true);
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if (gameData.isHooking){
+                    animator.SetInteger("type", 2);
                     biteSignal.SetActive(false);
                     // 잡힌 물고기 선택
                     float[] percents = null;
@@ -123,6 +126,7 @@ public class GameSceneManager : MonoBehaviour
                     warningTime += Time.deltaTime;
                     if (warningTime > maxWarningTime)
                     {
+                        animator.SetInteger("type", 0);
                         CancelInvoke("Vrandom");
                         initAll();
                     }
@@ -135,6 +139,7 @@ public class GameSceneManager : MonoBehaviour
 
                 if (battleTime < 0)
                 {
+                    animator.SetInteger("type", 0);
                     CancelInvoke("Vrandom");
                     initAll();
                 }
