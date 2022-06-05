@@ -25,6 +25,7 @@ public class CheckSharkNFT_gm : MonoBehaviour
             if (balanceOf > 0) {
                 Debug.Log("보유중인 NFT ID : 63509423994943966704742002637236716458408843518489414562095478431478689300481");
                 // 활성화!
+                SaveCtrl.instance.myData.fish_collections[9] = true;
                 reelingRect.GetComponent<GameAction>().userTotalPower += 200f;
                 reelingRect.GetComponent<GameAction>().userTotalPercentUp += 2f;
             }
