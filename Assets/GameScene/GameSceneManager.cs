@@ -93,9 +93,9 @@ public class GameSceneManager : MonoBehaviour
                 break;
             case 2: // 훅킹 감지
                 Invoke("Vrandom", randomVibration);
-                fingerUI.SetActive(true);
                 gameData.isHooking = MotionBlur.CheckChamjil();
                 if (gameData.isHooking){
+                    fingerUI.SetActive(true);
                     animator.SetInteger("type", 2);
                     biteSignal.SetActive(false);
                     // 잡힌 물고기 선택
@@ -123,7 +123,6 @@ public class GameSceneManager : MonoBehaviour
                 }
                 break;
             case 3: // 릴링
-                fingerUI.SetActive(false);
                 Invoke("Vrandom", randomVibration);
                 if (gameAction.isCatch){
                     audioManager.CatchFish();
@@ -260,6 +259,7 @@ public class GameSceneManager : MonoBehaviour
         warningTime = 0;
         tensionSlider.GetComponent<Slider>().value = 0;
 
+        fingerUI.SetActive(false);
         biteSignal.SetActive(false);
         reel.SetActive(false);
         castingBtn.SetActive(true);
