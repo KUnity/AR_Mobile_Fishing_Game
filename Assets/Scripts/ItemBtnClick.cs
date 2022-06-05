@@ -172,7 +172,8 @@ public class ItemBtnClick : MonoBehaviour
 
     public void OnSlotClick()
     {
-       audioManager.SelectSlot();
+        
+        audioManager.SelectSlot();
         if (newSelectedSlot != null)
             oldSelectedSlot = newSelectedSlot;
         
@@ -186,6 +187,8 @@ public class ItemBtnClick : MonoBehaviour
         int itemCode = GetItemCodeFromName();
         SetItemInfo(newSelectedSlot,itemCode);
         showOutline();
+        
+            
     }
 
     public void showOutline()
@@ -198,6 +201,7 @@ public class ItemBtnClick : MonoBehaviour
     // 실제 착용하는 경우
     public void OnUseItemClick()
     {
+        
         audioManager.EquipItem();
         if (newSelectedSlot == null || newSelectedSlot.Equals(equippedSlot))
             return;
@@ -217,15 +221,23 @@ public class ItemBtnClick : MonoBehaviour
         }
         
         SaveCtrl.instance.SaveData();
-
-     
-
+        
     }
 
     private int GetItemCodeFromName(){
         string[] split_data = newSelectedSlot.name.Split(' ');
         int itemCode =  int.Parse(split_data[1]);
         return itemCode;
+    }
+
+    // UI터치 시 GameObject 터치 무시하는 코드
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
 
