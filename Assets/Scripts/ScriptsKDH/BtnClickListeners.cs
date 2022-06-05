@@ -19,6 +19,7 @@ public class BtnClickListeners : MonoBehaviour
     public GameObject MenuSet;
     public GameObject EquipSet;
     public GameObject audioManagerObj;
+    public GameObject userData;
     AudioManager audioManager;
 
     bool mClicked;
@@ -103,5 +104,6 @@ public class BtnClickListeners : MonoBehaviour
         MenuSet.SetActive(!boolean);
         EquipSet.SetActive(!boolean);
         CastingBtn.gameObject.SetActive(!boolean);
+        userData.SetActive(!boolean);
     }
 }

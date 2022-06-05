@@ -11,6 +11,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField] Slider tensionSlider;
     [SerializeField] GameSceneManager gameSceneManager;
     [SerializeField] Slider fishHPbar;
+    [SerializeField] Text userdata;
     Animator reelAnimator;
 
     [SerializeField] private Canvas canvas;
@@ -43,27 +44,27 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         // 총 데미지, 확률 계산
         userTotalPower = Bait.power_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.power_datas[SaveCtrl.instance.myData.equipFishingRod];
         userTotalPercentUp = Bait.probalility_datas[SaveCtrl.instance.myData.equipBaits] + FishingRob.probalility_datas[SaveCtrl.instance.myData.equipFishingRod];
+
         for(int i = 0; i < Fish.typeNum; i++) {
             for(int j = 0; j < Fish.totalNum / Fish.typeNum; j++) {
                 if (SaveCtrl.instance.myData.fish_collections[i*5 + j])
                 {
-                    if(i==2 && j==4) break;
+                    if(i==1 && j==4) break;
                     Fish fish = Fish.GetFish(i, j);
                     userTotalPower += fish.collection_powerup;
                     userTotalPercentUp += fish.collection_percentup;
                 }
             }
         }
-        Debug.Log(string.Format("user total power : {0}", userTotalPower));
-        Debug.Log(string.Format("user total percentUp : {0:F0} %", userTotalPercentUp * 100f));
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         tensionSlider.value -= 0.15f * Time.deltaTime;
-
+        userdata.text = string.Format("총 유저 파워\n{0:F2}\n\n총 유저 확률\n{1:F0} %", userTotalPower, userTotalPercentUp * 100f);
+        Debug.Log(string.Format("user total power : {0:F2}", userTotalPower));
+        Debug.Log(string.Format("user total percentUp : {0:F0} %", userTotalPercentUp * 100f));
         if (fish != null)
         {
             fishHPbar.value = (float)curFishHP / (float)fish.hp;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1629,6 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6e95dc2539244f9f9e09d1996bfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NFTBtn: {fileID: 0}
   GameBtn: {fileID: 0}
   MenuBtn: {fileID: 0}
   ShopBtn: {fileID: 0}
@@ -4938,14 +4939,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onoff:
   - {fileID: 903155545}
-  - {fileID: 1566392873}
   - {fileID: 1462878601}
-  - {fileID: 1581947525}
   - {fileID: 1567645045}
-  - {fileID: 1465624489}
   - {fileID: 564468455}
-  - {fileID: 105954619}
   - {fileID: 2041475574}
+  - {fileID: 1566392873}
+  - {fileID: 1581947525}
+  - {fileID: 1465624489}
+  - {fileID: 105954619}
 --- !u!4 &1095166413
 Transform:
   m_ObjectHideFlags: 0
@@ -5548,14 +5549,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishes:
   - {fileID: 886869755}
-  - {fileID: 139801940}
   - {fileID: 458433490}
-  - {fileID: 1268163866}
   - {fileID: 1734227168}
-  - {fileID: 1295012494}
   - {fileID: 123173938}
-  - {fileID: 2067704416}
   - {fileID: 2070345413}
+  - {fileID: 139801940}
+  - {fileID: 1268163866}
+  - {fileID: 1295012494}
+  - {fileID: 2067704416}
   - {fileID: 866089498}
   - {fileID: 1447757218}
   incrementText: {fileID: 2000161668}
