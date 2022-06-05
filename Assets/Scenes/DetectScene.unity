@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4559,6 +4559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6e95dc2539244f9f9e09d1996bfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NFTBtn: {fileID: 0}
   GameBtn: {fileID: 0}
   MenuBtn: {fileID: 1013688812}
   ShopBtn: {fileID: 419775435}
@@ -5701,7 +5702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '!!!'
+  m_Text: HOOK!!
 --- !u!222 &1372989791
 CanvasRenderer:
   m_ObjectHideFlags: 0
