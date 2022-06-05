@@ -7,6 +7,7 @@ using System;
 
 public class BtnClickListeners : MonoBehaviour
 {
+    public Button NFTBtn;
     public Button GameBtn;
     public Button MenuBtn;
     public Button ShopBtn;
@@ -28,7 +29,8 @@ public class BtnClickListeners : MonoBehaviour
         mClicked = false;
         if(SceneManager.GetActiveScene().name == "FirstScene")
         {
-            GameBtn.onClick.AddListener( delegate { GameBtnClicked(); });
+            //GameBtn.onClick.AddListener( delegate { GameBtnClicked(); });
+            NFTBtn.onClick.AddListener( delegate { NFTBtnClicked(); });
         }
         else if(SceneManager.GetActiveScene().name == "DetectScene")
         {
@@ -50,6 +52,12 @@ public class BtnClickListeners : MonoBehaviour
         {
             BackBtn.onClick.AddListener(delegate { BackBtnClicked(); });
         }
+    }
+
+    void NFTBtnClicked()
+    {
+        audioManager.ClickBtn();
+        SceneManager.LoadScene("WalletLogin");
     }
 
     void GameBtnClicked()
