@@ -67,6 +67,7 @@ public class GameSceneManager : MonoBehaviour
 
                         bobber.GetComponent<Transform>().position = new Vector3(0, -3.5f, 20);
                         biteSignal.SetActive(true);
+                        SystemInfo.instance.SetSystemInfo("Pull towards to your body");
                     }
                 break;
             case 2: // 훅킹 감지
