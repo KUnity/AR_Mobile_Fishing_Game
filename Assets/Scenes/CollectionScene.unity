@@ -1641,6 +1641,7 @@ MonoBehaviour:
   MenuSet: {fileID: 0}
   EquipSet: {fileID: 0}
   audioManagerObj: {fileID: 143007210}
+  userData: {fileID: 0}
 --- !u!4 &309600134
 Transform:
   m_ObjectHideFlags: 0

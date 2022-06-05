@@ -44,30 +44,33 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: -1618240394, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-    - {fileID: 1592336865, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-    - {fileID: -193229901, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-    - {fileID: -1561650610, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-    - {fileID: -408145566, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-    - {fileID: 425321175, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
+    - {fileID: -432241808, guid: 8b65e4cc78f9cc644b5954e65f53ee17, type: 3}
+    - {fileID: -521229779, guid: 96ed04a091f9e474d88dbcf29459a80a, type: 3}
+    - {fileID: 231264364, guid: a3560912200e78a478ec2609c5cc7ee6, type: 3}
+    - {fileID: -1538792771, guid: ed17572a0a10be042ba1598fd813337d, type: 3}
+    - {fileID: 1840025034, guid: d44d6593a2a6f314594669e3fbe6fa26, type: 3}
+    - {fileID: -629814696, guid: 93816d3ba4b83ac4ab7b23114308f4cc, type: 3}
+    - {fileID: 282193736, guid: 5342e7a123b4f6e46b35a2c5a67c29f2, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -408145566, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-  - {fileID: 425321175, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-  - {fileID: -193229901, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-  - {fileID: -1561650610, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-  - {fileID: -1618240394, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
-  - {fileID: 1592336865, guid: 76ec081e1e8a3db49a48ca45d9786583, type: 3}
+  - {fileID: -521229779, guid: 96ed04a091f9e474d88dbcf29459a80a, type: 3}
+  - {fileID: 282193736, guid: 5342e7a123b4f6e46b35a2c5a67c29f2, type: 3}
+  - {fileID: 231264364, guid: a3560912200e78a478ec2609c5cc7ee6, type: 3}
+  - {fileID: 1840025034, guid: d44d6593a2a6f314594669e3fbe6fa26, type: 3}
+  - {fileID: -1538792771, guid: ed17572a0a10be042ba1598fd813337d, type: 3}
+  - {fileID: -629814696, guid: 93816d3ba4b83ac4ab7b23114308f4cc, type: 3}
+  - {fileID: -432241808, guid: 8b65e4cc78f9cc644b5954e65f53ee17, type: 3}
   m_PackedSpriteNamesToIndex:
-  - R2_4
-  - R2_5
-  - R2_2
-  - R2_3
-  - R2_0
-  - R2_1
+  - bait_2_0
+  - bait_7_0
+  - bait_3_0
+  - bait_5_0
+  - bait_4_0
+  - bait_6_0
+  - bait_1_0
   m_RenderDataMap: {}
   m_Tag: UIBaitShop
   m_IsVariant: 0

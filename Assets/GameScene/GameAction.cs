@@ -12,6 +12,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField] GameSceneManager gameSceneManager;
     [SerializeField] Slider fishHPbar;
     [SerializeField] Text userdata;
+    [SerializeField] private Animator animator;
     Animator reelAnimator;
 
     [SerializeField] private Canvas canvas;
@@ -112,6 +113,7 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         SaveCtrl.instance.myData.fish_collections[fishIndex] = true;
         fishObjects[fishIndex].SetActive(true);
         SaveCtrl.instance.SaveData();
+        animator.SetInteger("type", 3);
 
         Debug.Log(SaveCtrl.instance.myData.fishNums[fishIndex]);
     }
@@ -125,5 +127,6 @@ public class GameAction : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
             fishObjects[i].SetActive(false);
         isCatch = false;
         pointCircle.localPosition = Vector2.zero;
+        animator.SetInteger("type", 0);
     }
 }
