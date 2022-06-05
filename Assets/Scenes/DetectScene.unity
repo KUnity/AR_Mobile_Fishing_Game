@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5544,9 +5544,9 @@ MonoBehaviour:
   EquipmentSet: {fileID: 1764871098}
   audioManagerObj: {fileID: 1434123899}
   fingerUI: {fileID: 1452084617}
-  fishingPole: {fileID: 2023566018}
   stage: -1
   userTotalPercent: 0
+  fishingPole: {fileID: 2023566018}
   mats:
   - {fileID: 2100000, guid: dae546f9531a7d8469565434b6f32e9e, type: 2}
   - {fileID: 2100000, guid: d64f4024797a17c4588c110f8a665289, type: 2}
@@ -7083,7 +7083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac105359289ccb54caeae7dca0067018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atlasFishingRod: {fileID: 4343727234628468602, guid: ef8c92ddb9bdb0e4f92777763b9200ee, type: 2}
+  atlasFishingRod: {fileID: 4343727234628468602, guid: 99257d2737c663741ba5538cbe22be5a, type: 2}
   atlasBait: {fileID: 4343727234628468602, guid: db0f847e4e1971041b3938004afe4176, type: 2}
   imageFishingRod: {fileID: 2115435715}
   imageBait: {fileID: 991083109}

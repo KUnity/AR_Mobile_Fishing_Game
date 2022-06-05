@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f6a7a603af02649b2e3d09a05609f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: ef8c92ddb9bdb0e4f92777763b9200ee, type: 2}
+  atlas: {fileID: 4343727234628468602, guid: 99257d2737c663741ba5538cbe22be5a, type: 2}
   contents: {fileID: 1678311245}
   uiListItemPrefab: {fileID: 902028083622550378, guid: 950fa6236afe4a441b1910112c1694fa, type: 3}
   priceText: {fileID: 657127698}
@@ -593,6 +593,8 @@ MonoBehaviour:
   fishCatch: {fileID: 0}
   coin: {fileID: 8300000, guid: 2c7781db995fa1b4596a192483a0fc6f, type: 3}
   noCoin: {fileID: 8300000, guid: 529fae45c9aaacf4e94575a4d7dcd398, type: 3}
+  slotSelect: {fileID: 0}
+  itemEquip: {fileID: 0}
 --- !u!82 &580056852
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2258,6 +2260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6e95dc2539244f9f9e09d1996bfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NFTBtn: {fileID: 0}
   GameBtn: {fileID: 0}
   MenuBtn: {fileID: 0}
   ShopBtn: {fileID: 0}
@@ -2269,6 +2272,7 @@ MonoBehaviour:
   MenuSet: {fileID: 0}
   EquipSet: {fileID: 0}
   audioManagerObj: {fileID: 580056850}
+  userData: {fileID: 0}
 --- !u!4 &1673015180
 Transform:
   m_ObjectHideFlags: 0

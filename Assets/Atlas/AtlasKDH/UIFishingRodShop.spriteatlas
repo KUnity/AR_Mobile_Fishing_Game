@@ -44,36 +44,27 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: -1159818924, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: 1128834580, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -70044683, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -1804569457, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -1027100492, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -1239276682, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: 1783028102, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-    - {fileID: -683477479, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+    - {fileID: -644347814, guid: 41b76cdf49a695d45898313ef3c0dbf6, type: 3}
+    - {fileID: -483417322, guid: 60e5c43033200cc46b0ba487d47f55e8, type: 3}
+    - {fileID: 21300000, guid: 3c70fcde2febf1a44a41938229cae3cb, type: 3}
+    - {fileID: 21300000, guid: d8f1b6b110ed2db4492f7f2749c3b2cb, type: 3}
+    - {fileID: 21300000, guid: 3265cd509046b1d459b444745132dfbe, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -683477479, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: 1783028102, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: -1239276682, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: -1027100492, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: -1804569457, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: -70044683, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: -1159818924, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
-  - {fileID: 1128834580, guid: 54b6cab655694ef449d5bc5e7c988c56, type: 3}
+  - {fileID: -483417322, guid: 60e5c43033200cc46b0ba487d47f55e8, type: 3}
+  - {fileID: 21300000, guid: 3265cd509046b1d459b444745132dfbe, type: 3}
+  - {fileID: 21300000, guid: d8f1b6b110ed2db4492f7f2749c3b2cb, type: 3}
+  - {fileID: 21300000, guid: 3c70fcde2febf1a44a41938229cae3cb, type: 3}
+  - {fileID: -644347814, guid: 41b76cdf49a695d45898313ef3c0dbf6, type: 3}
   m_PackedSpriteNamesToIndex:
-  - HPBar_27
-  - HPBar_25
-  - HPBar_24
-  - HPBar_23
-  - HPBar_22
-  - HPBar_21
-  - HPBar_19
-  - HPBar_20
+  - fishignrod_2_0
+  - fishignrod_5_0
+  - fishignrod_4_0
+  - fishignrod_3_0
+  - fishignrod_1_0
   m_RenderDataMap: {}
   m_Tag: UIFishingRodShop
   m_IsVariant: 0
