@@ -42,10 +42,6 @@ public class LoadFishes : MonoBehaviour
                         fishPrefab = Instantiate(sharkPrefabs[itemCode]); // 이거 상어 itemcode 반환하는 거 있는지 
                         fishPrefab.name = "Shark " + i; 
                     }
-                    // for(int j =0;j<fishNum[i];j++){
-                    //     fishPrefab = Instantiate(sharkPrefabs[itemCode]); // 이거 상어 itemcode 반환하는 거 있는지 
-                    //     fishPrefab.name = "Shark " + i; 
-                    // }
                     break;
             }
            
