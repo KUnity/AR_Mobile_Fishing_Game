@@ -91,19 +91,20 @@ public class ManageFishDlg : MonoBehaviour
     }    
     
     public void OpenDlg(){
-        //audioManager.ClickBtn();
-        fishNumToSell=minValue;
+        audioManager.ClickBtn();
+        // fishNumToSell=minValue;
+        // slider.value=minValue;
+
+        // if(clickedFish!=null){
+        // fishNumToSell=minValue;
         slider.value=minValue;
         maxValue= SaveCtrl.instance.myData.fishNums[clickedFishIdx];
-
-
-        if(clickedFish!=null){
-            clickedFishIdx = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
-            slider.minValue = minValue;
-            slider.maxValue=maxValue;
-            fishNumText.text = minValue+"/"+maxValue.ToString();
-            fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
-        }
+        clickedFishIdx = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
+        slider.minValue = minValue;
+        slider.maxValue=maxValue;
+        fishNumText.text = minValue+"/"+maxValue.ToString();
+        fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
+        // }
         gameObject.SetActive(true);
     }
    
@@ -114,12 +115,12 @@ public class ManageFishDlg : MonoBehaviour
 
     public void SellFish(){
         // 돈 추가 
-        SaveCtrl.instance.myData.gold += fishGold*fishNumToSell;
+        SaveCtrl.instance.myData.gold += (long)(fishGold*slider.value);
         goldUI.GetComponent<Text>().text = SaveCtrl.instance.myData.gold.ToString();
 
         // 판 물고기 지워야함 
         // int index = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
-        SaveCtrl.instance.myData.fishNums[clickedFishIdx]-=fishNumToSell;
+        SaveCtrl.instance.myData.fishNums[clickedFishIdx]-=(int)slider.value;
         if(SaveCtrl.instance.myData.fishNums[clickedFishIdx]<=0)
             clickedFish.GetComponent<MoveFish>().RemoveFish();
 

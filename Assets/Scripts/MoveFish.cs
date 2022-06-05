@@ -87,8 +87,8 @@ public class MoveFish : MonoBehaviour
                 int itemType,itemCode;
                 int i = GetItemIndexFromName();
                 itemType = Fish.GetItemType(i,out itemCode);
-                fishDlgManager.SetItemInfo(itemType,itemCode);
                 fishDlgManager.GetClickedFish(gameObject);
+                fishDlgManager.SetItemInfo(itemType,itemCode);
                 fishDlgManager.OpenDlg();
             }
 
