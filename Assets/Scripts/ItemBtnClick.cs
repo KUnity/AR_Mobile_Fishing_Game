@@ -71,6 +71,7 @@ public class ItemBtnClick : MonoBehaviour
     private void InitRod()
     {
         // bool[] hasFishingRod = SaveCtrl.instance.myData.hasFishingRod;
+        int curEquippedRodIdx = SaveCtrl.instance.myData.equipFishingRod;
         int rodTotalNum = SaveCtrl.instance.myData.hasFishingRod.Length;
         for (int i = 0; i < rodTotalNum; i++)
         {
@@ -90,11 +91,11 @@ public class ItemBtnClick : MonoBehaviour
                 slot.GetComponent<RectTransform>().localScale = Vector3.one;
 
                 // 사용자가 기존에 선택한 아이템으로 oldSelectedSlot 초기화 
-                if (oldSelectedSlot == null)
+                if (oldSelectedSlot == null && curEquippedRodIdx == i)
                 {
                     oldSelectedSlot = slot;
                     oldSelectedSlot.transform.Find("Check").gameObject.SetActive(true);
-                    SetItemInfo(oldSelectedSlot, SaveCtrl.instance.myData.equipFishingRod);
+                    SetItemInfo(oldSelectedSlot, curEquippedRodIdx);
                     oldSelectedSlot.GetComponent<Outline>().enabled = true;
                     equippedSlot = slot;
                 }

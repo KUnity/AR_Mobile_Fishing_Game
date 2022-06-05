@@ -34,6 +34,7 @@ public class ManageFishDlg : MonoBehaviour
         sharkUIs = Resources.LoadAll<GameObject>("Prefabs/Fishes/Shark/UI");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
         gameObject.SetActive(false);
+        slider.minValue = 1;
     }
 
 
@@ -88,6 +89,8 @@ public class ManageFishDlg : MonoBehaviour
         }
         // fishUI.transform.SetParent(FishUIContainer.transform);
         // fishUI.transform.localPosition = Vector3.zero;
+
+      
     }    
     
     public void OpenDlg(){
@@ -97,13 +100,7 @@ public class ManageFishDlg : MonoBehaviour
 
         // if(clickedFish!=null){
         // fishNumToSell=minValue;
-        slider.value=minValue;
-        maxValue= SaveCtrl.instance.myData.fishNums[clickedFishIdx];
-        clickedFishIdx = clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
-        slider.minValue = minValue;
-        slider.maxValue=maxValue;
-        fishNumText.text = minValue+"/"+maxValue.ToString();
-        fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
+     
         // }
         gameObject.SetActive(true);
     }
@@ -139,6 +136,14 @@ public class ManageFishDlg : MonoBehaviour
     public void GetClickedFish(GameObject obj){
       
         clickedFish = obj;
+        clickedFishIdx =  clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
+
+        slider.value=1;
+        maxValue= SaveCtrl.instance.myData.fishNums[clickedFishIdx];
+        slider.maxValue=maxValue;
+        slider.minValue=1;
+        fishNumText.text = minValue+"/"+maxValue.ToString();
+        fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
     }
 
 }
