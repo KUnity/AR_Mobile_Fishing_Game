@@ -138,12 +138,12 @@ public class ManageFishDlg : MonoBehaviour
         clickedFish = obj;
         clickedFishIdx =  clickedFish.GetComponent<MoveFish>().GetItemIndexFromName();
 
-        slider.value=1;
         maxValue= SaveCtrl.instance.myData.fishNums[clickedFishIdx];
         slider.maxValue=maxValue;
         slider.minValue=1;
-        fishNumText.text = minValue+"/"+maxValue.ToString();
-        fishNumText.text= fishNumToSell.ToString()+"/"+maxValue;
+        slider.value=1;
+        fishNumText.text = minValue.ToString()+"/"+maxValue.ToString();
+        // fishNumText.text= fishNumToSell.ToString()+"/"+maxValue.ToString();
     }
 
 }
