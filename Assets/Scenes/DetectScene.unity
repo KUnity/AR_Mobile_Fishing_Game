@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7127,7 +7127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atlasFishingRod: {fileID: 4343727234628468602, guid: 99257d2737c663741ba5538cbe22be5a, type: 2}
-  atlasBait: {fileID: 4343727234628468602, guid: db0f847e4e1971041b3938004afe4176, type: 2}
+  atlasBait: {fileID: 4343727234628468602, guid: 5ee2540c0703a884bbb6435f5f0657a6, type: 2}
   imageFishingRod: {fileID: 2115435715}
   imageBait: {fileID: 991083109}
   baitNumber: {fileID: 0}
