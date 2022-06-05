@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Advertisements;
 
 public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
@@ -6,6 +7,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     [SerializeField] string _androidAdUnitId = "Interstitial_Android";
     [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
     string _adUnitId;
+    private bool isOnAD = false;
 
     void Awake()
     {
@@ -19,7 +21,8 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
+        if (isOnAD) { return; }
+        StartCoroutine(OnAD());
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -27,13 +30,17 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void ShowAd()
     {
         // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
+        if (isOnAD) { return; }
+        StartCoroutine(OnAD());
         Advertisement.Show(_adUnitId, this);
     }
 
     // Implement Load Listener and Show Listener interface methods: 
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
+        if (isOnAD) { return; }
+        StartCoroutine(OnAD());
+        Advertisement.Show(_adUnitId, this);
         // Optionally execute code if the Ad Unit successfully loads content.
     }
 
@@ -49,7 +56,17 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         // Optionally execute code if the Ad Unit fails to show, such as loading another ad.
     }
 
-    public void OnUnityAdsShowStart(string adUnitId) { }
-    public void OnUnityAdsShowClick(string adUnitId) { }
-    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+    public void OnUnityAdsShowStart(string adUnitId) {
+    }
+    public void OnUnityAdsShowClick(string adUnitId) {
+    }
+    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) {
+    }
+
+    IEnumerator OnAD()
+    {
+        isOnAD = true;
+        yield return new WaitForSeconds(3 * 60);
+        isOnAD = false;
+    }
 }
