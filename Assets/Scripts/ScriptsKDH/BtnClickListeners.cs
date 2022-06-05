@@ -57,7 +57,7 @@ public class BtnClickListeners : MonoBehaviour
     void NFTBtnClicked()
     {
         audioManager.ClickBtn();
-        SceneManager.LoadScene("WalletLogin");
+        SceneManager.LoadScene("WalletLogin_");
     }
 
     void GameBtnClicked()
