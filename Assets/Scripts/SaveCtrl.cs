@@ -102,6 +102,7 @@ public class SaveCtrl : MonoBehaviour
             if (bro.IsSuccess())
             {
                 Login();
+                Debug.Log(Backend.Utils.GetGoogleHash());
             }
             else
             {
