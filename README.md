@@ -42,18 +42,10 @@ AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR �
 
 </br>
 
-## 👨‍💻 참여 인원 👩‍💻
-
-|                           Frontend                           |                           Frontend                           |                           Backend                            |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://avatars.githubusercontent.com/u/72953316?v=4" width=300px alt="이수동"/> | <img src="https://avatars.githubusercontent.com/u/77582221?v=4" width=300px alt="최정윤"/> | <img src="https://avatars.githubusercontent.com/u/51076814?v=4" width=300px alt="홍승택"/> |
-|            [이수동](https://github.com/tnehd1998)            |           [최정윤](https://github.com/c-jeongyyun)           |           [홍승택](https://github.com/redcarrot1)            |
-
+## 👨‍💻 참여 인원 및 역할 분담 👩‍💻
+| 역할명 |  역할명 | 역할명 | 역할명 | 역할명 |  AR & 인벤토리 |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+| <img src="#" width=100px alt="강동현"/> | <img src="#" width=100px alt="김선명"/> | <img src="#" width=100px alt="노준영"/> | <img src="#" width=100px alt="장태용"/> | <img src="#" width=100px alt="정지성"/> | <img src="https://avatars.githubusercontent.com/u/77582221?v=4" width=100px alt="최정윤"/> | 
+|[강동현](https://github.com/)|[김선명](https://github.com/)|[노준영](https://github.com/)|[장태용](https://github.com/)|[정지성](https://github.com/c-jeongyyun)|[최정윤](https://github.com/)|
 
 
-## 👩‍💻 역할 분담 👨‍💻  
-
-- **이수동(Frontend)** : 메인 페이지, 장바구니 페이지, 찜목록 페이지, 사용자 페이지, 관리자 페이지
-- **최정윤(Frontend)** : 로그인 페이지, 상품 세부 페이지, 결제 페이지
-
-- **홍승택(Backend)** : 모든 벡엔드 파트
