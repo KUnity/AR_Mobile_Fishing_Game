@@ -1,6 +1,6 @@
 # AR Mobile Fishing Game 🐬 with NFT
 <p align="middle" >
- 사진넣기 
+ 사진넣기 (대표이미지 1장)
 </p>
 
 <p align="middle" >
@@ -12,6 +12,7 @@
 </br>
 
 ## 🌊 게임 소개 
+(각 기능별 대표 사진 몇개 넣기) 
 AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR 모바일 낚시 게임** 입니다🐚
 
 </br>
@@ -37,7 +38,7 @@ AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR �
 
 ## 🎨 세부 기능 
 
-세부 기능은 [딩디리딩딩](https://)에서 확인하실 수 있습니다. 
+세부 기능은 [이곳](https://)에서 확인하실 수 있습니다. 
 
 
 </br>
