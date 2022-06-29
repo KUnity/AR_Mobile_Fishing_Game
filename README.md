@@ -6,7 +6,7 @@
 <p align="middle" >
 <img src="https://img.shields.io/badge/Unity-000000?style=flat&logo=Unity&logoColor=white"/>
 <img src="https://img.shields.io/badge/C Sharp-239120?style=flat&logo=CSharp&logoColor=white"/>
-다른 언어나 라이브러리 사용했으면 넣기 
+<-다른 언어나 라이브러리 사용했으면 넣기 
 </p>
 
 </br>
