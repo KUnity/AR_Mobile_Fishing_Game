@@ -47,8 +47,6 @@ AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR �
 | 역할명 |  역할명 | 역할명 | 역할명 | 역할명 |  AR & 인벤토리 |
 |:------:|:------:|:------:|:------:|:------:|:------:|
 | <img src="https://avatars.githubusercontent.com/u/77566434?v=4" width=150px alt="강동현"/> | <img src="https://avatars.githubusercontent.com/u/104252195?v=4" width=150px alt="김선명"/> | <img src="https://avatars.githubusercontent.com/u/57510872?v=4" width=150px alt="노준영"/> | <img src="https://avatars.githubusercontent.com/u/87968344?v=4" width=150px alt="장태용"/> | <img src="https://avatars.githubusercontent.com/u/57554654?v=4" width=150px alt="정지성"/> | <img src="https://avatars.githubusercontent.com/u/77582221?v=4" width=150px alt="최정윤"/> | 
-|[강동현](https://github.com/gus6615
-)|[김선명](https://github.com/smk8753)|[노준영](https://github.com/gus6615
-)|[장태용](https://github.com/TaeyongCE)|[정지성](https://github.com/Dev-jiseong)|[최정윤](https://github.com/c-jeongyyun)|
+|[강동현](https://github.com/gus6615) | [김선명](https://github.com/smk8753) | [노준영](https://github.com/gus6615) | [장태용](https://github.com/TaeyongCE) | [정지성](https://github.com/Dev-jiseong) | [최정윤](https://github.com/c-jeongyyun)|
 
 
