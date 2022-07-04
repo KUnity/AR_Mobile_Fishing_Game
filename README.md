@@ -33,6 +33,8 @@ AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR �
 
 - **협업 도구** : Github
 
+- **모델링 툴** : Autodesk Maya
+
 
 </br>
 
