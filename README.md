@@ -6,13 +6,12 @@
 <p align="middle" >
 <img src="https://img.shields.io/badge/Unity-000000?style=flat&logo=Unity&logoColor=white"/>
 <img src="https://img.shields.io/badge/C Sharp-239120?style=flat&logo=CSharp&logoColor=white"/>
-<-다른 언어나 라이브러리 사용했으면 넣기 
 </p>
 
 </br>
 
 ## 🌊 게임 소개 
-(각 기능별 대표 사진 몇개 넣기) 
+
 AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR 모바일 낚시 게임** 입니다🐚
 
 </br>
@@ -39,7 +38,7 @@ AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR �
 </br>
 
 ## ✨ 세부 기능 
-
+![전체 사진](https://user-images.githubusercontent.com/77582221/177265891-0e181d28-33c8-4518-8854-9ef44591db96.png)
 세부 기능은 [wiki](https://github.com/KUnity/AR_Mobile_Fishing_Game/wiki/AR-Mobile-Fishing-Game%F0%9F%90%AC-with-NFT-%EC%9D%98-%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5%E2%9C%A8)에서 확인하실 수 있습니다. 
 
 
