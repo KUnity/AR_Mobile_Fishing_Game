@@ -1,6 +1,6 @@
 # AR Mobile Fishing Game 🐬 with NFT
 <p align="middle" >
- 사진넣기 (대표이미지 1장)
+<img width="400" alt="AR Mobile Fishing" src="https://github.com/KUnity/AR_Mobile_Fishing_Game/assets/77566434/a66d620b-97e8-46f1-a30c-b61c0e04a698">
 </p>
 
 <p align="middle" >
