@@ -8,8 +8,6 @@
 <img src="https://img.shields.io/badge/C Sharp-239120?style=flat&logo=CSharp&logoColor=white"/>
 </p>
 
-</br>
-
 ## 🌊 게임 소개 
 
 AR Mobile Fishing Game은 언제 어디서든 낚시를 즐길 수 있는 **AR 모바일 낚시 게임** 입니다🐚
