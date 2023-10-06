@@ -37,7 +37,7 @@
 
 ## ✨ 세부 기능 
 ![전체 사진](https://user-images.githubusercontent.com/77582221/177265891-0e181d28-33c8-4518-8854-9ef44591db96.png)
-세부 기능은 [wiki](https://github.com/KUnity/AR_Mobile_Fishing_Game/wiki/AR-Mobile-Fishing-Game%F0%9F%90%AC-with-NFT-%EC%9D%98-%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5%E2%9C%A8)에서 확인하실 수 있습니다. 
+-세부 기능은 [wiki](https://github.com/KUnity/AR_Mobile_Fishing_Game/wiki/AR-Mobile-Fishing-Game%F0%9F%90%AC-with-NFT-%EC%9D%98-%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5%E2%9C%A8)에서 확인하실 수 있습니다. 
 
 
 </br>
